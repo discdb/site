@@ -1,0 +1,29 @@
+#post > a {
+	color: inherit;
+	text-decoration: none;
+}
+#post > a > div {
+	background-color: var(--color-3);
+	color: var(--color-1);
+	transition: transform 0.2s;
+	border-radius: 6px;
+	margin: 0 0 1.25rem 0;
+	padding: 1.5rem 1rem 1.5rem 1rem;
+}
+#post > a > div:hover {
+	transform: scale(1.025);
+}
+.news-left {
+	float: left;
+	margin-right: 1rem;
+}
+.news-right {
+	padding: 0.4rem 0 0.4rem 0;
+}
+.description {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
