@@ -8,11 +8,10 @@ export const Post = ({ title, image, description, id }: BlogPost) => {
 			<Link to={`blog/${id}`}>
 				<div>
 					<div className="news-left">
-						<img src={image} alt="" width="100px" height="100px" />
+						<img src={image} alt="" width="150px" height="150px" />
 					</div>
 					<div className="news-right">
 						<div className="title header-2">{title}</div>
-
 						<div className="description">{description}</div>
 					</div>
 				</div>

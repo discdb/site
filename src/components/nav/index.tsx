@@ -4,10 +4,10 @@ import "./index.css";
 export const Header = () => {
 	return (
 		<div>
-			<title>discdb</title>
+			<title>dvdb</title>
 			<div id="nav">
 				<Link to="/">
-					<div id="title">discdb</div>
+					<div id="title">dvdb</div>
 				</Link>
 				<div>
 					<Link to="/blog">

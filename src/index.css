@@ -10,6 +10,7 @@
 	background-color: var(--color-5);
 	font-size: var(--size-1);
 }
+
 body {
 	margin: 0 2rem 0 2rem;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -30,8 +31,9 @@ body {
 	margin: 1.5rem -2rem 0 -2rem;
 	font-size: var(--size-2);
 	text-align: center;
+	position: absolute;
 	bottom: 0;
-	position: relative;
+	width: 100%;
 }
 
 details,

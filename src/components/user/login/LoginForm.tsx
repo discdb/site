@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import "./index.css";
-import { submitLogin } from "./Login";
+import { loginUser } from "./Login";
 
 export const LoginForm = () => {
 	return (
 		<div id="loginForm">
+			<div className="header" style={{ textAlign: "center" }}>
+				Login
+			</div>
+
 			<form
 				onSubmit={(e: React.SyntheticEvent) => {
 					e.preventDefault();
@@ -14,7 +18,7 @@ export const LoginForm = () => {
 					};
 					const email = target.email.value;
 					const password = target.password.value;
-					submitLogin({ email, password });
+					loginUser({ email, password });
 				}}
 			>
 				<label htmlFor="email">

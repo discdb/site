@@ -6,11 +6,10 @@
 	background-color: var(--color-3);
 	color: var(--color-1);
 	transition: transform 0.2s;
-	border: 2px var(--color-4) solid;
 	border-radius: 5px;
 	margin: 0 0 1.25rem 0;
 	padding: 1.5rem 1rem 1.5rem 1rem;
-	min-height: 6rem;
+	height: 102px;
 }
 #post:hover {
 	transform: perspective(1px) scale(1.025);
@@ -19,13 +18,22 @@
 	float: left;
 	margin-right: 1rem;
 }
+.news-left > img {
+	margin-top: -1.5rem;
+	margin-left: -1.15em;
+	border-radius: 5px;
+}
 .news-right {
 	padding: 0.4rem 0 0.4rem 0;
 }
 .description {
+	margin-top: 0.5rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 3;
+	-webkit-line-clamp: 4;
 	-webkit-box-orient: vertical;
+}
+.title {
+	margin-top: -1rem;
 }
