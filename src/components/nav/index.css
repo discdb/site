@@ -1,0 +1,26 @@
+#nav {
+	background-color: var(--color-3);
+	padding: 2rem 0 2rem 0;
+	margin: 0 -2rem 2rem -2rem;
+	font-size: var(--size-2);
+	text-align: center;
+}
+#nav div {
+	display: inline-flex;
+}
+#nav a {
+	text-decoration: none;
+	color: inherit;
+}
+.nav-item:not(#title) {
+	margin: 0 0.5rem 0 0.5rem;
+	display: none;
+}
+@media (min-width: 768px) {
+	#nav {
+		text-align: left;
+	}
+	.nav-item:not(#title) {
+		display: inline-flex;
+	}
+}

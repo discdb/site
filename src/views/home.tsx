@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Post } from "../components/blog/Post";
 
-export const Blog = () => {
+export const Home = () => {
 	const Posts = [
 		{
 			title: "test",
@@ -20,7 +20,7 @@ export const Blog = () => {
 
 	return (
 		<div>
-			<div className="header">Blog</div>
+			<div className="header">Recent Posts</div>
 			{Posts.map((post, index) => (
 				<Post key={index} {...post} />
 			))}

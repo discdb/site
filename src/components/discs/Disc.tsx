@@ -1,11 +1,11 @@
-import { BlogPost } from "../types/Post";
+import { DiscType } from "../types/Disc";
 import { Link } from "react-router-dom";
-import "./Post.css";
+import "./Disc.css";
 
-export const Post = ({ title, image, description, id }: BlogPost) => {
+export const DiscPage = ({ title, image, description, id }: DiscType) => {
 	return (
 		<div id="post">
-			<Link to={`blog/${id}`}>
+			<Link to={`discs/${id}`}>
 				<div>
 					<div className="news-left">
 						<img src={image} alt="" width="100px" height="100px" />
