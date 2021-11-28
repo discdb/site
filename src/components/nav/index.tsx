@@ -24,7 +24,7 @@ export const Header = () => {
 					<Link to="/login">
 						<div className="nav-item">Login</div>
 					</Link>
-					<Link to="/Register">
+					<Link to="/register">
 						<div className="nav-item">Register</div>
 					</Link>
 				</div>

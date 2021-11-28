@@ -13,7 +13,7 @@
 	min-height: 6rem;
 }
 #post:hover {
-	transform: scale(1.025);
+	transform: perspective(1px) scale(1.025);
 }
 .news-left {
 	float: left;
