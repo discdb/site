@@ -7,10 +7,9 @@
 	z-index: 0;
 }
 #postPage > main {
-	margin: -3rem 0.5rem 0.5rem 0.5rem;
+	margin: -3rem 0 0.5rem 0;
 	background-color: var(--color-5);
 	padding: 2rem;
-	border: 2px black solid;
 	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
 		0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),

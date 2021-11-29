@@ -5,7 +5,7 @@ import "./Post.css";
 export const Post = ({ title, image, description, id }: BlogPost) => {
 	return (
 		<div id="post">
-			<Link to={`blog/${id}`}>
+			<Link to={`/blog/${id}`}>
 				<div>
 					<div className="news-left">
 						<img src={image} alt="" />
