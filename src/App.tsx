@@ -7,12 +7,14 @@ import { Blog } from "./views/blog";
 import { Discs } from "./views/discs";
 import { Login } from "./views/login";
 import { Register } from "./views/register";
+import { NotFound } from "./components/NotFound";
 
 const App = () => {
 	return (
 		<Router>
 			<Header />
 			<Routes>
+				<Route path="*" element={<NotFound />} />
 				<Route path="/" element={<Home />} />
 				<Route path="/blog" element={<Blog />} />
 				<Route path="/discs" element={<Discs />} />

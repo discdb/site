@@ -7,7 +7,9 @@ export const Header = () => {
 			<title>dvdb</title>
 			<div id="nav">
 				<Link to="/">
-					<div id="title">dvdb</div>
+					<div id="title" className="noselect">
+						dvdb
+					</div>
 				</Link>
 				<div>
 					<Link to="/blog">
@@ -20,7 +22,7 @@ export const Header = () => {
 						<div className="nav-item">Discs</div>
 					</Link>
 				</div>
-				<div>
+				<div style={{ float: "right", marginRight: "1.5rem" }}>
 					<Link to="/login">
 						<div className="nav-item">Login</div>
 					</Link>

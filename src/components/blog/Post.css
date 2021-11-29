@@ -21,7 +21,8 @@
 .news-left > img {
 	margin-top: -1.5rem;
 	margin-left: -1.15em;
-	border-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 .news-right {
 	padding: 0.4rem 0 0.4rem 0;

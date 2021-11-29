@@ -16,6 +16,7 @@
 	font-size: var(--size-1);
 }
 #loginButton:hover {
+	cursor: pointer;
 	background-color: var(--color-4);
 	border-color: transparent;
 	transform: perspective(1px) scale(1.025);

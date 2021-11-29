@@ -19,23 +19,47 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+input {
+	-webkit-border-radius: 0px;
+}
 #title {
 	margin: 0 2rem 0 2rem;
 	font-size: var(--size-3);
 }
-
+#notFound {
+	text-align: center;
+	font-size: var(--size-3);
+	line-height: 2rem;
+	color: red;
+}
+#notFound > div {
+	font-weight: 600;
+}
 #footer {
 	background-color: var(--color-3);
-	padding: 3rem 0 3rem 0;
-	margin: 1.5rem -2rem 0 -2rem;
+	padding: 2rem;
+	margin: 3rem -2rem 0rem -2rem;
 	font-size: var(--size-2);
+	font-weight: 600;
 	text-align: center;
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	width: 100%;
 }
-
+#footer > div {
+	margin: 0 2rem 0 2rem;
+}
+#footer a {
+	font-weight: 500;
+	font-size: var(--size-1);
+	color: inherit;
+	margin: 0 1rem 0 1rem;
+	text-decoration: none;
+	transition: color 0.1s;
+}
+#footer a:hover {
+	color: var(--color-5);
+}
 details,
 details > div {
 	margin-left: 2rem;
@@ -55,4 +79,18 @@ details > div {
 .header-2 {
 	color: var(--color-1);
 	font-weight: 600;
+}
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+							supported by Chrome, Edge, Opera and Firefox */
+}
+@media (min-width: 768px) {
+	#footer {
+		text-align: left;
+	}
 }
