@@ -1,9 +1,9 @@
-import * as React from "react";
+import { RegisterForm } from "../components/user/register/RegisterForm";
 
 export const Register = () => {
 	return (
 		<div>
-			<div className="header">Register</div>
+			<RegisterForm />
 		</div>
 	);
 };

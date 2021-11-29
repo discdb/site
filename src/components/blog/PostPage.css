@@ -1,0 +1,50 @@
+#postPage {
+	margin: -3rem 0 0 0;
+}
+#postPage h1 {
+	margin: 1.5rem 0 0 0;
+	text-align: center;
+	z-index: 0;
+}
+#postPage > main {
+	margin: -3rem 0.5rem 0.5rem 0.5rem;
+	background-color: var(--color-5);
+	padding: 2rem;
+	border: 2px black solid;
+	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+		0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+		var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	min-height: 100vh;
+	z-index: 10;
+}
+#backDrop {
+	background-color: var(--color-4);
+	padding: 2rem;
+	margin: 3rem -2rem 0rem -2rem;
+	height: 30vh;
+	width: 100%;
+}
+#postDetails {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	text-align: center;
+}
+#postDetails > div {
+	grid-column: span 1 / span 1;
+}
+/* #postDetails:first-child {
+	grid-column-start: 2;
+} */
+/* #postDetails > div::after {
+	content: " |";
+} */
+@media (min-width: 768px) {
+	#postPage h1 {
+		margin: 3rem 0 0 0;
+	}
+	#postPage > main {
+		margin: -6rem 2rem 2rem 2rem;
+		padding: 2rem 4rem 2rem 4rem;
+	}
+}

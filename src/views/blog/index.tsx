@@ -1,6 +1,4 @@
-import * as React from "react";
-import { Post } from "../components/blog/Post";
-
+import { Post } from "../../components/blog/Post";
 export const Blog = () => {
 	const Posts = [
 		{
@@ -21,9 +19,11 @@ export const Blog = () => {
 	return (
 		<div>
 			<div className="header">Blog</div>
-			{Posts.map((post, index) => (
-				<Post key={index} {...post} />
-			))}
+			<div id="postList">
+				{Posts.map((post, index) => (
+					<Post key={index} {...post} />
+				))}
+			</div>
 		</div>
 	);
 };

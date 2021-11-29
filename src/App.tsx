@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header } from "./components/nav";
 import { Footer } from "./components/Footer";
 import { Home } from "./views/home";
-import { Blog } from "./views/blog";
+import { Blog } from "./views/blog/index";
 import { Discs } from "./views/discs";
 import { Login } from "./views/login";
 import { Register } from "./views/register";
 import { NotFound } from "./components/NotFound";
+import { ViewPost } from "./views/blog/view";
 
 const App = () => {
 	return (
@@ -17,6 +18,7 @@ const App = () => {
 				<Route path="*" element={<NotFound />} />
 				<Route path="/" element={<Home />} />
 				<Route path="/blog" element={<Blog />} />
+				<Route path="/blog/a" element={<ViewPost />} />
 				<Route path="/discs" element={<Discs />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />

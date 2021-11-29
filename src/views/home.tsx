@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Post } from "../components/blog/Post";
 
 export const Home = () => {
@@ -21,9 +20,11 @@ export const Home = () => {
 	return (
 		<div>
 			<div className="header">Recent Posts</div>
-			{Posts.map((post, index) => (
-				<Post key={index} {...post} />
-			))}
+			<div id="postList">
+				{Posts.map((post, index) => (
+					<Post key={index} {...post} />
+				))}
+			</div>
 		</div>
 	);
 };
