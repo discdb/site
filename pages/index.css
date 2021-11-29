@@ -1,0 +1,102 @@
+:root {
+	--color-1: #22223b;
+	--color-2: #4a4e69;
+	--color-3: #9a8c98;
+	--color-4: #c9ada7;
+	--color-5: #f2e9e4;
+	--size-1: 16px;
+	--size-2: 18px;
+	--size-3: 20px;
+	background-color: var(--color-5);
+	font-size: var(--size-1);
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0 2rem 0 2rem;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+input {
+	-webkit-border-radius: 0px;
+}
+
+#title {
+	margin: 0 2rem 0 2rem;
+	font-size: var(--size-3);
+}
+#notFound {
+	text-align: center;
+	font-size: var(--size-3);
+	line-height: 2rem;
+	color: red;
+}
+#notFound > div {
+	font-weight: 600;
+}
+#footer {
+	background-color: var(--color-3);
+	padding: 2rem;
+	margin: 3rem -2rem 0rem -2rem;
+	font-size: var(--size-2);
+	font-weight: 600;
+	text-align: center;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+}
+#footer > div {
+	margin: 0 2rem 0 2rem;
+}
+#footer a {
+	font-weight: 500;
+	font-size: var(--size-1);
+	color: inherit;
+	margin: 0 1rem 0 1rem;
+	text-decoration: none;
+	transition: color 0.1s;
+}
+#footer a:hover {
+	color: var(--color-5);
+}
+details,
+details > div {
+	margin-left: 2rem;
+}
+
+#root > div > details {
+	margin-top: 1rem;
+}
+.header {
+	font-size: var(--size-2);
+	padding: 0 0 1.5rem 0;
+}
+.after-header {
+	margin: 0 0.5rem 0 0.5rem;
+}
+.header-2 {
+	font-size: var(--size-3);
+}
+.header,
+.header-2 {
+	color: var(--color-1);
+	font-weight: 600;
+}
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+							supported by Chrome, Edge, Opera and Firefox */
+}
+@media (min-width: 768px) {
+	#footer {
+		text-align: left;
+	}
+}
