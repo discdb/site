@@ -18,23 +18,35 @@ export const Header = () => {
 				</Link>
 				<div>
 					<Link href="/blog">
-						<div className={styles.navItem}>Blog</div>
+						<a>
+							<div className={styles.navItem}>Blog</div>
+						</a>
 					</Link>
 					<Link href="/forum">
-						<div className={styles.navItem}>Forum</div>
+						<a>
+							<div className={styles.navItem}>Forum</div>
+						</a>
 					</Link>
 					<Link href="/discs">
-						<div className={styles.navItem}>Discs</div>
+						<a>
+							<div className={styles.navItem}>Discs</div>
+						</a>
 					</Link>
 				</div>
 				<div style={{ float: "right", marginRight: "1.5rem" }}>
 					{!currentUser ? (
 						<div>
 							<Link href="/login">
-								<div className={styles.navItem}>Login</div>
+								<a>
+									<div className={styles.navItem}>Login</div>
+								</a>
 							</Link>
 							<Link href="/register">
-								<div className={styles.navItem}>Register</div>
+								<a>
+									<div className={styles.navItem}>
+										Register
+									</div>
+								</a>
 							</Link>
 						</div>
 					) : (

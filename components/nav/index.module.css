@@ -12,6 +12,9 @@
 	text-decoration: none;
 	color: inherit;
 }
+.navItem {
+	cursor: pointer;
+}
 .navItem:not(#title) {
 	margin: 0 0.5rem 0 0.5rem;
 	display: none;
