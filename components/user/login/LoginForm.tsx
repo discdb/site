@@ -2,8 +2,9 @@ import Link from "next/link";
 
 import styles from "./index.module.css";
 import { loginUser } from "./Login";
+import { signIn } from "next-auth/client";
 
-export const LoginForm = () => {
+export const LoginForm = (providers: JSON) => {
 	return (
 		<div id={styles.loginForm}>
 			<div className="header" style={{ textAlign: "center" }}>
@@ -39,6 +40,19 @@ export const LoginForm = () => {
 				<button id={styles.loginButton} type="submit">
 					Login
 				</button>
+				<div className={styles.or}>OR</div>
+				{Object.values(providers).map((provider) => {
+					return (
+						<div key={provider.name}>
+							<button
+								id={styles.loginButton}
+								onClick={() => signIn(provider.id)}
+							>
+								Sign in with {provider.name}
+							</button>
+						</div>
+					);
+				})}
 			</form>
 		</div>
 	);

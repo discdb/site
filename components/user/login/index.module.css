@@ -21,6 +21,21 @@
 	border-color: transparent;
 	transform: perspective(1px) scale(1.025);
 }
+.or {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	margin: 1rem 0;
+}
+.or::after,
+.or::before {
+	content: "";
+	width: 200px;
+	height: 1px;
+	background: black;
+	margin: 0 3px;
+}
 #loginForm > form {
 	text-align: center;
 	width: 80%;

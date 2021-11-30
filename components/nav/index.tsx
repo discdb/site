@@ -1,9 +1,12 @@
 import Link from "next/link";
 import styles from "./index.module.css";
-import { getCurrentUser } from "../user/getCurrentUser";
+import { signOut } from "next-auth/client";
+import { useSession } from "next-auth/client";
 
 export const Header = () => {
-	const currentUser = getCurrentUser();
+	const session = useSession();
+	const currentUser = session[0]?.user;
+
 	return (
 		<div>
 			<title>dvdb</title>
@@ -36,9 +39,14 @@ export const Header = () => {
 						</div>
 					) : (
 						<div>
-							<Link href="/logout">
-								<div className={styles.navItem}>Logout</div>
-							</Link>
+							<div
+								onClick={() => {
+									signOut();
+								}}
+								className={styles.navItem}
+							>
+								Logout
+							</div>
 						</div>
 					)}
 				</div>
