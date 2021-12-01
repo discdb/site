@@ -1,20 +1,31 @@
+import { GetStaticProps, GetStaticPaths } from "next";
+
+import { SeriesType } from "../../components/types/Series";
+import { Series } from "../../components/series/Series";
 import { getSeriesFromAPI } from "../../components/series/getSeriesFromAPI";
 
-export const getServerSideProps = async ({ params }) => {
-	const { seriesId } = params;
+export const getStaticPaths: GetStaticPaths = async () => {
+	const paths = [];
+	return { paths, fallback: true };
+};
 
-	const series = await getSeriesFromAPI(seriesId);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	const { seriesId } = params;
+	const series: SeriesType = await getSeriesFromAPI(seriesId.toString());
 
 	return {
 		props: {
-			series: JSON.parse(JSON.stringify(series)),
+			series,
 		},
 	};
 };
 
 const ViewSeries = ({ series }) => {
-	console.log(series);
-	return <div></div>;
+	return (
+		<div>
+			<Series {...series} />
+		</div>
+	);
 };
 
 export default ViewSeries;

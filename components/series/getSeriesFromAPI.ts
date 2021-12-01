@@ -10,6 +10,5 @@ export const getSeriesFromAPI = async (seriesId: string) => {
 	});
 
 	const series = await response.json();
-
 	return series;
 };

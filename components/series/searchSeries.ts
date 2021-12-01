@@ -1,18 +1,17 @@
-const apiKey = process.env.TMDB_API_KEY;
-const apiURL = "https://api.themoviedb.org/3/search/tv/";
+const API_URL =
+	process.env.NODE_ENV == "development"
+		? "http://localhost:3000"
+		: "https://dvdb.milk.ovh";
 
-export const searchSeries = async ({ query }) => {
-	const response = await fetch(
-		`${apiURL}/?query=${query}&api_key=${apiKey}`,
-		{
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		}
-	);
+export const searchSeries = async (query: string) => {
+	const response = await fetch(`${API_URL}/api/series/search?data=${query}`, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 
 	const series = await response.json();
-
-	return series;
+	const { results } = series;
+	return results;
 };
