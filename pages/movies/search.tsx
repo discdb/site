@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { searchSeries } from "../../components/tmdb/series/searchSeries";
-import { SeriesType } from "../../components/types/Series";
-import { Series } from "../../components/tmdb/series/Series";
+import { searchMovies } from "../../components/tmdb/movies/searchMovies";
+import { MovieType } from "../../components/types/Movie";
+import { Movie } from "../../components/tmdb/movies/Movies";
 import { SearchBox } from "../../components/tmdb/SearchBox";
 
 const Search = () => {
 	const [results, setResults] = useState([]);
 
 	const getResults = (query: string) => {
-		searchSeries(query).then((x) => {
+		searchMovies(query).then((x) => {
 			setResults(x);
 		});
 	};
@@ -18,8 +18,8 @@ const Search = () => {
 			<div className="header">Search</div>
 			<SearchBox getResults={getResults} />
 			{results
-				? results.map((show: SeriesType, key: number) => {
-						return <Series key={key} {...show} />;
+				? results.map((show: MovieType, key: number) => {
+						return <Movie key={key} {...show} />;
 				  })
 				: "Loading..."}
 		</div>

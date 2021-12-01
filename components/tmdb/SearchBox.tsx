@@ -1,4 +1,3 @@
-import { searchSeries } from "./searchSeries";
 import styles from "./SearchBox.module.css";
 
 export const SearchBox = ({ getResults }) => {
@@ -22,9 +21,7 @@ export const SearchBox = ({ getResults }) => {
 					query: { value: string };
 				};
 				const query = target.query.value;
-				searchSeries(query).then((x) => {
-					getResults(x);
-				});
+				getResults(query);
 			}}
 		>
 			<input id={styles.searchBox} type="text" name="query" />

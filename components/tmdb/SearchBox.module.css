@@ -1,0 +1,22 @@
+#searchBox {
+	border-color: transparent;
+	padding: 0.5rem;
+	width: 10rem;
+	margin-right: 0.5rem;
+}
+#searchBox:focus {
+	outline: 1px var(--color-2) solid;
+}
+.searchButton {
+	background-color: var(--color-3);
+	padding: 0.5rem 1rem;
+	margin: 0.5rem 0 0.5rem 0;
+	transition: transform 0.1s;
+	font-size: var(--size-1);
+}
+.searchButton:hover:not([disabled]) {
+	cursor: pointer;
+	background-color: var(--color-4);
+	border-color: transparent;
+	transform: perspective(1px) scale(1.025);
+}

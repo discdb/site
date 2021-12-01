@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SeriesType } from "../types/Series";
+import { SeriesType } from "../../types/Series";
 import styles from "./Series.module.css";
 
 export const Series = ({
