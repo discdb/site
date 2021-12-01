@@ -7,8 +7,8 @@ export const SearchBox = ({ getResults }) => {
 		button.removeAttribute("disabled");
 	};
 
-	const setCooldown = (ev: any) => {
-		const button = ev.target;
+	const setCooldown = () => {
+		const button = document.getElementById("searchButton");
 		button.setAttribute("disabled", "disabled");
 		setTimeout(() => removeCooldown(), 2000);
 	};
@@ -17,11 +17,11 @@ export const SearchBox = ({ getResults }) => {
 		<form
 			onSubmit={(e: React.SyntheticEvent) => {
 				e.preventDefault();
+				setCooldown();
 				const target = e.target as typeof e.target & {
 					query: { value: string };
 				};
 				const query = target.query.value;
-
 				searchSeries(query).then((x) => {
 					getResults(x);
 				});
@@ -31,7 +31,6 @@ export const SearchBox = ({ getResults }) => {
 			<button
 				id="searchButton"
 				className={styles.searchButton}
-				onClick={(ev) => setCooldown(ev)}
 				type="submit"
 			>
 				Search!
