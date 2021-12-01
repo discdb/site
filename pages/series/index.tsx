@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 
-import { getSeriesList } from "../../components/series/getSeriesList";
-import { Series } from "../../components/series/Series";
+import { getSeriesList } from "../../components/tmdb/series/getSeriesList";
+import { Series } from "../../components/tmdb/series/Series";
 import { SeriesType } from "../../components/types/Series";
 
 export const getServerSideProps: GetServerSideProps = async () => {
