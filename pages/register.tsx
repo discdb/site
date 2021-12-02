@@ -12,7 +12,7 @@ export const getServerSideProps = async (context: any) => {
 	};
 };
 const Register = ({ session }) => {
-	const currentUser = session?.user;
+	const currentUser = session;
 
 	if (currentUser && process.browser) Router.push("/");
 

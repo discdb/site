@@ -123,6 +123,7 @@ details > div {
 
 .bm-cross-button {
 	margin: 1.5rem;
+	padding: 1rem;
 }
 
 .bm-cross {
@@ -156,4 +157,7 @@ details > div {
 .bm-item a {
 	text-decoration: none;
 	color: inherit;
+}
+.bm-item:focus {
+	outline: 0 !important;
 }

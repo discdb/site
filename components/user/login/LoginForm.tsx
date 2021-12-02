@@ -48,7 +48,7 @@ export const LoginForm = (providers: JSON) => {
 								id={styles.loginButton}
 								onClick={() => signIn(provider.id)}
 							>
-								Sign in with {provider.name}
+								Login with {provider.name}
 							</button>
 						</div>
 					);

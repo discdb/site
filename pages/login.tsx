@@ -13,7 +13,7 @@ export const getServerSideProps = async (context: any) => {
 };
 
 const Login = ({ providers, session }) => {
-	const currentUser = session?.user;
+	const currentUser = session;
 
 	if (currentUser && process.browser) Router.push("/");
 

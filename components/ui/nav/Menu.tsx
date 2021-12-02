@@ -8,12 +8,13 @@ import styles from "./Menu.module.css";
 
 export const Menu = () => {
 	const session = useSession();
-	const currentUser = session[0]?.user;
+	const currentUser = session[0];
 
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 
 	useEffect(() => {
+		console.log(session);
 		const handleRouteChange = () => setOpen(false);
 		router.events.on("routeChangeStart", handleRouteChange);
 		return () => {
@@ -36,20 +37,18 @@ export const Menu = () => {
 		</div>
 	);
 	const unauthenticatedOptions = (
-		<div>
+		<span>
 			<Link href="/login">
-				<a>
-					<div className={styles.menuItem + " noselect"}>Login</div>
+				<a className="noselect">
+					<div className={styles.menuItem}>Login</div>
 				</a>
 			</Link>
 			<Link href="/register">
-				<a>
-					<div className={styles.menuItem + " noselect"}>
-						Register
-					</div>
+				<a className="noselect">
+					<div className={styles.menuItem}>Register</div>
 				</a>
 			</Link>
-		</div>
+		</span>
 	);
 	return (
 		<BurgerMenu
