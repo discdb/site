@@ -3,7 +3,9 @@ import Link from "next/link";
 export const Footer = () => {
 	return (
 		<div id="footer">
-			<div className="noselect">dvdb</div>
+			<div className="noselect">
+				<Link href="/">dvdb</Link>
+			</div>
 			<div>
 				<Link href="/#about-us">About Us</Link>
 			</div>

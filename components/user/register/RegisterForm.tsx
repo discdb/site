@@ -21,32 +21,32 @@ export const RegisterForm = () => {
 				}}
 			>
 				<label htmlFor="name">
-					<div className="label">Name</div>
+					<div className={styles.label}>Name</div>
 					<input id={styles.input} name="name" type="text" />
 				</label>
 				<br />
 				<br />
 				<label htmlFor="username">
-					<div className="label">Username</div>
+					<div className={styles.label}>Username</div>
 					<input id={styles.input} name="username" type="text" />
 				</label>
 				<br />
 				<br />
 				<label htmlFor="email">
-					<div className="label">Email</div>
+					<div className={styles.label}>Email</div>
 					<input id={styles.input} name="email" type="email" />
 				</label>
 				<br />
 				<br />
 				<label htmlFor="password">
-					<div className="label">Password</div>
+					<div className={styles.label}>Password</div>
 					<input id={styles.input} name="password" type="password" />
 				</label>
 				<br />
 				<br />
 
 				<label htmlFor="password">
-					<div className="label">Re-Enter Password</div>
+					<div className={styles.label}>Re-Enter Password</div>
 					<input id={styles.input} type="password" disabled />
 				</label>
 				<br />

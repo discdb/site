@@ -12,6 +12,7 @@
 	height: 62px;
 }
 #post:hover {
+	cursor: pointer;
 	transform: perspective(1px) scale(1.025);
 }
 .newsLeft {
