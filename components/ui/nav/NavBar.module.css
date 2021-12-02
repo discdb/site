@@ -8,12 +8,12 @@
 #nav div {
 	display: inline-flex;
 }
+#nav div:hover {
+	cursor: pointer;
+}
 #nav a {
 	text-decoration: none;
 	color: inherit;
-}
-.navItem {
-	cursor: pointer;
 }
 .navItem:not(#title) {
 	margin: 0 0.5rem 0 0.5rem;

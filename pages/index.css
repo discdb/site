@@ -4,6 +4,7 @@
 	--color-3: #9a8c98;
 	--color-4: #c9ada7;
 	--color-5: #f2e9e4;
+	--size-0: 14px;
 	--size-1: 16px;
 	--size-2: 18px;
 	--size-3: 20px;
@@ -102,4 +103,56 @@ details > div {
 	#footer {
 		text-align: left;
 	}
+}
+.bm-burger-button {
+	width: 20px;
+	height: 17px;
+	position: fixed;
+	right: 36px;
+	top: 36px;
+}
+
+.bm-burger-bars {
+	background: white;
+}
+
+.bm-cross-button > span {
+	top: 2px !important;
+}
+
+.bm-cross-button {
+	margin: 1.5rem;
+}
+
+.bm-cross {
+	background: #bdc3c7;
+	width: 6px !important;
+	height: 24px !important;
+}
+
+.bm-menu {
+	background: var(--color-3);
+	padding: 2.5em 1.5em 0;
+	font-size: 1.15em;
+	overflow-y: hidden !important;
+}
+.bm-menu-wrap {
+	top: 0;
+}
+.bm-item-list {
+	padding: 0.8em;
+}
+
+.bm-item {
+	display: block;
+	color: white;
+}
+.bm-overlay {
+	background: rgba(0, 0, 0, 0.3);
+	top: 0;
+	left: 0;
+}
+.bm-item a {
+	text-decoration: none;
+	color: inherit;
 }
