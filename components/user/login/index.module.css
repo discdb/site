@@ -1,5 +1,5 @@
 #loginForm {
-	margin: 0 0.5rem 0 0.5rem;
+	margin: 0 -1rem;
 	padding: 3rem 0 3rem 0;
 	--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 		0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -7,6 +7,8 @@
 		var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #loginButton {
+	color: inherit;
+	font-weight: 500;
 	background-color: var(--color-3);
 	padding: 1rem 1.5rem 1rem 1.5rem;
 	margin: 0.5rem 0 0.5rem 0;

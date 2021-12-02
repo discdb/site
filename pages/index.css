@@ -99,6 +99,7 @@ details > div {
 	user-select: none; /* Non-prefixed version, currently
 							supported by Chrome, Edge, Opera and Firefox */
 }
+
 @media (min-width: 768px) {
 	#footer {
 		text-align: left;
@@ -107,7 +108,7 @@ details > div {
 .bm-burger-button {
 	width: 20px;
 	height: 17px;
-	position: fixed;
+	position: absolute;
 	right: 36px;
 	top: 36px;
 }

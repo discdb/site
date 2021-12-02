@@ -8,7 +8,7 @@ export const Header = () => {
 			<title>dvdb</title>
 			<div id={styles.nav}>
 				<Link href="/">
-					<div id="title" className={styles.noselect}>
+					<div id="title" className="noselect">
 						dvdb
 					</div>
 				</Link>

@@ -39,12 +39,14 @@ export const Menu = () => {
 		<div>
 			<Link href="/login">
 				<a>
-					<div className={styles.menuItem}>Login</div>
+					<div className={styles.menuItem + " noselect"}>Login</div>
 				</a>
 			</Link>
 			<Link href="/register">
 				<a>
-					<div className={styles.menuItem}>Register</div>
+					<div className={styles.menuItem + " noselect"}>
+						Register
+					</div>
 				</a>
 			</Link>
 		</div>
@@ -53,8 +55,12 @@ export const Menu = () => {
 		<BurgerMenu
 			right
 			isOpen={open}
+			disableAutoFocus
 			onStateChange={({ isOpen }) => {
-				document.body.style.overflow = isOpen ? "hidden" : "auto";
+				document.documentElement.style.overflowY = isOpen
+					? "hidden"
+					: "";
+
 				setOpen(isOpen);
 			}}
 		>
