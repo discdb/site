@@ -27,12 +27,19 @@
 	width: 80%;
 	margin: auto;
 }
-#input {
+#input,
+#dropdown {
 	width: 90%;
 	border-color: transparent;
 	padding: 0.5rem;
 }
-#input:focus {
+#dropdown {
+	width: 95%;
+	text-align: center;
+	margin: 0.5rem;
+}
+#input:focus,
+#dropdown:focus {
 	outline: 1px var(--color-2) solid;
 }
 .label {

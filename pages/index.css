@@ -30,6 +30,19 @@ input {
 	margin: 0 2rem 0 2rem;
 	font-size: var(--size-3);
 }
+#link > a {
+	color: blue;
+	text-decoration: none;
+	transition: font-size 0.1s;
+	font-size: var(--size-2);
+	line-height: 24px;
+	display: block;
+	text-align: right;
+}
+#link > a:hover {
+	cursor: pointer;
+	font-size: var(--size-3);
+}
 #notFound {
 	text-align: center;
 	font-size: var(--size-3);

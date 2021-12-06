@@ -56,9 +56,9 @@ export const Menu = () => {
 			isOpen={open}
 			disableAutoFocus
 			onStateChange={({ isOpen }) => {
-				document.documentElement.style.overflowY = isOpen
-					? "hidden"
-					: "";
+				// document.documentElement.style.overflowY = isOpen
+				// 	? "hidden"
+				// 	: "";
 
 				setOpen(isOpen);
 			}}

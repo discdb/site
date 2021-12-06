@@ -18,9 +18,9 @@ export const Header = () => {
 							<div className={styles.navItem}>Blog</div>
 						</a>
 					</Link>
-					<Link href="/forum">
+					<Link href="/guides">
 						<a>
-							<div className={styles.navItem}>Forum</div>
+							<div className={styles.navItem}>Guides</div>
 						</a>
 					</Link>
 					<Link href="/discs">

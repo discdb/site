@@ -7,7 +7,7 @@ export const Footer = () => {
 				<Link href="/">dvdb</Link>
 			</div>
 			<div>
-				<Link href="/#about-us">About Us</Link>
+				<Link href="/about-us">About Us</Link>
 			</div>
 			<div>
 				<a href="https://discord.gg/HkvcwnHStn">Discord</a>
