@@ -2,7 +2,14 @@ import { BlogPost } from "../types/Post";
 import Link from "next/link";
 import styles from "./Post.module.css";
 
-export const Post = ({ title, image, description, id }: BlogPost) => {
+export const Post = ({
+	title,
+	image,
+	description,
+	// created_time,
+	// created_by,
+	id,
+}: BlogPost) => {
 	return (
 		<Link href={`/blog/${id}`}>
 			<div id={styles.post}>

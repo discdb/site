@@ -2,7 +2,7 @@ import { DiscType } from "../types/Disc";
 // import { Link } from "react-router-dom";
 import "./Disc.css";
 
-export const DiscPage = ({ title, image, description, tmdb_id }: DiscType) => {
+export const DiscPage = ({ title, image, description, id }: DiscType) => {
 	return (
 		<div id="post">
 			{/* <Link to={`discs/${id}`}>

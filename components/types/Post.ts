@@ -5,6 +5,14 @@ export interface BlogPost {
 	title: string;
 	image: string;
 	description: string;
+	// created_time: Date;
+	// created_by: UserData[];
+	id: string;
+}
+export interface PostPage {
+	title: string;
+	image: string;
+	description: string;
 	created_time: Date;
 	created_by: UserData[];
 	comments: Comment[];
