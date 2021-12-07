@@ -1,1 +1,1 @@
-export const GetProfile = () => {};
+export const GetProfile = (userId: string) => {};

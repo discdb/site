@@ -14,7 +14,6 @@ export const Menu = () => {
 	const router = useRouter();
 
 	useEffect(() => {
-		console.log(session);
 		const handleRouteChange = () => setOpen(false);
 		router.events.on("routeChangeStart", handleRouteChange);
 		return () => {

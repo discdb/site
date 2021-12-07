@@ -1,0 +1,58 @@
+#createForm {
+	margin: 0 -1rem;
+	padding: 3rem 0 3rem 0;
+	--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+		var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+#createForm > form {
+	text-align: center;
+	width: 80%;
+	margin: auto;
+}
+#createButton {
+	color: inherit;
+	font-weight: 500;
+	background-color: var(--color-3);
+	padding: 1.5rem;
+	margin: 2rem 0;
+	width: 100%;
+	transition: transform 0.1s;
+	font-size: var(--size-1);
+}
+#createButton:hover {
+	cursor: pointer;
+	background-color: var(--color-4);
+	border-color: transparent;
+	transform: perspective(1px) scale(1.025);
+}
+#input {
+	width: 90%;
+	border-color: transparent;
+	padding: 0.5rem;
+	resize: none;
+}
+#input:focus {
+	outline: 1px var(--color-2) solid;
+}
+.label {
+	text-align: left;
+	margin: 1rem 2rem;
+}
+.underDescription {
+	margin-top: 1rem;
+}
+.underDescription > a {
+	color: inherit;
+	transition: font-size 0.2s;
+	line-height: 24px;
+}
+.underDescription > a:hover {
+	font-size: var(--size-2);
+}
+@media (min-width: 768px) {
+	#createButton {
+		width: 95%;
+	}
+}
