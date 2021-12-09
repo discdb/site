@@ -13,7 +13,7 @@
 	padding: 1rem 1.5rem 1rem 1.5rem;
 	margin: 0.5rem 0 0.5rem 0;
 	width: 100%;
-	transition: transform 0.1s;
+	transition: transform 0.3s, background-color 0.3s;
 	font-size: var(--size-1);
 }
 #registerButton:hover {

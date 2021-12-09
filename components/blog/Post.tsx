@@ -4,14 +4,14 @@ import styles from "./Post.module.css";
 
 export const Post = ({
 	title,
-	image,
-	description,
+	image = "https://www.cliffrailwaylynton.co.uk/wp-content/uploads/2018/01/250x250-Placeholder.png",
+	body,
 	// created_time,
 	// created_by,
-	id,
+	identifier,
 }: BlogPost) => {
 	return (
-		<Link href={`/blog/${id}`}>
+		<Link href={`/blog/${identifier}`}>
 			<div id={styles.post}>
 				<div>
 					<div className={styles.newsLeft}>
@@ -19,7 +19,7 @@ export const Post = ({
 					</div>
 					<div className={styles.newsRight}>
 						<div className={styles.title}>{title}</div>
-						<div className={styles.description}>{description}</div>
+						<div className={styles.body}>{body}</div>
 					</div>
 				</div>
 			</div>

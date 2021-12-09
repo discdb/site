@@ -1,17 +1,11 @@
 import type { AppProps } from "next/app";
-import { Provider } from "next-auth/client";
+import { SessionProvider as Provider } from "next-auth/react";
 import Layout from "../components/ui/Layout";
 import "./index.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
 	return (
-		<Provider
-			options={{
-				clientMaxAge: 0,
-				keepAlive: 0,
-			}}
-			session={pageProps.session}
-		>
+		<Provider refetchInterval={0} session={pageProps.session}>
 			<Layout>
 				<Component {...pageProps} />
 			</Layout>

@@ -1,15 +1,14 @@
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import SequelizeAdapter from "@next-auth/sequelize-adapter";
+import { Sequelize } from "sequelize";
+import Discord from "next-auth/providers/discord";
+
+const DATABASE: string = process.env.DATABASE || "";
+const USER: string = process.env.USER || "";
+const PASSWORD: string = process.env.PASSWORD || "";
 
 const providers = [
-	// Providers.Credentials({
-	// 	name: "Credentials",
-	// 	credentials: {
-	// 		email: { label: "Email", type: "text" },
-	// 		password: { label: "Password", type: "password" },
-	// 	},
-	// }),
-	Providers.Discord({
+	Discord({
 		clientId: process.env.DISCORD_CLIENT_ID,
 		clientSecret: process.env.DISCORD_CLIENT_SECRET,
 		authorization:
@@ -19,28 +18,29 @@ const providers = [
 
 const callbacks = {
 	// Getting the JWT token from API response
-	async jwt(token, user) {
+	async jwt({ token, user }) {
 		if (user) {
 			token = user;
 		}
 		return token;
 	},
 
-	async session(session, token) {
+	async session({ session, token }) {
 		session = token;
 
 		return session;
 	},
 };
 const options = {
+	database: `postgres://${USER}:${PASSWORD}@127.0.0.1:5432/${DATABASE}`,
 	pages: {
 		signIn: "/login",
 	},
-	callbacks,
-	session: {
-		jwt: true,
-		maxAge: 30 * 24 * 60 * 60, // 30 days
-	},
+	// callbacks,
+	// session: {
+	// 	strategy: "jwt",
+	// 	maxAge: 30 * 24 * 60 * 60, // 30 days
+	// },
 	secret: process.env.AUTH_SECRET,
 	providers,
 };

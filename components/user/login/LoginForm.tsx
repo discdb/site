@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import styles from "./index.module.css";
 import { loginUser } from "./Login";
-import { signIn } from "next-auth/client";
+import { signIn } from "next-auth/react";
 
 export const LoginForm = (providers: JSON) => {
 	return (

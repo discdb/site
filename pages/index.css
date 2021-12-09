@@ -1,8 +1,8 @@
 :root {
 	--color-1: #22223b;
 	--color-2: #4a4e69;
-	--color-3: #9a8c98;
-	--color-4: #c9ada7;
+	--color-3: #b2bec3;
+	--color-4: #dfe6e9;
 	--color-5: #f2e9e4;
 	--size-0: 14px;
 	--size-1: 16px;
@@ -25,7 +25,9 @@ body {
 input {
 	-webkit-border-radius: 0px;
 }
-
+button {
+	border: none;
+}
 #title {
 	margin: 0 2rem 0 2rem;
 	font-size: var(--size-3);

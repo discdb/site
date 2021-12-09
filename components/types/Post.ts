@@ -4,17 +4,18 @@ import { UserData } from "./User";
 export interface BlogPost {
 	title: string;
 	image: string;
-	description: string;
+	body: string;
 	// created_time: Date;
 	// created_by: UserData[];
-	id: string;
+	identifier: string;
 }
 export interface PostPage {
 	title: string;
 	image: string;
-	description: string;
-	created_time: Date;
-	created_by: UserData[];
-	comments: Comment[];
-	id: string;
+	body: string;
+	// createdAt: Date;
+	// updatedAt: Date;
+	// createdBy: UserData[];
+	// comments: Comment[];
+	identifier: string;
 }
