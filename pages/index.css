@@ -12,6 +12,9 @@
 	font-size: var(--size-1);
 	scroll-behavior: smooth;
 }
+#nprogress .bar {
+	background: var(--color-1) !important;
+}
 
 body {
 	margin: 0 2rem 0 2rem;

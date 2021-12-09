@@ -6,8 +6,6 @@ export const Post = ({
 	title,
 	image = "https://www.cliffrailwaylynton.co.uk/wp-content/uploads/2018/01/250x250-Placeholder.png",
 	body,
-	// created_time,
-	// created_by,
 	identifier,
 }: BlogPost) => {
 	return (

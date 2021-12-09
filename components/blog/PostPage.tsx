@@ -1,9 +1,11 @@
-// import { BlogPost } from "../types/Post";
-import styles from "./PostPage.module.css";
 import ReactMarkdown from "react-markdown";
+import moment from "moment";
+
+import styles from "./PostPage.module.css";
+
 import { PostPage } from "../types/Post";
 
-export const Post = ({ title, body }: PostPage) => {
+export const Post = ({ title, body, createdAt, createdBy }: PostPage) => {
 	return (
 		<div id={styles.postPage}>
 			<div id={styles.backDrop}>
@@ -11,9 +13,9 @@ export const Post = ({ title, body }: PostPage) => {
 			</div>
 			<main>
 				<div id={styles.postDetails}>
-					<div>October 12th 2021</div>
-					<div>By Alli</div>
-					<div>2 Comments</div>
+					<div>{moment(createdAt).format("MMMM Do YYYY")}</div>
+					<div>By {createdBy}</div>
+					<div>0 Comments</div>
 				</div>
 				<br />
 				<ReactMarkdown skipHtml={true}>{body}</ReactMarkdown>

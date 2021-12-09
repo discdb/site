@@ -1,15 +1,18 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 import { getPostsFromAPI } from "../components/blog/getPostsFromAPI";
 import { Post } from "../components/blog/Post";
 
 const Home = () => {
 	const [posts, setPosts] = useState([]);
+
 	useEffect(() => {
 		getPostsFromAPI().then((res) => {
 			setPosts(res);
 		});
 	}, []);
+
 	return (
 		<div>
 			<div id="about-us">
@@ -44,9 +47,9 @@ const Home = () => {
 			</div>
 			<div className="header">Recent Posts</div>
 			<div id="postList" className="after-header">
-				{posts.map((post, index) => (
-					<Post key={index} {...post} />
-				))}
+				{posts
+					? posts.map((post, index) => <Post key={index} {...post} />)
+					: "Loading..."}
 			</div>
 			<div className="header">Recent Additions</div>
 			<div className="after-header"></div>
