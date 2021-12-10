@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 
 import { MovieType } from "../../components/types/Movie";
-import { Movie } from "../../components/tmdb/movies/Movies";
 import { getMovieFromAPI } from "../../components/tmdb/movies/getMovieFromAPI";
+import { MoviePage } from "../../components/tmdb/movies/MoviePage";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = [];
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const ViewMovie = ({ movie }) => {
 	return (
 		<div>
-			<Movie {...movie} />
+			<MoviePage {...movie} />
 		</div>
 	);
 };

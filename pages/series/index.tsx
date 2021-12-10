@@ -1,17 +1,20 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 
 import { getSeriesList } from "../../components/tmdb/series/getSeriesList";
 import { Series } from "../../components/tmdb/series/Series";
 import { SeriesType } from "../../components/types/Series";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 	const series: SeriesType[] = await getSeriesList();
 
-	return {
-		props: {
-			series,
-		},
-	};
+	return series
+		? {
+				props: {
+					series: JSON.parse(JSON.stringify(series)),
+				},
+				revalidate: 360,
+		  }
+		: { props: {}, notFound: true };
 };
 
 const SeriesList = ({ series }) => {

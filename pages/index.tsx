@@ -45,7 +45,7 @@ const Home = () => {
 					</p>
 				</div>
 			</div>
-			<div className="header">Recent Posts</div>
+			<div className="header">Recent Blog Posts</div>
 			<div id="postList" className="after-header">
 				{posts
 					? posts.map((post, index) => <Post key={index} {...post} />)

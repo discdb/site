@@ -36,6 +36,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 const ViewPost = ({ post }) => {
 	const { isFallback } = useRouter();
+
 	return isFallback ? (
 		<div>Loading..</div>
 	) : (

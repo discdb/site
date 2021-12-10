@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 
 import { SeriesType } from "../../components/types/Series";
-import { Series } from "../../components/tmdb/series/Series";
 import { getSeriesFromAPI } from "../../components/tmdb/series/getSeriesFromAPI";
+import { SeriesPage } from "../../components/tmdb/series/SeriesPage";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = [];
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const ViewSeries = ({ series }) => {
 	return (
 		<div>
-			<Series {...series} />
+			<SeriesPage {...series} />
 		</div>
 	);
 };

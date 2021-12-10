@@ -8,7 +8,6 @@ export const getMovieFromAPI = async (movieId: string) => {
 			"Content-Type": "application/json",
 		},
 	});
-
 	const movies = await response.json();
 	return movies;
 };

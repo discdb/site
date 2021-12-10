@@ -1,6 +1,4 @@
 import NextAuth from "next-auth";
-import SequelizeAdapter from "@next-auth/sequelize-adapter";
-import { Sequelize } from "sequelize";
 import Discord from "next-auth/providers/discord";
 
 const DATABASE: string = process.env.DATABASE || "";

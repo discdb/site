@@ -1,4 +1,4 @@
-import { getSession } from "next-auth/client";
+import { getSession } from "next-auth/react";
 
 const apiKey = process.env.TMDB_API_KEY;
 const apiURL = "https://api.themoviedb.org/3/search/tv/";

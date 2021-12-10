@@ -1,24 +1,27 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 
 import { getMoviesList } from "../../components/tmdb/movies/getMoviesList";
 import { Movie } from "../../components/tmdb/movies/Movies";
 import { MovieType } from "../../components/types/Movie";
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const movie: MovieType[] = await getMoviesList();
+export const getStaticProps: GetStaticProps = async () => {
+	const movies: MovieType[] = await getMoviesList();
 
-	return {
-		props: {
-			movie,
-		},
-	};
+	return movies
+		? {
+				props: {
+					movies: JSON.parse(JSON.stringify(movies)),
+				},
+				revalidate: 360,
+		  }
+		: { props: {}, notFound: true };
 };
 
-const movieList = ({ movie }) => {
+const movieList = ({ movies }) => {
 	return (
 		<div>
-			{movie.map((show: MovieType, key: number) => {
-				return <Movie key={key} {...show} />;
+			{movies.map((movie: MovieType, key: number) => {
+				return <Movie key={key} {...movie} />;
 			})}
 		</div>
 	);

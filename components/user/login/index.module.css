@@ -1,5 +1,6 @@
 #loginForm {
 	margin: 0 -1rem;
+	min-width: 430px;
 	padding: 3rem 0 3rem 0;
 	--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 		0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -43,13 +44,23 @@
 	margin: auto;
 }
 #forgotPasswordLink {
-	padding-top: 1rem;
+	float: right;
 }
-#forgotPasswordLink > a {
+#newUserLink,
+#newUserLink {
+	float: left;
+}
+#forgotPasswordLink,
+#newUserLink {
+	margin: 1rem;
+}
+#forgotPasswordLink > a,
+#newUserLink > a {
 	text-decoration: underline;
 	color: var(--color-2);
 }
 #input {
+	font-size: var(--size-1);
 	width: 90%;
 	border-color: transparent;
 	padding: 0.5rem;
