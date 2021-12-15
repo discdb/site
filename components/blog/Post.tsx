@@ -1,6 +1,7 @@
 import { BlogPost } from "../types/Post";
 import Link from "next/link";
 import styles from "./Post.module.css";
+import { useEffect } from "react";
 
 export const Post = ({
 	title,

@@ -117,7 +117,9 @@ details > div {
 	user-select: none; /* Non-prefixed version, currently
 							supported by Chrome, Edge, Opera and Firefox */
 }
-
+#postList {
+	min-height: 500px;
+}
 @media (min-width: 768px) {
 	#footer {
 		text-align: left;

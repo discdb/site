@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import { motion } from "framer-motion";
 
 import { getMoviesList } from "../../components/tmdb/movies/getMoviesList";
 import { Movie } from "../../components/tmdb/movies/Movies";
@@ -21,7 +22,29 @@ const movieList = ({ movies }) => {
 	return (
 		<div>
 			{movies.map((movie: MovieType, key: number) => {
-				return <Movie key={key} {...movie} />;
+				return (
+					<motion.div
+						key={key}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+						variants={{
+							hidden: {
+								scale: 0.7,
+								opacity: 0,
+							},
+							visible: {
+								scale: 1,
+								opacity: 1,
+								transition: {
+									delay: 0.01,
+								},
+							},
+						}}
+					>
+						<Movie {...movie} />
+					</motion.div>
+				);
 			})}
 		</div>
 	);

@@ -45,7 +45,7 @@ const ViewPost = ({ post }) => {
 				<title>{post.title}</title>
 				<meta content={post.body} name="og:description" />
 				<meta
-					content={post.title + " by " + post.created_by}
+					content={post.title + " by " + post.createdBy}
 					property="og:title"
 				/>
 			</Head>

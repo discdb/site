@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import { getPostsFromAPI } from "../components/blog/getPostsFromAPI";
 import { Post } from "../components/blog/Post";
@@ -14,7 +15,7 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div>
+		<>
 			<div id="about-us">
 				<div className="header-2">What is dvdb?</div>
 				<div
@@ -48,12 +49,33 @@ const Home = () => {
 			<div className="header">Recent Blog Posts</div>
 			<div id="postList" className="after-header">
 				{posts
-					? posts.map((post, index) => <Post key={index} {...post} />)
+					? posts.map((post, index) => (
+							<motion.div
+								key={index}
+								initial="hidden"
+								animate="visible"
+								variants={{
+									hidden: {
+										scale: 0.7,
+										opacity: 0,
+									},
+									visible: {
+										scale: 1,
+										opacity: 1,
+										transition: {
+											delay: index / 10,
+										},
+									},
+								}}
+							>
+								<Post {...post} />
+							</motion.div>
+					  ))
 					: "Loading..."}
 			</div>
 			<div className="header">Recent Additions</div>
 			<div className="after-header"></div>
-		</div>
+		</>
 	);
 };
 export default Home;
