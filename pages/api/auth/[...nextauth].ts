@@ -30,7 +30,7 @@ const callbacks = {
 	},
 };
 const options = {
-	database: `postgres://${USER}:${PASSWORD}@127.0.0.1:5432/${DATABASE}`,
+	// database: `postgres://${USER}:${PASSWORD}@127.0.0.1:5432/${DATABASE}`,
 	pages: {
 		signIn: "/login",
 	},

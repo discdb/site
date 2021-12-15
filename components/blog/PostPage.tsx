@@ -13,7 +13,7 @@ export const Post = ({ title, body, createdAt, createdBy }: PostPage) => {
 			</div>
 			<main>
 				<div id={styles.postDetails}>
-					<div>{moment(createdAt).format("MMMM Do YYYY")}</div>
+					<div>{moment(createdAt).format("MMMM Do, YYYY")}</div>
 					<div>By {createdBy}</div>
 					<div>0 Comments</div>
 				</div>
