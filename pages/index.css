@@ -1,8 +1,8 @@
 :root {
 	--color-1: #22223b;
 	--color-2: #4a4e69;
-	--color-3: #9a8c98;
-	--color-4: #c9ada7;
+	--color-3: #b2bec3;
+	--color-4: #dfe6e9;
 	--color-5: #f2e9e4;
 	--size-0: 14px;
 	--size-1: 16px;
@@ -11,6 +11,9 @@
 	background-color: var(--color-5);
 	font-size: var(--size-1);
 	scroll-behavior: smooth;
+}
+#nprogress .bar {
+	background: var(--color-1) !important;
 }
 
 body {
@@ -25,7 +28,9 @@ body {
 input {
 	-webkit-border-radius: 0px;
 }
-
+button {
+	border: none;
+}
 #title {
 	margin: 0 2rem 0 2rem;
 	font-size: var(--size-3);
@@ -112,7 +117,9 @@ details > div {
 	user-select: none; /* Non-prefixed version, currently
 							supported by Chrome, Edge, Opera and Firefox */
 }
-
+#postList {
+	min-height: 500px;
+}
 @media (min-width: 768px) {
 	#footer {
 		text-align: left;
@@ -173,4 +180,26 @@ details > div {
 }
 .bm-item:focus {
 	outline: 0 !important;
+}
+
+.posterGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 176px);
+	margin: 0 auto;
+	width: 100%;
+	column-gap: 0.5rem;
+}
+.posterGrid > div {
+	grid-column: span 1 / span 1;
+	text-align: center;
+	margin: 0 auto;
+	width: 175px;
+	height: 350px;
+}
+@media (min-width: 768px) {
+	.posterGrid {
+		width: 90%;
+		column-gap: 0.8rem;
+		row-gap: 1.2rem;
+	}
 }

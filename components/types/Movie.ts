@@ -5,6 +5,7 @@ export interface MovieType {
 	title: string;
 	overview: string;
 	release_date: Date;
-	children: DiscType[];
+	// children: DiscType[];
+	poster_path: string;
 	id: string;
 }

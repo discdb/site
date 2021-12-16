@@ -13,7 +13,7 @@
 	padding: 1rem 1.5rem 1rem 1.5rem;
 	margin: 0.5rem 0 0.5rem 0;
 	width: 100%;
-	transition: transform 0.1s;
+	transition: transform 0.3s, background-color 0.3s;
 	font-size: var(--size-1);
 }
 #loginButton:hover {
@@ -43,13 +43,23 @@
 	margin: auto;
 }
 #forgotPasswordLink {
-	padding-top: 1rem;
+	float: right;
 }
-#forgotPasswordLink > a {
+#newUserLink,
+#newUserLink {
+	float: left;
+}
+#forgotPasswordLink,
+#newUserLink {
+	margin: 1rem;
+}
+#forgotPasswordLink > a,
+#newUserLink > a {
 	text-decoration: underline;
 	color: var(--color-2);
 }
 #input {
+	font-size: var(--size-1);
 	width: 90%;
 	border-color: transparent;
 	padding: 0.5rem;
@@ -63,6 +73,7 @@
 }
 @media (min-width: 768px) {
 	#loginForm {
+		min-width: 430px;
 		width: 30%;
 		margin: auto;
 	}

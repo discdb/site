@@ -28,6 +28,16 @@ export const Header = () => {
 							<div className={styles.navItem}>Discs</div>
 						</a>
 					</Link>
+					<Link href="/series">
+						<a>
+							<div className={styles.navItem}>Series</div>
+						</a>
+					</Link>
+					<Link href="/movies">
+						<a>
+							<div className={styles.navItem}>Movies</div>
+						</a>
+					</Link>
 				</div>
 			</div>
 			<Menu />

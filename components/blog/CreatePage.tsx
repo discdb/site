@@ -11,11 +11,11 @@ export const CreatePage = () => {
 					<div className={styles.label}>Title</div>
 					<input id={styles.input} name="title" type="text" />
 				</label>
-				<label htmlFor="description">
-					<div className={styles.label}>Description</div>
-					<textarea id={styles.input} name="description" rows={24} />
+				<label htmlFor="body">
+					<div className={styles.label}>Body</div>
+					<textarea id={styles.input} name="body" rows={24} />
 				</label>
-				<div className={styles.underDescription}>
+				<div className={styles.underBody}>
 					<a href="https://www.markdownguide.org/basic-syntax/">
 						Supports Markdown!
 					</a>

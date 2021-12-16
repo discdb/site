@@ -1,23 +1,22 @@
 import { LoginForm } from "../components/user/login/LoginForm";
-import { providers, getSession } from "next-auth/client";
+import { getProviders, getSession } from "next-auth/react";
 import Router from "next/router";
 
 export const getServerSideProps = async (context: any) => {
 	const session = await getSession(context);
+
 	return {
 		props: {
-			providers: await providers(),
+			providers: await getProviders(),
 			session,
 		},
 	};
 };
 
 const Login = ({ providers, session }) => {
-	const currentUser = session;
+	if (session && process.browser) Router.push("/");
 
-	if (currentUser && process.browser) Router.push("/");
-
-	return currentUser ? (
+	return session ? (
 		<div />
 	) : (
 		<div>

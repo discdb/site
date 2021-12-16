@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import styles from "./index.module.css";
 import { loginUser } from "./Login";
-import { signIn } from "next-auth/client";
+import { signIn } from "next-auth/react";
 
 export const LoginForm = (providers: JSON) => {
 	return (
@@ -33,6 +33,9 @@ export const LoginForm = (providers: JSON) => {
 					<div className={styles.label}>Password</div>
 					<input id={styles.input} name="password" type="password" />
 				</label>
+				<div id={styles.newUserLink}>
+					<Link href="/register">New User?</Link>
+				</div>
 				<div id={styles.forgotPasswordLink}>
 					<Link href="/forgot-password">Forgot Password?</Link>
 				</div>

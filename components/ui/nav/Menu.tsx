@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/client";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { slide as BurgerMenu } from "react-burger-menu";
 
@@ -8,7 +8,6 @@ import styles from "./Menu.module.css";
 
 export const Menu = () => {
 	const session = useSession();
-	const currentUser = session[0];
 
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
@@ -62,7 +61,9 @@ export const Menu = () => {
 				setOpen(isOpen);
 			}}
 		>
-			{currentUser ? authenticatedOptions : unauthenticatedOptions}
+			{session.status == "authenticated"
+				? authenticatedOptions
+				: unauthenticatedOptions}
 		</BurgerMenu>
 	);
 };
