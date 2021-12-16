@@ -12,12 +12,20 @@ export const getMoviesList = async () => {
 	const movies = await response.json();
 
 	return movies.results.map(
-		({ original_title, title, overview, release_date, id }) => {
+		({
+			original_title,
+			title,
+			overview,
+			release_date,
+			poster_path,
+			id,
+		}) => {
 			return {
 				original_title,
 				title,
 				overview,
 				release_date,
+				poster_path,
 				id,
 			};
 		}

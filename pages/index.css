@@ -181,3 +181,25 @@ details > div {
 .bm-item:focus {
 	outline: 0 !important;
 }
+
+.posterGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 176px);
+	margin: 0 auto;
+	width: 100%;
+	column-gap: 0.5rem;
+}
+.posterGrid > div {
+	grid-column: span 1 / span 1;
+	text-align: center;
+	margin: 0 auto;
+	width: 175px;
+	height: 350px;
+}
+@media (min-width: 768px) {
+	.posterGrid {
+		width: 90%;
+		column-gap: 0.8rem;
+		row-gap: 1.2rem;
+	}
+}

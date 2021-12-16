@@ -1,4 +1,24 @@
 #movie {
 	cursor: pointer;
-	margin: 1rem 0;
+	/* border: black 1px solid; */
+	border-radius: 5px;
+	height: inherit;
+}
+/* #movie > div {
+	width: 80%;
+	margin: 0.5rem auto;
+}
+
+/* #list #movie {
+	min-height: 150px;
+	grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+#list #movie > img {
+	grid-column: span 1 / span 1;
+}
+#list #movie > div {
+	grid-column: span 10 / span 10;
+	margin: auto 0; */
+#overview {
+	display: none;
 }

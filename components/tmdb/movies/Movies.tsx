@@ -7,16 +7,23 @@ export const Movie = ({
 	title,
 	overview,
 	release_date,
+	poster_path,
 	id,
 }: MovieType) => {
 	return (
 		<Link href={`/movies/${id}`}>
 			<div id={styles.movie}>
+				<img
+					style={{ maxWidth: "100%", borderRadius: "5px" }}
+					src={`https://www.themoviedb.org/t/p/w1280/${poster_path}`}
+				/>
 				<div>
-					<b>{title || original_title} </b>({release_date})
+					<div>
+						<b>{title || original_title} </b>
+					</div>
+					<div>({release_date})</div>
+					<div id={styles.overview}>{overview}</div>
 				</div>
-				<div>{overview}</div>
-				<br />
 			</div>
 		</Link>
 	);

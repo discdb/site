@@ -20,13 +20,14 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const movieList = ({ movies }) => {
 	return (
-		<div>
+		<div className="posterGrid">
 			{movies.map((movie: MovieType, key: number) => {
 				return (
 					<motion.div
 						key={key}
 						initial="hidden"
 						whileInView="visible"
+						whileHover="enlarge"
 						viewport={{ once: true }}
 						variants={{
 							hidden: {
@@ -37,8 +38,11 @@ const movieList = ({ movies }) => {
 								scale: 1,
 								opacity: 1,
 								transition: {
-									delay: 0.01,
+									delay: key / 20, //0.01,
 								},
+							},
+							enlarge: {
+								scale: 1.075,
 							},
 						}}
 					>

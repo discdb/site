@@ -13,7 +13,7 @@ export const MoviePage = ({
 		<div id={styles.seriesContainer}>
 			<div id={styles.leftContainer}>
 				<img
-					width="250px"
+					style={{ maxWidth: "250px" }}
 					src={`https://www.themoviedb.org/t/p/w1280/${poster_path}`}
 				/>
 			</div>
