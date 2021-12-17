@@ -6,7 +6,7 @@ import { MoviePage } from "../../components/tmdb/movies/MoviePage";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = [];
-	return { paths, fallback: true };
+	return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -17,15 +17,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		props: {
 			movie,
 		},
+		revalidate: 360,
 	};
 };
 
 const ViewMovie = ({ movie }) => {
-	return (
-		<div>
-			<MoviePage {...movie} />
-		</div>
-	);
+	return <MoviePage {...movie} />;
 };
 
 export default ViewMovie;

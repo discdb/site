@@ -21,11 +21,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 const ViewSeries = ({ series }) => {
-	return (
-		<div>
-			<SeriesPage {...series} />
-		</div>
-	);
+	return <SeriesPage {...series} />;
 };
 
 export default ViewSeries;

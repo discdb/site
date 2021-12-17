@@ -16,7 +16,7 @@ const Search = () => {
 	};
 
 	return (
-		<div>
+		<>
 			<div className="header">Search</div>
 			<SearchBox getResults={getResults} />
 			{results
@@ -46,7 +46,7 @@ const Search = () => {
 						);
 				  })
 				: "Loading..."}
-		</div>
+		</>
 	);
 };
 export default Search;

@@ -38,9 +38,9 @@ const ViewPost = ({ post }) => {
 	const { isFallback } = useRouter();
 
 	return isFallback ? (
-		<div>Loading..</div>
+		<>Loading..</>
 	) : (
-		<div>
+		<>
 			<Head>
 				<title>{post.title}</title>
 				<meta content={post.body} name="og:description" />
@@ -50,7 +50,7 @@ const ViewPost = ({ post }) => {
 				/>
 			</Head>
 			<Post {...post} />
-		</div>
+		</>
 	);
 };
 export default ViewPost;

@@ -189,6 +189,10 @@ details > div {
 	width: 100%;
 	column-gap: 0.5rem;
 }
+.posterGrid img {
+	border-radius: 5px;
+	max-width: 100%;
+}
 .posterGrid > div {
 	grid-column: span 1 / span 1;
 	text-align: center;

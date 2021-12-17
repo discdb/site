@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const SeriesList = ({ series }) => {
 	return (
-		<div>
+		<>
 			{series.map((show: SeriesType, key: number) => {
 				return (
 					<motion.div
@@ -46,7 +46,7 @@ const SeriesList = ({ series }) => {
 					</motion.div>
 				);
 			})}
-		</div>
+		</>
 	);
 };
 

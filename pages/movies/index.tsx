@@ -5,9 +5,8 @@ import { getMoviesList } from "../../components/tmdb/movies/getMoviesList";
 import { Movie } from "../../components/tmdb/movies/Movies";
 import { MovieType } from "../../components/types/Movie";
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
 	const movies: MovieType[] = await getMoviesList();
-
 	return movies
 		? {
 				props: {
