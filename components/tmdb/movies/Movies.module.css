@@ -11,6 +11,12 @@
 #movie > div {
 	padding: 0.75rem 0 0.75rem 0;
 }
+#movie img {
+	background-color: rgb(209 213 219);
+	color: black;
+	text-align: center;
+	line-height: 250px;
+}
 #below {
 	margin: -0.5rem 1rem 0 1rem;
 }

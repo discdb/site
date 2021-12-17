@@ -18,13 +18,16 @@ export const Movie = ({
 				<Image
 					width={180.4}
 					height={273}
+					alt={"No image!"}
 					src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${poster_path}`}
 				/>
 				<div id={styles.below}>
 					<div id={styles.title}>
 						<b>{title || original_title} </b>
 					</div>
-					<div>({release_date?.toString().substring(0, 4)})</div>
+					<div>
+						({release_date?.toString().substring(0, 4) || "null"})
+					</div>
 					<div id={styles.overview}>{overview}</div>
 				</div>
 			</div>

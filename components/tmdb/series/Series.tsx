@@ -18,6 +18,7 @@ export const Series = ({
 				<Image
 					width={180.4}
 					height={273}
+					alt={"No image!"}
 					src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${poster_path}`}
 				/>
 				<div id={styles.below}>
@@ -25,7 +26,7 @@ export const Series = ({
 						<b>{name || original_name} </b>
 					</div>
 					<div id={styles.date}>
-						({first_air_date?.toString().substring(0, 4)})
+						({first_air_date?.toString().substring(0, 4) || "null"})
 					</div>
 					<div id={styles.overview}>{overview}</div>
 				</div>

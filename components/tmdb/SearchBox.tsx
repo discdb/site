@@ -14,6 +14,7 @@ export const SearchBox = ({ getResults }) => {
 
 	return (
 		<form
+			id={styles.searchForm}
 			onSubmit={(e: React.SyntheticEvent) => {
 				e.preventDefault();
 				setCooldown();
