@@ -20,33 +20,34 @@ const Search: NextPage = () => {
 		<>
 			<div className="header">Search</div>
 			<SearchBox getResults={getResults} />
-			{results
-				? results.map((show: SeriesType, key: number) => {
-						return (
-							<motion.div
-								key={key}
-								initial="hidden"
-								whileInView="visible"
-								viewport={{ once: true }}
-								variants={{
-									hidden: {
-										scale: 0.7,
-										opacity: 0,
-									},
-									visible: {
-										scale: 1,
-										opacity: 1,
-										transition: {
-											delay: 0.01,
+			<div className="posterGrid">
+				{results
+					? results.map((show: SeriesType, key: number) => {
+							return (
+								<motion.div
+									key={key}
+									initial="hidden"
+									animate="visible"
+									variants={{
+										hidden: {
+											scale: 0.7,
+											opacity: 0,
 										},
-									},
-								}}
-							>
-								<Series {...show} />
-							</motion.div>
-						);
-				  })
-				: "Loading..."}
+										visible: {
+											scale: 1,
+											opacity: 1,
+											transition: {
+												delay: key / 10,
+											},
+										},
+									}}
+								>
+									<Series {...show} />
+								</motion.div>
+							);
+					  })
+					: "Loading..."}
+			</div>
 		</>
 	);
 };

@@ -24,11 +24,11 @@ async function handler(req: any, res: any) {
 	const session = await getSession({ req });
 
 	return new Promise(async (resolve) => {
-		if (method == "GET" && session?.user) {
+		if (method == "GET" && session) {
 			const { results } = await searchSeries(query.data);
 
 			return resolve(res.status(200).send({ results }));
-		} else if (!session?.user) {
+		} else if (!session) {
 			return resolve(
 				res.status(401).send({
 					message: "Unauthorized!",

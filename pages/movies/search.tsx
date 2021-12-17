@@ -19,32 +19,34 @@ const Search = () => {
 		<>
 			<div className="header">Search</div>
 			<SearchBox getResults={getResults} />
-			{results
-				? results.map((movie: MovieType, key: number) => {
-						return (
-							<motion.div
-								key={key}
-								initial="hidden"
-								animate="visible"
-								variants={{
-									hidden: {
-										scale: 0.7,
-										opacity: 0,
-									},
-									visible: {
-										scale: 1,
-										opacity: 1,
-										transition: {
-											delay: key / 10,
+			<div className="posterGrid">
+				{results
+					? results.map((movie: MovieType, key: number) => {
+							return (
+								<motion.div
+									key={key}
+									initial="hidden"
+									animate="visible"
+									variants={{
+										hidden: {
+											scale: 0.7,
+											opacity: 0,
 										},
-									},
-								}}
-							>
-								<Movie {...movie} />
-							</motion.div>
-						);
-				  })
-				: "Loading..."}
+										visible: {
+											scale: 1,
+											opacity: 1,
+											transition: {
+												delay: key / 10,
+											},
+										},
+									}}
+								>
+									<Movie {...movie} />
+								</motion.div>
+							);
+					  })
+					: "Loading..."}
+			</div>
 		</>
 	);
 };
