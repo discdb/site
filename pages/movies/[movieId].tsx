@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPaths } from "next";
+import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 
 import { MovieType } from "../../components/types/Movie";
 import { getMovieFromAPI } from "../../components/tmdb/movies/getMovieFromAPI";
@@ -21,7 +21,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	};
 };
 
-const ViewMovie = ({ movie }) => {
+interface Props {
+	movie: MovieType;
+}
+
+const ViewMovie: NextPage<Props> = ({ movie }) => {
 	return <MoviePage {...movie} />;
 };
 

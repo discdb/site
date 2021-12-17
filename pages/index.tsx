@@ -1,11 +1,40 @@
+import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { getPostsFromAPI } from "../components/blog/getPostsFromAPI";
 import { Post } from "../components/blog/Post";
+import { BlogPost } from "../components/types/Post";
 
-const Home = () => {
+const MappedPost = ({ index, post }: { index: number; post: BlogPost }) => {
+	return (
+		<>
+			<motion.div
+				key={index}
+				initial="hidden"
+				animate="visible"
+				variants={{
+					hidden: {
+						scale: 0.7,
+						opacity: 0,
+					},
+					visible: {
+						scale: 1,
+						opacity: 1,
+						transition: {
+							delay: index / 10,
+						},
+					},
+				}}
+			>
+				<Post {...post} />
+			</motion.div>
+		</>
+	);
+};
+
+const Home: NextPage = () => {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
@@ -48,34 +77,14 @@ const Home = () => {
 			</div>
 			<div className="header">Recent Blog Posts</div>
 			<div id="postList" className="after-header">
-				{posts
-					? posts.map((post, index) => (
-							<motion.div
-								key={index}
-								initial="hidden"
-								animate="visible"
-								variants={{
-									hidden: {
-										scale: 0.7,
-										opacity: 0,
-									},
-									visible: {
-										scale: 1,
-										opacity: 1,
-										transition: {
-											delay: index / 10,
-										},
-									},
-								}}
-							>
-								<Post {...post} />
-							</motion.div>
-					  ))
-					: "Loading..."}
+				{posts.map((post, index) => (
+					<MappedPost post={post} index={index} />
+				))}
 			</div>
 			<div className="header">Recent Additions</div>
 			<div className="after-header"></div>
 		</>
 	);
 };
+
 export default Home;

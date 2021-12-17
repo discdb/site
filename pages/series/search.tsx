@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NextPage } from "next";
 import { motion } from "framer-motion";
 
 import { searchSeries } from "../../components/tmdb/series/searchSeries";
@@ -6,7 +7,7 @@ import { SeriesType } from "../../components/types/Series";
 import { Series } from "../../components/tmdb/series/Series";
 import { SearchBox } from "../../components/tmdb/SearchBox";
 
-const Search = () => {
+const Search: NextPage = () => {
 	const [results, setResults] = useState([]);
 
 	const getResults = (query: string) => {

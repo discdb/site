@@ -1,5 +1,7 @@
-import { RegisterForm } from "../components/user/register/RegisterForm";
+import { NextPage } from "next";
 import { getSession } from "next-auth/react";
+
+import { RegisterForm } from "../components/user/register/RegisterForm";
 
 export const getServerSideProps = async (context: any) => {
 	const session = await getSession(context);
@@ -10,7 +12,7 @@ export const getServerSideProps = async (context: any) => {
 		props: {},
 	};
 };
-const Register = () => {
+const Register: NextPage = () => {
 	return <RegisterForm />;
 };
 export default Register;

@@ -20,8 +20,8 @@ export const Movie = ({
 					height={273}
 					src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${poster_path}`}
 				/>
-				<div>
-					<div>
+				<div id={styles.below}>
+					<div id={styles.title}>
 						<b>{title || original_title} </b>
 					</div>
 					<div>({release_date?.toString().substring(0, 4)})</div>

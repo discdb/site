@@ -1,4 +1,29 @@
 #series {
 	cursor: pointer;
+	height: 350px;
+	width: 175px;
 	margin: 1rem 0;
+	border-radius: 5px;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+		0 4px 6px -4px rgb(0 0 0 / 0.1);
+	border: 1px rgb(209 213 219) solid;
+}
+#series > div {
+	padding: 0.75rem 0 0.75rem 0;
+}
+#below {
+	margin: -0.5rem 1rem 0 1rem;
+	position: relative;
+}
+#title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+#overview {
+	display: none;
 }

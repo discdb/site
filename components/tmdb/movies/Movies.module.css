@@ -1,24 +1,27 @@
 #movie {
 	cursor: pointer;
-	/* border: black 1px solid; */
+	height: 350px;
+	width: 175px;
+	margin: 1rem 0;
 	border-radius: 5px;
-	height: inherit;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+		0 4px 6px -4px rgb(0 0 0 / 0.1);
+	border: 1px rgb(209 213 219) solid;
 }
-/* #movie > div {
-	width: 80%;
-	margin: 0.5rem auto;
+#movie > div {
+	padding: 0.75rem 0 0.75rem 0;
 }
-
-/* #list #movie {
-	min-height: 150px;
-	grid-template-columns: repeat(11, minmax(0, 1fr));
+#below {
+	margin: -0.5rem 1rem 0 1rem;
 }
-#list #movie > img {
-	grid-column: span 1 / span 1;
+#title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
-#list #movie > div {
-	grid-column: span 10 / span 10;
-	margin: auto 0; */
 #overview {
 	display: none;
 }

@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { GetStaticProps, GetStaticPaths } from "next";
+import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 
 import { getPostFromAPI } from "../../components/blog/getPost";
 import { getPostsFromAPI } from "../../components/blog/getPostsFromAPI";
 import { Post } from "../../components/blog/PostPage";
-import { BlogPost } from "../../components/types/Post";
+import { PostPage } from "../../components/types/Post";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const posts: BlogPost[] = await getPostsFromAPI();
+	const posts: PostPage[] = await getPostsFromAPI();
 	const paths = posts.map((post: any) => ({
 		params: { postId: post.identifier },
 	}));
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	if (!postId) {
 		return { props: {}, notFound: true };
 	}
-	const post: BlogPost = await getPostFromAPI(postId);
+	const post: PostPage = await getPostFromAPI(postId);
 
 	return post
 		? {
@@ -34,7 +34,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		: { props: {}, notFound: true };
 };
 
-const ViewPost = ({ post }) => {
+interface Props {
+	post: PostPage;
+}
+
+const ViewPost: NextPage<Props> = ({ post }) => {
 	const { isFallback } = useRouter();
 
 	return isFallback ? (

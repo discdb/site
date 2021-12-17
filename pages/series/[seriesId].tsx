@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPaths } from "next";
+import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 
 import { SeriesType } from "../../components/types/Series";
 import { getSeriesFromAPI } from "../../components/tmdb/series/getSeriesFromAPI";
@@ -20,7 +20,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	};
 };
 
-const ViewSeries = ({ series }) => {
+interface Props {
+	series: SeriesType;
+}
+
+const ViewSeries: NextPage<Props> = ({ series }) => {
 	return <SeriesPage {...series} />;
 };
 

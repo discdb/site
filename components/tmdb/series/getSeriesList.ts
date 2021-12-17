@@ -12,12 +12,20 @@ export const getSeriesList = async () => {
 	const series = await response.json();
 
 	return series.results.map(
-		({ original_name, name, overview, first_air_date, id }) => {
+		({
+			original_name,
+			name,
+			overview,
+			first_air_date,
+			poster_path,
+			id,
+		}) => {
 			return {
 				original_name,
 				name,
 				overview,
 				first_air_date,
+				poster_path,
 				id,
 			};
 		}

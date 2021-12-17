@@ -1,4 +1,6 @@
-const Guides = () => {
+import { NextPage } from "next";
+
+const Guides: NextPage = () => {
 	return (
 		<>
 			<div className="header">Guides</div>

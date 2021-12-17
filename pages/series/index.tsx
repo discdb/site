@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { NextPage, GetStaticProps } from "next";
 import { motion } from "framer-motion";
 
 import { getSeriesList } from "../../components/tmdb/series/getSeriesList";
@@ -18,34 +18,43 @@ export const getStaticProps: GetStaticProps = async () => {
 		: { props: {}, notFound: true };
 };
 
-const SeriesList = ({ series }) => {
+interface Props {
+	series: Readonly<SeriesType[]>;
+}
+
+const SeriesList: NextPage<Props> = ({ series }) => {
 	return (
 		<>
-			{series.map((show: SeriesType, key: number) => {
-				return (
-					<motion.div
-						key={key}
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true }}
-						variants={{
-							hidden: {
-								scale: 0.7,
-								opacity: 0,
-							},
-							visible: {
-								scale: 1,
-								opacity: 1,
-								transition: {
-									delay: 0.01,
+			<div className="posterGrid">
+				{series.map((show: SeriesType, key: number) => {
+					return (
+						<motion.div
+							key={key}
+							initial="hidden"
+							animate="visible"
+							whileHover="enlarge"
+							variants={{
+								hidden: {
+									scale: 0.7,
+									opacity: 0,
 								},
-							},
-						}}
-					>
-						<Series {...show} />
-					</motion.div>
-				);
-			})}
+								visible: {
+									scale: 1,
+									opacity: 1,
+									transition: {
+										delay: key / 20,
+									},
+								},
+								enlarge: {
+									scale: 1.075,
+								},
+							}}
+						>
+							<Series {...show} />
+						</motion.div>
+					);
+				})}
+			</div>
 		</>
 	);
 };
