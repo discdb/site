@@ -1,8 +1,10 @@
-const PrivacyPolicy = () => {
+import { NextPage } from "next";
+
+const PrivacyPolicy: NextPage = () => {
 	return (
-		<div>
+		<>
 			<div className="header">Privacy Policy</div>
-		</div>
+		</>
 	);
 };
 export default PrivacyPolicy;

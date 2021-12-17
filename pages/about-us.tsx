@@ -1,8 +1,10 @@
-const AboutUS = () => {
+import { NextPage } from "next";
+
+const AboutUs: NextPage = () => {
 	return (
-		<div>
+		<>
 			<div className="header">About Us</div>
-		</div>
+		</>
 	);
 };
-export default AboutUS;
+export default AboutUs;

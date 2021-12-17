@@ -1,13 +1,12 @@
-import { GetStaticProps } from "next";
+import { NextPage, GetStaticProps } from "next";
 import { motion } from "framer-motion";
 
 import { getMoviesList } from "../../components/tmdb/movies/getMoviesList";
 import { Movie } from "../../components/tmdb/movies/Movies";
 import { MovieType } from "../../components/types/Movie";
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
 	const movies: MovieType[] = await getMoviesList();
-
 	return movies
 		? {
 				props: {
@@ -18,7 +17,11 @@ export const getStaticProps: GetStaticProps = async () => {
 		: { props: {}, notFound: true };
 };
 
-const movieList = ({ movies }) => {
+interface Props {
+	movies: Readonly<MovieType[]>;
+}
+
+const movieList: NextPage<Props> = ({ movies }) => {
 	return (
 		<div className="posterGrid">
 			{movies.map((movie: MovieType, key: number) => {
@@ -26,9 +29,8 @@ const movieList = ({ movies }) => {
 					<motion.div
 						key={key}
 						initial="hidden"
-						whileInView="visible"
+						animate="visible"
 						whileHover="enlarge"
-						viewport={{ once: true }}
 						variants={{
 							hidden: {
 								scale: 0.7,

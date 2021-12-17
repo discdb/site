@@ -1,8 +1,10 @@
-const Discs = () => {
+import { NextPage } from "next";
+
+const Discs: NextPage = () => {
 	return (
-		<div>
+		<>
 			<div className="header">Discs</div>
-		</div>
+		</>
 	);
 };
 export default Discs;

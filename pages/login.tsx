@@ -1,27 +1,26 @@
-import { LoginForm } from "../components/user/login/LoginForm";
+import { NextPage } from "next";
 import { getProviders, getSession } from "next-auth/react";
-import Router from "next/router";
+
+import { LoginForm } from "../components/user/login/LoginForm";
 
 export const getServerSideProps = async (context: any) => {
 	const session = await getSession(context);
 
+	if (session) return { redirect: { destination: "/", permanent: false } };
+
 	return {
 		props: {
 			providers: await getProviders(),
-			session,
 		},
 	};
 };
 
-const Login = ({ providers, session }) => {
-	if (session && process.browser) Router.push("/");
+interface Props {
+	providers: JSON;
+}
 
-	return session ? (
-		<div />
-	) : (
-		<div>
-			<LoginForm {...providers} />
-		</div>
-	);
+const Login: NextPage<Props> = ({ providers }) => {
+	return <LoginForm {...providers} />;
 };
+
 export default Login;

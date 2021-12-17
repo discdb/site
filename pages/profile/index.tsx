@@ -1,8 +1,10 @@
-const Profile = () => {
+import { NextPage } from "next";
+
+const Profile: NextPage = () => {
 	return (
-		<div>
+		<>
 			<div className="header">My Profile</div>
-		</div>
+		</>
 	);
 };
 export default Profile;

@@ -1,8 +1,10 @@
-const Guides = () => {
+import { NextPage } from "next";
+
+const Guides: NextPage = () => {
 	return (
-		<div>
+		<>
 			<div className="header">Guides</div>
-		</div>
+		</>
 	);
 };
 export default Guides;

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { MovieType } from "../../types/Movie";
 import styles from "./MoviePage.module.css";
 
@@ -12,8 +14,9 @@ export const MoviePage = ({
 	return (
 		<div id={styles.seriesContainer}>
 			<div id={styles.leftContainer}>
-				<img
-					style={{ maxWidth: "250px" }}
+				<Image
+					width={"250px"}
+					height={"375px"}
 					src={`https://www.themoviedb.org/t/p/w1280/${poster_path}`}
 				/>
 			</div>

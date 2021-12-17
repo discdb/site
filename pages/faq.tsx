@@ -1,8 +1,10 @@
-const FAQ = () => {
+import { NextPage } from "next";
+
+const FAQ: NextPage = () => {
 	return (
-		<div>
+		<>
 			<div className="header">Frequently Asked Questions</div>
-		</div>
+		</>
 	);
 };
 export default FAQ;
