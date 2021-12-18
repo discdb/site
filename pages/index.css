@@ -197,6 +197,11 @@ details > div {
 	grid-column: span 1 / span 1;
 	max-height: 350px;
 }
+#loadMore {
+	margin: 5rem 0 0 0;
+	text-align: center;
+}
+
 @media (min-width: 768px) {
 	.posterGrid {
 		column-gap: 0.8rem;

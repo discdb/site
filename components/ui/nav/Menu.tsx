@@ -20,6 +20,16 @@ export const Menu = () => {
 		};
 	}, []);
 
+	const blogOption = (
+		<div>
+			<div className={styles.menuHeader}>Blog</div>
+			<Link href="/blog/create">
+				<a className="noselect">
+					<div className={styles.menuItem}>Create Post</div>
+				</a>
+			</Link>
+		</div>
+	);
 	const authenticatedOptions = (
 		<div>
 			<div className={styles.menuHeader}>Browse</div>
@@ -83,6 +93,7 @@ export const Menu = () => {
 				setOpen(isOpen);
 			}}
 		>
+			{true ? blogOption : ""}
 			{session.status == "authenticated"
 				? authenticatedOptions
 				: unauthenticatedOptions}
