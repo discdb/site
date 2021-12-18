@@ -36,11 +36,14 @@ const MappedPost = ({ index, post }: { index: number; post: BlogPost }) => {
 
 const Home: NextPage = () => {
 	const [posts, setPosts] = useState([]);
+	const [error, setError] = useState("");
 
 	useEffect(() => {
-		getPostsFromAPI().then((res) => {
-			setPosts(res);
-		});
+		getPostsFromAPI()
+			.then((res) => {
+				setPosts(res);
+			})
+			.catch((err) => setError("Error fetching posts"));
 	}, []);
 
 	return (
@@ -77,9 +80,13 @@ const Home: NextPage = () => {
 			</div>
 			<div className="header">Recent Blog Posts</div>
 			<div id="postList" className="after-header">
-				{posts.map((post, index) => (
-					<MappedPost post={post} index={index} />
-				))}
+				{!error ? (
+					posts.map((post, index) => (
+						<MappedPost post={post} index={index} />
+					))
+				) : (
+					<span style={{ color: "red" }}>{error}</span>
+				)}
 			</div>
 			<div className="header">Recent Additions</div>
 			<div className="after-header"></div>

@@ -1,17 +1,20 @@
-const API_URL =
-	process.env.NODE_ENV == "development"
-		? "http://localhost:3000"
-		: "https://dvdb.milk.ovh";
+import { LOCAL_API_URL } from "../../../helpers/api";
 
 export const searchSeries = async (query: string) => {
-	const response = await fetch(`${API_URL}/api/series/search?data=${query}`, {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
+	const response = await fetch(
+		`${LOCAL_API_URL}/series/search?data=${query}`,
+		{
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		}
+	);
 
-	const series = await response.json();
-	const { results } = series;
-	return results;
+	if (response.ok) {
+		const { results } = await response.json();
+		return results;
+	} else {
+		throw response.statusText;
+	}
 };
