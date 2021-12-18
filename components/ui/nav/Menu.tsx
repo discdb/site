@@ -22,6 +22,28 @@ export const Menu = () => {
 
 	const authenticatedOptions = (
 		<div>
+			<div className={styles.menuHeader}>Browse</div>
+			<Link href="/blog">
+				<a className="noselect">
+					<div className={styles.menuItem}>Blog</div>
+				</a>
+			</Link>
+			<Link href="/discs">
+				<a className="noselect">
+					<div className={styles.menuItem}>Discs</div>
+				</a>
+			</Link>
+			<Link href="/movies">
+				<a className="noselect">
+					<div className={styles.menuItem}>Movies</div>
+				</a>
+			</Link>
+			<Link href="/series">
+				<a className="noselect">
+					<div className={styles.menuItem}>Series</div>
+				</a>
+			</Link>
+			<div className={styles.menuHeader}>Other</div>
 			<a>
 				<div
 					onClick={() => {
