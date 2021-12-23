@@ -1,80 +1,19 @@
 import { NextPage } from "next";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-
-import { getPostsFromAPI } from "../components/blog/getPostsFromAPI";
-import { Post } from "../components/blog/Post";
-import { BlogPost } from "../components/types/Post";
-
-const MappedPost = ({ index, post }: { index: number; post: BlogPost }) => {
-	return (
-		<>
-			<motion.div
-				key={index}
-				initial="hidden"
-				animate="visible"
-				variants={{
-					hidden: {
-						scale: 0.7,
-						opacity: 0,
-					},
-					visible: {
-						scale: 1,
-						opacity: 1,
-						transition: {
-							delay: index / 10,
-						},
-					},
-				}}
-			>
-				<Post {...post} />
-			</motion.div>
-		</>
-	);
-};
 
 const Home: NextPage = () => {
-	const [posts, setPosts] = useState([]);
-	const [error, setError] = useState("");
-
-	useEffect(() => {
-		getPostsFromAPI()
-			.then((res) => {
-				setPosts(res);
-			})
-			.catch((err) => setError("Error fetching posts"));
-	}, []);
-
 	return (
 		<>
-			<div id="about-us">
-				<div className="header-2">What is dvdb?</div>
-				<div
-					className="after-header"
-					style={{ fontSize: "var(--size-2)" }}
-				>
-					<p>
-						A site aimed as a alternative of no-intro/redump, but
-						for media like Blu-Rays and DVDs.
-						<span id="link">
-							<Link href="/about-us">Learn More</Link>
-						</span>
-					</p>
+			<div id="main">
+				<h1>Preserved for the future.</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Ut enim ad minim veniam
+				</p>
+				<div>
+					<a className="link">Checkout the database &#8594;</a>
 				</div>
 			</div>
-			<div className="header">Recent Blog Posts</div>
-			<div id="postList" className="after-header">
-				{!error ? (
-					posts.map((post, index) => (
-						<MappedPost post={post} index={index} />
-					))
-				) : (
-					<span style={{ color: "red" }}>{error}</span>
-				)}
-			</div>
-			{/* <div className="header">Recent Additions</div>
-			<div className="after-header"></div> */}
 		</>
 	);
 };

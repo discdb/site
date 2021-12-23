@@ -1,46 +1,45 @@
+import { signOut, useSession } from "next-auth/react";
+
 import Link from "next/link";
-import styles from "./NavBar.module.css";
-import { Menu } from "./Menu";
 
 export const Header = () => {
+	const session = useSession();
+
 	return (
-		<div>
-			<title>dvdb</title>
-			<div id={styles.nav}>
-				<Link href="/">
-					<div id="title" className="noselect">
-						dvdb
+		<div id="navbar">
+			<div id="title">
+				<Link href="/">dvdb</Link>
+			</div>
+			<div id="nav-items">
+				<ul>
+					<li>
+						<Link href="/">Home</Link>
+					</li>
+					<li>
+						<Link href="/about">About</Link>
+					</li>
+					<li>
+						<Link href="/blog">Blog</Link>
+					</li>
+					<li>
+						<Link href="/guides">Guides</Link>
+					</li>
+					<li>
+						<Link href="/media">Media</Link>
+					</li>
+				</ul>
+			</div>
+			{session.status == "authenticated" ? (
+				<div id="auth" onClick={() => signOut()}>
+					<span className="link">Logout</span>
+				</div>
+			) : (
+				<Link href="/login">
+					<div id="auth">
+						<span className="link">Login</span>
 					</div>
 				</Link>
-				<div>
-					<Link href="/blog">
-						<a>
-							<div className={styles.navItem}>Blog</div>
-						</a>
-					</Link>
-					<Link href="/guides">
-						<a>
-							<div className={styles.navItem}>Guides</div>
-						</a>
-					</Link>
-					<Link href="/discs">
-						<a>
-							<div className={styles.navItem}>Discs</div>
-						</a>
-					</Link>
-					<Link href="/series">
-						<a>
-							<div className={styles.navItem}>Series</div>
-						</a>
-					</Link>
-					<Link href="/movies">
-						<a>
-							<div className={styles.navItem}>Movies</div>
-						</a>
-					</Link>
-				</div>
-			</div>
-			<Menu />
+			)}
 		</div>
 	);
 };
