@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@mui/icons-material": "^5.2.5",
 		"@types/node": "^12.20.37",
 		"@types/pg": "^8.6.1",
 		"@types/react": "^17.0.37",

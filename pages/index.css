@@ -21,7 +21,9 @@ body {
 	flex-flow: column;
 	min-height: 100vh;
 }
-
+input {
+	-webkit-border-radius: 0px;
+}
 main {
 	margin: 0 2rem;
 	width: auto;
@@ -92,11 +94,12 @@ section {
 	padding: 0.5rem 0;
 	box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.06);
 	display: flex;
+
 	justify-content: space-between;
 }
 #title {
 	line-height: 100%;
-	margin: auto 0 auto 2rem;
+	margin: auto -6.5rem auto 2rem;
 	font-size: var(--size-3);
 	font-weight: 600;
 }
@@ -237,6 +240,64 @@ footer > div > div:not(.noselect) > a:hover {
 	user-select: none; /* Non-prefixed version, currently
 							supported by Chrome, Edge, Opera and Firefox */
 }
+.bm-burger-button {
+	display: flex;
+	position: absolute;
+	width: 23px;
+	height: 20px;
+	left: 36px;
+	top: 36px;
+}
+
+.bm-burger-bars {
+	background: black;
+}
+
+.bm-cross-button > span {
+	top: 2px !important;
+}
+
+.bm-cross-button {
+	margin: 1.5rem;
+	padding: 1rem;
+}
+
+.bm-cross {
+	background: #bdc3c7;
+	width: 6px !important;
+	height: 24px !important;
+}
+
+.bm-menu {
+	background: var(--color-1);
+	padding: 2.5em 1.5em 0;
+	font-size: 1.15em;
+	overflow-y: hidden !important;
+}
+.bm-menu-wrap {
+	top: 0;
+	display: fixed;
+}
+.bm-item-list {
+	padding: 0.8em;
+}
+
+.bm-item {
+	display: block;
+	color: white;
+}
+.bm-overlay {
+	background: rgba(0, 0, 0, 0.3);
+	top: 0;
+}
+.bm-item a {
+	text-decoration: none;
+	color: inherit;
+}
+.bm-item:focus {
+	outline: 0 !important;
+}
+
 @supports (-webkit-touch-callout: none) {
 	.posterGrid {
 		margin: auto -1.15rem;
@@ -266,15 +327,21 @@ footer > div > div:not(.noselect) > a:hover {
 	}
 	#title {
 		margin: auto 0 auto 8rem;
+		flex: 1 1 auto;
 	}
 	#auth {
 		margin: auto 8rem auto 0;
+		flex: 1 1 auto;
+		text-align: right;
 	}
 	#navbar {
 		min-height: 0;
 	}
 	#nav-items {
-		display: initial;
+		display: block;
+	}
+	.bm-burger-button {
+		display: none;
 	}
 	footer {
 		text-align: left;

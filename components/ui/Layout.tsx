@@ -8,10 +8,6 @@ const Layout = ({ children }) => {
 		<>
 			<Head>
 				<title>dvdb</title>
-				<link
-					href="https://fonts.googleapis.com/css2?family=Material+Icons"
-					rel="stylesheet"
-				/>
 			</Head>
 			<Header />
 			<main>{children}</main>

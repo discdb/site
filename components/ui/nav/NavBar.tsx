@@ -1,12 +1,14 @@
 import { signOut, useSession } from "next-auth/react";
-
 import Link from "next/link";
+
+import { Menu } from "./Menu";
 
 export const Header = () => {
 	const session = useSession();
 
 	return (
 		<header id="navbar">
+			<Menu />
 			<div id="title" className="noselect">
 				<Link href="/">dvdb</Link>
 			</div>
@@ -31,7 +33,7 @@ export const Header = () => {
 			</div>
 			{session.status == "authenticated" ? (
 				<div id="auth" className="noselect" onClick={() => signOut()}>
-					<span className="link ">Logout</span>
+					<span className="link">Logout</span>
 				</div>
 			) : (
 				<Link href="/login">

@@ -82,7 +82,6 @@ export const Menu = () => {
 	);
 	return (
 		<BurgerMenu
-			right
 			isOpen={open}
 			disableAutoFocus
 			onStateChange={({ isOpen }) => {
@@ -93,7 +92,7 @@ export const Menu = () => {
 				setOpen(isOpen);
 			}}
 		>
-			{true ? blogOption : ""}
+			{/* {true ? blogOption : ""} */}
 			{session.status == "authenticated"
 				? authenticatedOptions
 				: unauthenticatedOptions}
