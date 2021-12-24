@@ -4,7 +4,7 @@
 }
 #post {
 	transition: transform 0.2s;
-	background-color: var(--color-3);
+	background-color: var(--color-4);
 	color: var(--color-1);
 	border-radius: 5px;
 	margin: 0 0 1.25rem 0;

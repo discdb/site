@@ -48,7 +48,6 @@ const Blog: NextPage = () => {
 
 	return (
 		<>
-			<div className="header">Blog</div>
 			<div id="postList" className="after-header">
 				{!error ? (
 					posts.map((post, index) => (
