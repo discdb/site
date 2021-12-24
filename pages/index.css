@@ -26,9 +26,12 @@ main {
 	margin: 0 2rem;
 	width: auto;
 }
-
-.landing h1 {
+h1 {
+	text-align: center;
 	font-size: 48px;
+}
+.landing h1 {
+	text-align: left;
 	animation-name: flyin;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
@@ -119,16 +122,16 @@ section {
 	background: var(--color-3);
 }
 
-ul {
+#nav-items ul {
 	font-size: var(--size-1);
 }
-li {
+#nav-items li {
 	line-height: 50px;
 	display: inline;
 	text-transform: uppercase;
 	padding: 0.5rem 1rem;
 }
-li:hover {
+#nav-items li:hover {
 	cursor: pointer;
 	border-bottom: 1px solid #000;
 }
@@ -161,23 +164,60 @@ li:hover {
 	margin: 5rem 0 0 0;
 	text-align: center;
 }
+.info-page {
+	margin: 0 auto;
+	text-align: center;
+}
 footer {
 	background-color: var(--color-1);
 	color: white;
 	font-size: var(--size-2);
-	font-weight: 600;
 	text-align: center;
 	min-height: 200px;
 	padding: 2rem 0;
 }
 footer > div {
-	margin: auto 8rem;
+	margin: 0 2rem;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-evenly;
+	height: 100%;
 }
 footer a {
 	text-decoration: none;
 	color: inherit;
 }
-footer > div > div:not(.noselect) > a {
+.footer-column,
+.footer-title {
+	white-space: nowrap;
+}
+.footer-title,
+.footer-header {
+	font-weight: 600;
+	color: white;
+}
+.footer-title {
+	font-size: var(--size-3);
+	margin-bottom: 2rem;
+}
+.footer-header {
+	margin-bottom: 0.5rem;
+}
+.footer-column {
+	font-size: var(--size-1);
+}
+.footer-body {
+	color: silver;
+}
+.footer-body ul {
+	list-style-type: none;
+	padding: 0;
+}
+.footer-body li {
+	margin-bottom: 4px;
+}
+
+/* footer > div > div:not(.noselect) > a {
 	font-weight: 500;
 	font-size: var(--size-1);
 	margin: 0 1rem 0 1rem;
@@ -186,7 +226,8 @@ footer > div > div:not(.noselect) > a {
 }
 footer > div > div:not(.noselect) > a:hover {
 	color: var(--color-5);
-}
+} */
+
 .noselect {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */
@@ -215,7 +256,8 @@ footer > div > div:not(.noselect) > a:hover {
 	section > * {
 		margin: 0 8rem;
 	}
-	.landing {
+	.landing,
+	.info-page {
 		padding: 75px 0;
 		width: 50%;
 	}
@@ -236,5 +278,14 @@ footer > div > div:not(.noselect) > a:hover {
 	}
 	footer {
 		text-align: left;
+	}
+	footer > div {
+		margin: 0 8rem;
+		flex-direction: row;
+	}
+	.footer-column,
+	.footer-title {
+		padding: 3rem 0;
+		flex: 2;
 	}
 }

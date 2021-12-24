@@ -48,14 +48,17 @@ const Blog: NextPage = () => {
 
 	return (
 		<>
-			<div id="postList" className="after-header">
-				{!error ? (
-					posts.map((post, index) => (
-						<MappedPost post={post} index={index} />
-					))
-				) : (
-					<span style={{ color: "red" }}>{error}</span>
-				)}
+			<div className="info-page">
+				<h1>Blog</h1>
+				<div id="postList" className="after-header">
+					{!error ? (
+						posts.map((post, index) => (
+							<MappedPost post={post} index={index} />
+						))
+					) : (
+						<span style={{ color: "red" }}>{error}</span>
+					)}
+				</div>
 			</div>
 		</>
 	);
