@@ -10,7 +10,7 @@
 	aspect-ratio: 16 / 9;
 	background: red;
 	border: black 1px solid;
-	background-attachment: scroll;
+	object-fit: cover;
 }
 .info {
 	margin-left: 1rem;

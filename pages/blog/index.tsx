@@ -52,7 +52,7 @@ const Blog: NextPage = () => {
 			<div id="postList">
 				{!error ? (
 					posts.map((post, index) => (
-						<MappedPost post={post} index={index} />
+						<MappedPost post={post} key={index} index={index} />
 					))
 				) : (
 					<span style={{ color: "red" }}>{error}</span>

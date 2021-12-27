@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export const Post = ({
 	title,
-	image = "https://www.solidbackgrounds.com/images/1280x720/1280x720-rich-electric-blue-solid-color-background.jpg",
+	image = "https://www.teahub.io/photos/full/21-211456_blur-gaussian.jpg",
 	body,
 	identifier,
 }: BlogPost) => {
