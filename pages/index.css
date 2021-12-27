@@ -318,6 +318,12 @@ footer > div > div:not(.noselect) > a:hover {
 }
 
 @media (min-width: 768px) {
+	@media (min-width: 961px) {
+		main,
+		section > * {
+			margin: 0 8rem;
+		}
+	}
 	.posterGrid {
 		grid-template-columns: repeat(auto-fill, 176px);
 		column-gap: 0.8rem;
@@ -377,13 +383,5 @@ footer > div > div:not(.noselect) > a:hover {
 	.footer-title {
 		padding: 3rem 0;
 		flex: 2;
-	}
-}
-@supports not (-webkit-touch-callout: none) {
-	@media (min-width: 768px) {
-		main,
-		section > * {
-			margin: 0 8rem;
-		}
 	}
 }
