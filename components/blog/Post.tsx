@@ -5,21 +5,18 @@ import { useEffect } from "react";
 
 export const Post = ({
 	title,
-	image = "https://www.cliffrailwaylynton.co.uk/wp-content/uploads/2018/01/250x250-Placeholder.png",
+	image = "https://www.solidbackgrounds.com/images/1280x720/1280x720-rich-electric-blue-solid-color-background.jpg",
 	body,
 	identifier,
 }: BlogPost) => {
 	return (
 		<Link href={`/blog/${identifier}`}>
 			<div id={styles.post}>
-				<div>
-					<div className={styles.newsLeft}>
-						<img src={image} alt="" />
-					</div>
-					<div className={styles.newsRight}>
-						<div className={styles.title}>{title}</div>
-						<div className={styles.body}>{body}</div>
-					</div>
+				<img src={image} className={styles.image} />
+				<div className={styles.info}>
+					<div className={styles.date}>January 1st, 2022</div>
+					<div className="title">{title}</div>
+					<div className={styles.body}>{body}</div>
 				</div>
 			</div>
 		</Link>

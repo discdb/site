@@ -1,4 +1,25 @@
-#postList a {
+#post {
+	display: inline-flex;
+}
+
+.image {
+	height: auto;
+	max-width: 50%;
+	min-width: 160px;
+	aspect-ratio: 16 / 9;
+	background: red;
+	border: black 1px solid;
+}
+.info {
+	margin-left: 1rem;
+	font-size: var(--size-0);
+}
+.date {
+	color: grey;
+	font-size: var(--size-0);
+	text-transform: uppercase;
+}
+/* #postList a {
 	color: inherit;
 	text-decoration: none;
 }
@@ -60,4 +81,4 @@
 		font-size: var(--size-1);
 		-webkit-line-clamp: 4;
 	}
-}
+} */

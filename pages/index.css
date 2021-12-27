@@ -171,6 +171,18 @@ section {
 	margin: 0 auto;
 	text-align: center;
 }
+#postList {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 1rem;
+}
+#postList > * {
+	grid-column: span 1 / span 1;
+}
+#postList .title {
+	font-weight: 600;
+}
+
 footer {
 	background-color: var(--color-1);
 	color: white;
@@ -310,17 +322,28 @@ footer > div > div:not(.noselect) > a:hover {
 		grid-template-columns: repeat(auto-fill, 176px);
 		column-gap: 0.8rem;
 	}
+
 	main {
 		padding-top: 20px;
 	}
-	main,
-	section > * {
-		margin: 0 8rem;
-	}
+
 	.landing,
 	.info-page {
 		padding: 75px 0;
 		width: 50%;
+	}
+	#postList {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	#postList :first-child {
+		grid-column: span 3 / span 3;
+	}
+	#postList :first-child > div > div > .title {
+		font-size: 32px;
+	}
+	#postList .title {
+		font-size: 20px;
+		padding: 0.25rem 0;
 	}
 	section {
 		margin: 0 -8rem;
@@ -354,5 +377,13 @@ footer > div > div:not(.noselect) > a:hover {
 	.footer-title {
 		padding: 3rem 0;
 		flex: 2;
+	}
+}
+@supports not (-webkit-touch-callout: none) {
+	@media (min-width: 768px) {
+		main,
+		section > * {
+			margin: 0 8rem;
+		}
 	}
 }
