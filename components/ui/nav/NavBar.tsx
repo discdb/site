@@ -14,21 +14,21 @@ export const Header = () => {
 			</div>
 			<div id="nav-items">
 				<ul>
-					<li className="noselect">
-						<Link href="/">Home</Link>
-					</li>
-					<li className="noselect">
-						<Link href="/about">About</Link>
-					</li>
-					<li className="noselect">
-						<Link href="/blog">Blog</Link>
-					</li>
-					<li className="noselect">
-						<Link href="/guides">Guides</Link>
-					</li>
-					<li className="noselect">
-						<Link href="/media">Media</Link>
-					</li>
+					<Link href="/">
+						<li className="noselect">Home</li>
+					</Link>
+					<Link href="/about">
+						<li className="noselect">About</li>
+					</Link>
+					<Link href="/blog">
+						<li className="noselect">Blog</li>
+					</Link>
+					<Link href="/guides">
+						<li className="noselect">Guides</li>
+					</Link>
+					<Link href="/media">
+						<li className="noselect">Media</li>
+					</Link>
 				</ul>
 			</div>
 			{session.status == "authenticated" ? (

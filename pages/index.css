@@ -19,6 +19,7 @@ body {
 	background: var(--color-3);
 	display: flex;
 	flex-flow: column;
+	justify-content: space-between;
 	min-height: 100vh;
 }
 input {
@@ -189,7 +190,7 @@ footer {
 	font-size: var(--size-2);
 	text-align: center;
 	min-height: 200px;
-	padding: 2rem 0;
+	padding: 75px 0;
 }
 footer > div {
 	margin: 0 2rem;
@@ -198,9 +199,17 @@ footer > div {
 	justify-content: space-evenly;
 	height: 100%;
 }
+.footer-flex {
+	display: flex;
+	flex-flow: column;
+	justify-content: space-evenly;
+}
 footer a {
 	text-decoration: none;
 	color: inherit;
+}
+footer a:hover {
+	color: white;
 }
 .footer-column,
 .footer-title {
@@ -379,9 +388,16 @@ footer > div > div:not(.noselect) > a:hover {
 		margin: 0 8rem;
 		flex-direction: row;
 	}
+	.footer-flex {
+		flex-flow: row;
+	}
 	.footer-column,
 	.footer-title {
 		padding: 3rem 0;
-		flex: 2;
+	}
+	.footer-title,
+	.footer-flex {
+		display: inline-flex;
+		width: 50%;
 	}
 }
