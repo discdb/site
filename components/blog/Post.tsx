@@ -12,8 +12,8 @@ export const Post = ({
 	return (
 		<Link href={`/blog/${identifier}`}>
 			<div id={styles.post}>
-				<img src={image} className={styles.image} />
-				<div className={styles.info}>
+				<img src={image} className="image" />
+				<div id="info" className={styles.info}>
 					<div className={styles.date}>January 1st, 2022</div>
 					<div className="title">{title}</div>
 					<div className={styles.body}>{body}</div>
