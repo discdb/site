@@ -15,9 +15,13 @@ export const Series = ({
 	return (
 		<Link href={`/series/${id}`}>
 			<div id={styles.series}>
-				<Image
+				{/* <Image
 					width={180.4}
 					height={273}
+					layout={"responsive"}
+				
+				/> */}
+				<img
 					alt={"No image!"}
 					src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${poster_path}`}
 				/>

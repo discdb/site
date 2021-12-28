@@ -20,8 +20,40 @@ export const Menu = () => {
 		};
 	}, []);
 
+	const blogOption = (
+		<div>
+			<div className={styles.menuHeader}>Blog</div>
+			<Link href="/blog/create">
+				<a className="noselect">
+					<div className={styles.menuItem}>Create Post</div>
+				</a>
+			</Link>
+		</div>
+	);
 	const authenticatedOptions = (
 		<div>
+			<div className={styles.menuHeader}>Browse</div>
+			<Link href="/blog">
+				<a className="noselect">
+					<div className={styles.menuItem}>Blog</div>
+				</a>
+			</Link>
+			<Link href="/discs">
+				<a className="noselect">
+					<div className={styles.menuItem}>Discs</div>
+				</a>
+			</Link>
+			<Link href="/movies">
+				<a className="noselect">
+					<div className={styles.menuItem}>Movies</div>
+				</a>
+			</Link>
+			<Link href="/series">
+				<a className="noselect">
+					<div className={styles.menuItem}>Series</div>
+				</a>
+			</Link>
+			<div className={styles.menuHeader}>Other</div>
 			<a>
 				<div
 					onClick={() => {
@@ -50,7 +82,6 @@ export const Menu = () => {
 	);
 	return (
 		<BurgerMenu
-			right
 			isOpen={open}
 			disableAutoFocus
 			onStateChange={({ isOpen }) => {
@@ -61,6 +92,7 @@ export const Menu = () => {
 				setOpen(isOpen);
 			}}
 		>
+			{/* {true ? blogOption : ""} */}
 			{session.status == "authenticated"
 				? authenticatedOptions
 				: unauthenticatedOptions}

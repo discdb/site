@@ -1,8 +1,10 @@
 .menuItem {
 	font-size: var(--size-3);
-	font-weight: 600;
 	margin: 1rem;
 }
 .menuItem {
 	cursor: pointer;
+}
+.menuHeader {
+	font-weight: 600;
 }

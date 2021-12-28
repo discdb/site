@@ -1,4 +1,4 @@
-import { getSession } from "next-auth/react";
+import { authHandler } from "../../../helpers/api";
 
 const apiKey = process.env.TMDB_API_KEY;
 const apiURL = "https://api.themoviedb.org/3/search/tv/";
@@ -20,21 +20,12 @@ export const searchSeries = async (query: string) => {
 };
 
 async function handler(req: any, res: any) {
-	const { method, query } = req;
-	const session = await getSession({ req });
+	const { query } = req;
+	const { results } = await searchSeries(query.data);
 
-	return new Promise(async (resolve) => {
-		if (method == "GET" && session) {
-			const { results } = await searchSeries(query.data);
-
-			return resolve(res.status(200).send({ results }));
-		} else if (!session) {
-			return resolve(
-				res.status(401).send({
-					message: "Unauthorized!",
-				})
-			);
-		}
-	});
+	return res.status(200).send({ results });
 }
-export default handler;
+
+export default authHandler({
+	get: handler,
+});

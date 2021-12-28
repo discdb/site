@@ -20,7 +20,12 @@ interface Props {
 }
 
 const Login: NextPage<Props> = ({ providers }) => {
-	return <LoginForm {...providers} />;
+	return (
+		<>
+			<h1>Login</h1>
+			<LoginForm {...providers} />
+		</>
+	);
 };
 
 export default Login;

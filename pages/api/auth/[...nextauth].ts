@@ -1,9 +1,9 @@
 import NextAuth from "next-auth";
 import Discord from "next-auth/providers/discord";
 
-const DATABASE: string = process.env.DATABASE || "";
-const USER: string = process.env.USER || "";
-const PASSWORD: string = process.env.PASSWORD || "";
+// const DATABASE: string = process.env.DATABASE || "";
+// const USER: string = process.env.USER || "";
+// const PASSWORD: string = process.env.PASSWORD || "";
 
 const providers = [
 	Discord({
@@ -14,21 +14,21 @@ const providers = [
 	}),
 ];
 
-const callbacks = {
-	// Getting the JWT token from API response
-	async jwt({ token, user }) {
-		if (user) {
-			token = user;
-		}
-		return token;
-	},
+// const callbacks = {
+// 	// Getting the JWT token from API response
+// 	async jwt({ token, user }) {
+// 		if (user) {
+// 			token = user;
+// 		}
+// 		return token;
+// 	},
 
-	async session({ session, token }) {
-		session = token;
+// 	async session({ session, token }) {
+// 		session = token;
 
-		return session;
-	},
-};
+// 		return session;
+// 	},
+// };
 const options = {
 	// database: `postgres://${USER}:${PASSWORD}@127.0.0.1:5432/${DATABASE}`,
 	pages: {
@@ -43,4 +43,4 @@ const options = {
 	providers,
 };
 
-export default (req, res) => NextAuth(req, res, options);
+export default (req: any, res: any) => NextAuth(req, res, options);
