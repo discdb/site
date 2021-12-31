@@ -4,7 +4,12 @@ import styles from "./index.module.css";
 import { loginUser } from "./Login";
 import { signIn } from "next-auth/react";
 
-export const LoginForm = (providers: JSON) => {
+interface Props {
+	providers: JSON;
+	referer: string;
+}
+
+export const LoginForm = ({ providers, referer }: Props) => {
 	return (
 		<div id={styles.loginForm}>
 			<div className="header" style={{ textAlign: "center" }}>
@@ -49,7 +54,11 @@ export const LoginForm = (providers: JSON) => {
 						<div key={provider.name}>
 							<button
 								id={styles.loginButton}
-								onClick={() => signIn(provider.id)}
+								onClick={() =>
+									signIn(provider.id, {
+										callbackUrl: referer,
+									})
+								}
 							>
 								Login with {provider.name}
 							</button>
