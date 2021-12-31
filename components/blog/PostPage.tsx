@@ -5,13 +5,18 @@ import styles from "./PostPage.module.css";
 
 import { PostPage } from "../types/Post";
 
-export const Post = ({ title, body, createdAt, createdBy }: PostPage) => {
+export const Post = ({
+	title,
+	image = "https://www.teahub.io/photos/full/21-211456_blur-gaussian.jpg",
+	body,
+	createdAt,
+	createdBy,
+}: PostPage) => {
 	return (
 		<div id={styles.postPage}>
-			<div id={styles.backDrop}>
-				<h1>{title}</h1>
-			</div>
-			<main>
+			<img src={image} id={styles.backDrop} />
+			<h1>{title}</h1>
+			<article>
 				<div id={styles.postDetails}>
 					<div>{moment(createdAt).format("MMMM Do, YYYY")}</div>
 					<div>By {createdBy}</div>
@@ -19,7 +24,7 @@ export const Post = ({ title, body, createdAt, createdBy }: PostPage) => {
 				</div>
 				<br />
 				<ReactMarkdown skipHtml={true}>{body}</ReactMarkdown>
-			</main>
+			</article>
 		</div>
 	);
 };

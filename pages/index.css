@@ -96,12 +96,11 @@ section {
 	padding: 0.5rem 0;
 	box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.06);
 	display: flex;
-
 	justify-content: space-between;
 }
 #title {
-	line-height: 100%;
-	margin: auto -6.5rem auto 2rem;
+	height: 100%;
+	margin: auto -2rem auto 0;
 	font-size: var(--size-3);
 	font-weight: 600;
 }
@@ -140,7 +139,9 @@ section {
 	cursor: pointer;
 	border-bottom: 1px solid #000;
 }
-#nav-items {
+#nav-items,
+#auth :not(#title),
+.footer-title {
 	display: none;
 }
 #nav-items a,
@@ -224,7 +225,7 @@ footer > div {
 .footer-flex {
 	display: flex;
 	flex-flow: column;
-	justify-content: space-evenly;
+	justify-content: space-around;
 }
 footer a {
 	text-decoration: none;
@@ -242,17 +243,30 @@ footer a:hover {
 	font-weight: 600;
 	color: white;
 }
+.footer-header,
+.footer-body {
+	grid-column: span 1 / span 1;
+}
 .footer-title {
 	font-size: var(--size-3);
 	margin-bottom: 2rem;
 }
 .footer-header {
-	margin-bottom: 0.5rem;
+	font-size: var(--size-0);
 }
 .footer-column {
 	font-size: var(--size-1);
+	display: grid;
+	grid-auto-flow: row;
+	grid-auto-columns: 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	margin-bottom: 10px;
+	text-align: left;
 }
 .footer-body {
+	font-size: var(--size-1);
+	margin-top: -1rem;
 	color: silver;
 }
 .footer-body ul {
@@ -288,8 +302,8 @@ footer > div > div:not(.noselect) > a:hover {
 	position: absolute;
 	width: 23px;
 	height: 20px;
-	left: 36px;
-	top: 36px;
+	right: 40px;
+	top: 40px;
 }
 
 .bm-burger-bars {
@@ -412,8 +426,9 @@ footer > div > div:not(.noselect) > a:hover {
 	#navbar {
 		min-height: 0;
 	}
-	#nav-items {
-		display: block;
+	#nav-items,
+	#auth :not(#title) {
+		display: inline-block;
 	}
 	.bm-burger-button {
 		display: none;
@@ -427,6 +442,13 @@ footer > div > div:not(.noselect) > a:hover {
 	}
 	.footer-flex {
 		flex-flow: row;
+	}
+	.footer-header {
+		margin-bottom: 1.5rem;
+	}
+	.footer-column,
+	.footer-title {
+		display: initial;
 	}
 	.footer-column,
 	.footer-title {

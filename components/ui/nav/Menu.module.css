@@ -4,6 +4,10 @@
 }
 .menuItem {
 	cursor: pointer;
+	color: silver;
+}
+.menuItem:hover {
+	color: white;
 }
 .menuHeader {
 	font-weight: 600;

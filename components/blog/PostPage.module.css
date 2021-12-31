@@ -1,25 +1,29 @@
-#postPage {
-	margin: -3rem 0 0 0;
-}
 #backDrop {
-	background-color: var(--color-4);
-	min-height: 20vw;
-	display: flex;
-	justify-content: center;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	width: 100%;
+	min-height: 480px;
+	z-index: -1;
+	top: 0;
+	left: 0;
 }
-#backDrop h1 {
-	z-index: 0;
+#postPage > h1 {
+	text-align: center;
 }
-#postPage > main {
+
+#postPage > article {
 	/* margin: -3rem -1.5rem 0.5rem -1.5rem; */
-	background-color: var(--color-5);
+	margin: 0 -1.5rem 1rem -1.5rem;
+
+	background-color: var(--color-3);
 	padding: 2rem;
 	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
 		0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
 		var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-	min-height: 100vh;
-	z-index: 10;
+	height: 100vw;
+	border-radius: 16px;
 }
 
 #postDetails {
@@ -30,18 +34,13 @@
 #postDetails > div {
 	grid-column: span 1 / span 1;
 }
-/* #postDetails:first-child {
-	grid-column-start: 2;
-} */
-/* #postDetails > div::after {
-	content: " |";
-} */
-/* @media (min-width: 768px) {
-	#postPage h1 {
-		margin: 3rem 0 0 0;
+
+@media (min-width: 768px) {
+	#postPage > article {
+		margin: inherit;
+		margin-bottom: 2rem;
 	}
-	#postPage > main {
-		margin: -6rem 2rem 2rem 2rem;
-		padding: 2rem 4rem 2rem 4rem;
+	#postPage > h1 {
+		padding: 3rem 0;
 	}
-} */
+}
