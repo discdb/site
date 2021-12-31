@@ -19,7 +19,7 @@
 		"react-burger-menu": "^3.0.6",
 		"react-dom": "^17.0.2",
 		"react-markdown": "^7.1.0",
-		"typescript": "^4.5.2"
+		"typescript": "^4.5.3"
 	},
 	"scripts": {
 		"dev": "next dev",
