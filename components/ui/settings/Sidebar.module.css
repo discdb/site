@@ -1,0 +1,19 @@
+#sideBar {
+	font-size: var(--size-2);
+	list-style-type: none;
+	padding: 0;
+	flex: 1;
+	margin: 1rem 2rem 0 0;
+	color: var(--grey-2);
+	font-weight: 600;
+}
+#sideBar li {
+	padding: 0.35rem 0 0.35rem 0.75rem;
+	width: 100%;
+	transition: all 0.1s;
+}
+#sideBar li:hover {
+	background: var(--color-4);
+	border-radius: 16px;
+	cursor: pointer;
+}
