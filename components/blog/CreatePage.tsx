@@ -4,9 +4,6 @@ import { createPost } from "./createPost";
 export const CreatePage = () => {
 	return (
 		<div id={styles.createForm}>
-			<div className="header-2" style={{ textAlign: "center" }}>
-				Create Post
-			</div>
 			<form
 				onSubmit={(e: React.SyntheticEvent) => {
 					e.preventDefault();
@@ -21,11 +18,21 @@ export const CreatePage = () => {
 			>
 				<label htmlFor="title">
 					<div className={styles.label}>Title</div>
-					<input id={styles.input} name="title" type="text" />
+					<input
+						id={styles.input}
+						name="title"
+						type="text"
+						placeholder="Title"
+					/>
 				</label>
 				<label htmlFor="body">
 					<div className={styles.label}>Body</div>
-					<textarea id={styles.input} name="body" rows={24} />
+					<textarea
+						id={styles.input}
+						name="body"
+						rows={16}
+						placeholder="Body"
+					/>
 				</label>
 				<div className={styles.underBody}>
 					<a
@@ -36,7 +43,7 @@ export const CreatePage = () => {
 					</a>
 				</div>
 				<button id={styles.createButton} type="submit">
-					Create Post
+					Publish!
 				</button>
 			</form>
 		</div>

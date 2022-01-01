@@ -9,13 +9,17 @@
 	--size-1: 16px;
 	--size-2: 18px;
 	--size-3: 20px;
+
 	/* background-color: var(--color-5); */
 }
-body {
-	margin: 0;
+body,
+textarea {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
 		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
 		"Helvetica Neue", sans-serif;
+}
+body {
+	margin: 0;
 
 	background: var(--color-3);
 	display: flex;
@@ -373,6 +377,19 @@ footer > div > div:not(.noselect) > a:hover {
 }
 .bm-item:focus {
 	outline: 0 !important;
+}
+.addIcon {
+	float: right;
+	background: white;
+	border: 0;
+	border-radius: 16px;
+	width: 48px;
+	height: 48px;
+	transition: all 0.2s;
+}
+.addIcon:hover {
+	background: var(--color-4);
+	cursor: pointer;
 }
 .hidden {
 	display: none;

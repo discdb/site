@@ -15,6 +15,11 @@ export const getServerSideProps = async (context: any) => {
 };
 
 const Create: NextPage = () => {
-	return <CreatePage />;
+	return (
+		<>
+			<h2>Create Post</h2>
+			<CreatePage />
+		</>
+	);
 };
 export default Create;

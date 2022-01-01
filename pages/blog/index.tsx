@@ -2,10 +2,12 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useSession } from "next-auth/react";
 
 import { getPostsFromAPI } from "../../components/blog/getPostsFromAPI";
 import { Post } from "../../components/blog/Post";
 import { BlogPost } from "../../components/types/Post";
+import AddIcon from "@mui/icons-material/Add";
 
 // const MappedPost = ({ index, post }: { index: number; post: BlogPost }) => {
 // 	return (
@@ -37,6 +39,7 @@ import { BlogPost } from "../../components/types/Post";
 const Blog: NextPage = () => {
 	const [posts, setPosts] = useState([]);
 	const [error, setError] = useState("");
+	const session = useSession();
 
 	useEffect(() => {
 		getPostsFromAPI(20, 1)
@@ -49,6 +52,19 @@ const Blog: NextPage = () => {
 	return (
 		<>
 			<h1>The Blog</h1>
+			<span
+				title="Create Post"
+				className={session?.status == "authenticated" ? "" : "hidden"}
+			>
+				<Link href="/blog/create">
+					<a>
+						<button className="addIcon">
+							<AddIcon fontSize="large" />
+						</button>
+					</a>
+				</Link>
+			</span>
+
 			<div id="postList">
 				{!error ? (
 					posts.map((post, index) => (

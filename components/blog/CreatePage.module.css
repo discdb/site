@@ -1,47 +1,50 @@
 #createForm {
-	margin: 0 -1rem;
-	padding: 3rem 0 3rem 0;
-	--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	background: white;
+	border-radius: 16px;
+	height: 100%;
+	margin: 0 -1rem 2rem -1rem;
+	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+		0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
 		var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #createForm > form {
-	text-align: center;
-	width: 80%;
-	margin: auto;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 #createButton {
-	color: inherit;
-	font-weight: 500;
-	background-color: var(--color-3);
-	padding: 1.5rem;
-	margin: 2rem 0;
-	width: 100%;
-	transition: transform 0.3s, background-color 0.3s;
+	background: var(--color-3);
+	border: 0;
+	padding: 1.5rem 0;
 	font-size: var(--size-1);
+	border-radius: 32px;
+	transition: 0.2s all;
+	margin-top: 2rem;
+	letter-spacing: 1px;
 }
 #createButton:hover {
-	cursor: pointer;
-	background-color: var(--color-4);
-	border-color: transparent;
-	transform: perspective(1px) scale(1.025);
-}
-#input {
-	width: 90%;
-	border-color: transparent;
-	padding: 0.5rem;
-	resize: none;
-}
-#input:focus {
-	outline: 1px var(--color-2) solid;
+	background: var(--color-4);
 }
 .label {
-	text-align: left;
-	margin: 1rem 2rem;
+	font-weight: 600;
+}
+#input {
+	font-size: var(--size-1);
+	box-sizing: border-box;
+	width: 100%;
+	border: 0;
+	border-bottom: var(--color-1) 1px solid;
+	padding: 1rem;
+	resize: none;
+	margin-bottom: 1rem;
+}
+#input:focus {
+	outline: 0;
 }
 .underBody {
-	margin-top: 1rem;
+	text-align: center;
 }
 .underBody > a {
 	color: inherit;
@@ -52,7 +55,11 @@
 	font-size: var(--size-2);
 }
 @media (min-width: 768px) {
-	#createButton {
-		width: 95%;
+	#createForm {
+		margin: 0;
+		margin-bottom: 2rem;
+	}
+	#createForm > form {
+		padding: 3rem;
 	}
 }
