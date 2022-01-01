@@ -16,10 +16,12 @@ export const getServerSideProps = async (context: any) => {
 		},
 	};
 };
+
 interface Props {
 	providers: JSON;
 	referer: string;
 }
+
 const Login: NextPage<Props> = (props) => {
 	return <LoginForm {...props} />;
 };

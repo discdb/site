@@ -120,6 +120,8 @@ section {
 	border-radius: 16px;
 	padding: 0.6rem 2rem;
 	transition: all 0.2s;
+	text-decoration: none;
+	color: inherit;
 	cursor: pointer;
 }
 .link:hover,
@@ -378,6 +380,32 @@ footer > div > div:not(.noselect) > a:hover {
 }
 .bm-item:focus {
 	outline: 0 !important;
+}
+
+.loading {
+	margin: 0 auto;
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+}
+.loading:after {
+	content: " ";
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 6px solid var(--color-1);
+	border-color: var(--color-1) transparent var(--color-1) transparent;
+	animation: loading 1.2s linear infinite;
+}
+@keyframes loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 .addIcon {
 	float: right;

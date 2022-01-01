@@ -31,7 +31,7 @@ export const LoginForm = ({ providers, referer }: Props) => {
 					id={styles.input}
 					name="email"
 					type="email"
-					placeholder="email"
+					placeholder="Email"
 					required
 				/>
 				<br />
@@ -40,7 +40,7 @@ export const LoginForm = ({ providers, referer }: Props) => {
 					id={styles.input}
 					name="password"
 					type="password"
-					placeholder="password"
+					placeholder="Password"
 					required
 				/>
 				<br />

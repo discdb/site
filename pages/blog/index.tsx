@@ -66,13 +66,15 @@ const Blog: NextPage = () => {
 			</span>
 
 			<div id="postList">
-				{!error ? (
+				{error ? (
+					<span style={{ color: "red" }}>{error}</span>
+				) : posts.length > 0 ? (
 					posts.map((post, index) => (
 						// <MappedPost post={post} key={index} index={index} />
 						<Post {...post} key={index} />
 					))
 				) : (
-					<span style={{ color: "red" }}>{error}</span>
+					<div className="loading"></div>
 				)}
 			</div>
 		</>
