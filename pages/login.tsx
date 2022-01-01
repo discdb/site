@@ -6,8 +6,7 @@ import { LoginForm } from "../components/user/login/LoginForm";
 export const getServerSideProps = async (context: any) => {
 	const session = await getSession(context);
 
-	if (session?.status == "authenticated")
-		return { redirect: { destination: "/", permanent: false } };
+	if (session) return { redirect: { destination: "/", permanent: false } };
 	const { referer } = context.req.headers;
 
 	return {
@@ -22,12 +21,7 @@ interface Props {
 	referer: string;
 }
 const Login: NextPage<Props> = (props) => {
-	return (
-		<>
-			<h1>Login</h1>
-			<LoginForm {...props} />
-		</>
-	);
+	return <LoginForm {...props} />;
 };
 
 export default Login;

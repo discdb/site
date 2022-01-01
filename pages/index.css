@@ -212,8 +212,9 @@ section {
 }
 #dashboard {
 	display: flex;
-	flex-flow: row;
-	margin-bottom: 3rem;
+	flex-flow: column;
+	margin: 0 -1rem;
+	margin-bottom: 1.5rem;
 	font-size: var(--size-2);
 }
 #panes {
@@ -468,6 +469,13 @@ footer > div > div:not(.noselect) > a:hover {
 	#auth :not(#title) {
 		display: inline-block;
 	}
+
+	#dashboard {
+		flex-flow: row;
+		margin: 0;
+		margin-bottom: 3rem;
+	}
+
 	.bm-burger-button {
 		display: none;
 	}
