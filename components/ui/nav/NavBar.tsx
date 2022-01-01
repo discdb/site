@@ -1,10 +1,12 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { Menu } from "./Menu";
 
 export const Header = () => {
 	const session = useSession();
+	const router = useRouter();
 
 	return (
 		<header id="navbar">
@@ -32,7 +34,15 @@ export const Header = () => {
 				</ul>
 			</div>
 			{session.status == "authenticated" ? (
-				<div id="auth" className="noselect" onClick={() => signOut()}>
+				<div
+					id="auth"
+					className="noselect"
+					onClick={() =>
+						signOut({
+							callbackUrl: `${router.asPath}`,
+						})
+					}
+				>
 					<span className="link">Logout</span>
 				</div>
 			) : (

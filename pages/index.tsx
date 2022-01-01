@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Link from "next/link";
 
 const Home: NextPage = () => {
 	return (
@@ -11,14 +12,11 @@ const Home: NextPage = () => {
 					aliqua. Ut enim ad minim veniam
 				</p>
 				<div>
-					<a className="link">Check out the database &#8594;</a>
+					<Link href="/media">
+						<a className="link">Check out the database &#8594;</a>
+					</Link>
 				</div>
-				<br />
-				<br />
 			</div>
-			{/* <section>
-				<h2>Latest Posts</h2>
-			</section> */}
 		</>
 	);
 };

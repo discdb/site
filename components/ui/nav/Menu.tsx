@@ -82,6 +82,7 @@ export const Menu = () => {
 	);
 	return (
 		<BurgerMenu
+			right
 			isOpen={open}
 			disableAutoFocus
 			onStateChange={({ isOpen }) => {

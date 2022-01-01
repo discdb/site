@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import { getSession } from "next-auth/react";
-
-import { CreatePage } from "../../components/blog/CreatePage";
+import { Dashboard } from "../components/ui/settings/Dashboard";
 
 export const getServerSideProps = async (context: any) => {
 	const session = await getSession(context);
@@ -13,13 +12,12 @@ export const getServerSideProps = async (context: any) => {
 		props: {},
 	};
 };
-
-const Create: NextPage = () => {
+const Settings: NextPage = () => {
 	return (
-		<>
-			<h2>Create Post</h2>
-			<CreatePage />
-		</>
+		<div className="">
+			<h2>Settings</h2>
+			<Dashboard />
+		</div>
 	);
 };
-export default Create;
+export default Settings;

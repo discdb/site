@@ -1,7 +1,7 @@
 import { API_URL } from "../../helpers/api";
 
 export const createPost = async (title: string, body: string) => {
-	const response = await fetch(API_URL + `/blog/create`, {
+	const response = await fetch(API_URL + `/blog/`, {
 		method: "POST",
 	});
 
