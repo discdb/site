@@ -3,6 +3,7 @@ import Head from "next/head";
 import { getProviders, getSession } from "next-auth/react";
 
 import { LoginForm } from "../components/user/login/LoginForm";
+import { useEffect, useState } from "react";
 
 export const getServerSideProps = async (context: any) => {
 	const session = await getSession(context);
@@ -12,26 +13,34 @@ export const getServerSideProps = async (context: any) => {
 
 	return {
 		props: {
-			providers: await getProviders() || [],
+			// providers: await getProviders() || [],
 			referer: referer || "",
 		},
 	};
 };
 
 interface Props {
-	providers: JSON;
 	referer: string;
 }
 
 const Login: NextPage<Props> = (props) => {
-	console.log(props)
+	const [providers, setProviders] = useState(null);
+
+	useEffect(() => {
+	  (async () => {
+		const res = await getProviders();
+		setProviders(res);
+		console.log(res)
+	  })();
+	}, []);
+
 	return (
 		<>
 			<Head>
 				<title>Login</title>
 				<meta content="Login" property="og:title" />
 			</Head>
-			<LoginForm {...props} />
+			<LoginForm referer={props.referer} providers={providers}/>
 		</>
 	);
 };
