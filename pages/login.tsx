@@ -24,6 +24,7 @@ interface Props {
 }
 
 const Login: NextPage<Props> = (props) => {
+	console.log(props)
 	return (
 		<>
 			<Head>
