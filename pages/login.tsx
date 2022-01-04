@@ -25,13 +25,13 @@ interface Props {
 
 const Login: NextPage<Props> = (props) => {
 	return (
-		// <>
-		// 	<Head>
-		// 		<title>Login</title>
-		// 		<meta content="Login" property="og:title" />
-		// 	</Head>
+		<>
+			<Head>
+				<title>Login</title>
+				<meta content="Login" property="og:title" />
+			</Head>
 			<LoginForm {...props} />
-		// </>
+		</>
 	);
 };
 
