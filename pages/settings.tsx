@@ -14,10 +14,10 @@ export const getServerSideProps = async (context: any) => {
 };
 const Settings: NextPage = () => {
 	return (
-		<>
+		<div className="">
 			<h2>Settings</h2>
 			<Dashboard />
-		</>
+		</div>
 	);
 };
 export default Settings;

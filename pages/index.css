@@ -31,17 +31,12 @@ input {
 	-webkit-border-radius: 0px;
 }
 main {
-	margin: 2rem;
+	margin: 0 2rem;
 	width: auto;
 }
 h1 {
 	font-size: 64px;
 	text-align: center;
-}
-.landing > div {
-	display: inline-flex;
-	flex-flow: column;
-	justify-content: space-between;
 }
 .landing h1 {
 	text-align: left;
@@ -63,7 +58,7 @@ h2 {
 	animation-fill-mode: forwards;
 	opacity: 0;
 }
-.landing div > div {
+.landing div {
 	margin-top: 2rem;
 	display: flex;
 	justify-content: flex-end;
@@ -189,6 +184,7 @@ section {
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 	gap: 1rem;
+	margin: 2rem 0;
 }
 #postList > * {
 	grid-column: span 1 / span 1;
@@ -456,6 +452,7 @@ footer > div > div:not(.noselect) > a:hover {
 	}
 	#postList {
 		gap: 2rem;
+
 		grid-template-columns: repeat(3, 1fr);
 	}
 	#postList :first-child {

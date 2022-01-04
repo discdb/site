@@ -43,7 +43,6 @@
 }
 #loginButton,
 #loginForm button {
-	color: black;
 	background: var(--color-3);
 	padding: 1rem 2rem;
 	border: 0;

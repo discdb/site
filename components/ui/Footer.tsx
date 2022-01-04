@@ -38,11 +38,6 @@ export const Footer = () => {
 										Contact
 									</Link>
 								</li>
-								<li>
-									<Link href="https://github.com/allilk/discdb">
-										Github
-									</Link>
-								</li>
 							</ul>
 						</div>
 					</div>

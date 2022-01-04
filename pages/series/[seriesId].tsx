@@ -1,5 +1,4 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-// import Head from "next/head";
 
 import { SeriesType } from "../../components/types/Series";
 import { getSeriesFromAPI } from "../../components/tmdb/series/getSeriesFromAPI";
@@ -26,20 +25,7 @@ interface Props {
 }
 
 const ViewSeries: NextPage<Props> = ({ series }) => {
-	return (
-		<>
-			{/* <Head>
-				<title>{series.name || series.original_name}</title>
-				<meta content={series.name || series.original_name} property="og:title" />
-				<meta content={series.overview} property="og:description" />
-				<meta
-					content={`https://www.themoviedb.org/t/p/w440_and_h660_face/${series.poster_path}`}
-					property="og:image"
-				/>
-			</Head> */}
-			<SeriesPage {...series} />
-		</>
-	);
+	return <SeriesPage {...series} />;
 };
 
 export default ViewSeries;

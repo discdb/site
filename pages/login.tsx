@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Head from "next/head";
 import { getProviders, getSession } from "next-auth/react";
 
 import { LoginForm } from "../components/user/login/LoginForm";
@@ -24,15 +23,7 @@ interface Props {
 }
 
 const Login: NextPage<Props> = (props) => {
-	return (
-		<>
-			<Head>
-				<title>Login</title>
-				<meta content="Login" property="og:title" />
-			</Head>
-			<LoginForm {...props} />
-		</>
-	);
+	return <LoginForm {...props} />;
 };
 
 export default Login;

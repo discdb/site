@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Head from "next/head";
 import { getSession } from "next-auth/react";
 
 import { RegisterForm } from "../components/user/register/RegisterForm";
@@ -14,14 +13,6 @@ export const getServerSideProps = async (context: any) => {
 	};
 };
 const Register: NextPage = () => {
-	return (
-		<>
-			<Head>
-				<title>Register</title>
-				<meta content="Register" property="og:title" />
-			</Head>
-			<RegisterForm />
-		</>
-	);
+	return <RegisterForm />;
 };
 export default Register;
