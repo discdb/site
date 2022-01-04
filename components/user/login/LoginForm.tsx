@@ -45,16 +45,12 @@ export const LoginForm = ({ providers, referer }: Props) => {
 				/>
 				<br />
 				<br />
-
-				{/* <div id={styles.forgotPasswordLink}>
-					<Link href="/forgot-password">Forgot Password?</Link>
-				</div> */}
 				<br />
 				<button id={styles.loginButton} type="submit">
 					Login
 				</button>
 				<div className={styles.or}>OR</div>
-				{Object.values(providers).map((provider) => {
+				{providers && Object.values(providers).map((provider) => {
 					return (
 						<div key={provider.name}>
 							<button
