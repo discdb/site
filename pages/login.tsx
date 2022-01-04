@@ -12,7 +12,7 @@ export const getServerSideProps = async (context: any) => {
 
 	return {
 		props: {
-			providers: await getProviders(),
+			providers: await getProviders() || [],
 			referer: referer || "",
 		},
 	};
