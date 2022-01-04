@@ -1,5 +1,5 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import Head from "next/head";
+// import Head from "next/head";
 
 import { MovieType } from "../../components/types/Movie";
 import { getMovieFromAPI } from "../../components/tmdb/movies/getMovieFromAPI";
@@ -29,15 +29,15 @@ interface Props {
 const ViewMovie: NextPage<Props> = ({ movie }) => {
 	return (
 		<>
-			<Head>
-				<title>{movie.original_title}</title>
-				<meta content={movie.original_title} property="og:title" />
+			{/* <Head>
+				<title>{movie.title || movie.original_title}</title>
+				<meta content={movie.title || movie.original_title} property="og:title" />
 				<meta content={movie.overview} property="og:description" />
 				<meta
 					content={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movie.poster_path}`}
 					property="og:image"
 				/>
-			</Head>
+			</Head> */}
 			<MoviePage {...movie} />
 		</>
 	);
