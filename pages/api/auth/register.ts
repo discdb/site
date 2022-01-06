@@ -1,14 +1,22 @@
 import bcrypt from "bcrypt";
+import { Op } from "sequelize";
+
 import { apiHandler } from "../../../helpers/api";
-import { sequelize } from "../../../helpers/sequelize";
+import connectDB from "../../../helpers/sequelize";
+import User from "../../../models/User";
 
 async function handler(req: any, res: any) {
 	return new Promise(async (resolve) => {
-		const User = sequelize.models.user;
 		const {
-			body: { email, password, fullName, username, security_questions },
+			body: { email, password, fullName, username },
 		} = req;
-		const existingUser = await User.findOne({ where: { email } });
+		await connectDB();
+
+		const existingUser = await User.findOne({
+			where: {
+				[Op.or]: [{ email }, { username }],
+			},
+		});
 
 		if (!existingUser) {
 			const newUser = await User.create({
@@ -16,11 +24,10 @@ async function handler(req: any, res: any) {
 				username,
 				email,
 				hash_password: bcrypt.hashSync(password, 10),
-				security_questions,
 			});
 
 			newUser &&
-				res.send({
+				res.status(200).send({
 					user: {
 						fullName,
 						username,
@@ -28,8 +35,8 @@ async function handler(req: any, res: any) {
 					},
 				});
 		} else {
-			res.send({
-				message: "Account with this email already exists!",
+			res.status(409).send({
+				message: "Account with this email or username already exists!",
 			});
 		}
 

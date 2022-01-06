@@ -2,11 +2,11 @@ import NextAuth from "next-auth";
 import Discord from "next-auth/providers/discord";
 import Credentials from "next-auth/providers/credentials";
 
-import SequelizeAdapter, { models } from "@next-auth/sequelize-adapter";
-import { DataTypes } from "sequelize";
+import SequelizeAdapter from "@next-auth/sequelize-adapter";
 import bcrypt from "bcrypt";
 
 import { sequelize } from "../../../helpers/sequelize";
+import User from "../../../models/User";
 
 const providers = [
 	Credentials({
@@ -17,7 +17,6 @@ const providers = [
 		},
 		async authorize({ email, password }) {
 			return new Promise(async (resolve, reject) => {
-				const User = sequelize.models.user;
 				const existingUser = await User.findOne({ where: { email } });
 
 				if (!existingUser["hash_password"]) {
@@ -43,15 +42,7 @@ const providers = [
 const options = {
 	adapter: SequelizeAdapter(sequelize, {
 		models: {
-			User: sequelize.define("user", {
-				...models.User,
-				hash_password: DataTypes.STRING,
-				roles: DataTypes.ARRAY(DataTypes.STRING),
-				collection: DataTypes.ARRAY(DataTypes.UUID),
-				posts: DataTypes.ARRAY(DataTypes.UUID),
-				reviews: DataTypes.ARRAY(DataTypes.UUID),
-				comments: DataTypes.ARRAY(DataTypes.UUID),
-			}),
+			User,
 		},
 	}),
 	pages: {
@@ -65,4 +56,4 @@ const options = {
 	secret: process.env.AUTH_SECRET,
 	providers,
 };
-export default (req: any, res: any) => NextAuth(req, res, options);
+export default (req, res) => NextAuth(req, res, options);

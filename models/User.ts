@@ -2,8 +2,9 @@ import { models } from "@next-auth/sequelize-adapter";
 import { DataTypes } from "sequelize";
 import { sequelize } from "../helpers/sequelize";
 
-const UserModel = sequelize.define("user", {
+const User = sequelize.define("user", {
 	...models.User,
+	username: DataTypes.STRING,
 	hash_password: DataTypes.STRING,
 	roles: DataTypes.ARRAY(DataTypes.STRING),
 	collection: DataTypes.ARRAY(DataTypes.UUID),
@@ -11,5 +12,4 @@ const UserModel = sequelize.define("user", {
 	reviews: DataTypes.ARRAY(DataTypes.UUID),
 	comments: DataTypes.ARRAY(DataTypes.UUID),
 });
-
-export default UserModel;
+export default User;
