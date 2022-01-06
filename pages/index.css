@@ -12,6 +12,9 @@
 
 	/* background-color: var(--color-5); */
 }
+html {
+	scroll-behavior: smooth;
+}
 body,
 textarea {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -20,7 +23,6 @@ textarea {
 }
 body {
 	margin: 0;
-
 	background: var(--color-3);
 	display: flex;
 	flex-flow: column;

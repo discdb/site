@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import styles from "./LoginForm.module.css";
 import { loginUser } from "./Login";
 import { signIn } from "next-auth/react";
@@ -50,21 +49,23 @@ export const LoginForm = ({ providers, referer }: Props) => {
 					Login
 				</button>
 				<div className={styles.or}>OR</div>
-				{providers && Object.values(providers).map((provider) => {
-					return (
-						<div key={provider.name}>
-							<button
-								onClick={() =>
-									signIn(provider.id, {
-										callbackUrl: referer,
-									})
-								}
-							>
-								Login with {provider.name}
-							</button>
-						</div>
-					);
-				})}
+				{providers &&
+					Object.values(providers).map((provider) => {
+						return (
+							provider.name != "Login" && (
+								<button
+									key={provider.name}
+									onClick={() =>
+										signIn(provider.id, {
+											callbackUrl: referer,
+										})
+									}
+								>
+									Login with {provider.name}
+								</button>
+							)
+						);
+					})}
 				<div id={styles.newUserLink}>
 					<Link href="/register">New User?</Link>
 				</div>

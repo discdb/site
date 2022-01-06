@@ -1,3 +1,4 @@
+import { signIn } from "next-auth/react";
 import { User } from "../../types/User";
 
 // const setToken = (accessToken: string) => {
@@ -11,5 +12,5 @@ import { User } from "../../types/User";
 // };
 
 export const loginUser = async ({ email, password }: User) => {
-	console.log(email, password);
+	signIn("credentials", { email, password });
 };

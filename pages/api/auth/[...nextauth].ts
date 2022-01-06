@@ -1,11 +1,37 @@
 import NextAuth from "next-auth";
 import Discord from "next-auth/providers/discord";
+import Credentials from "next-auth/providers/credentials";
 
-// const DATABASE: string = process.env.DATABASE || "";
-// const USER: string = process.env.USER || "";
-// const PASSWORD: string = process.env.PASSWORD || "";
+import SequelizeAdapter, { models } from "@next-auth/sequelize-adapter";
+import { DataTypes } from "sequelize";
+import bcrypt from "bcrypt";
+
+import { sequelize } from "../../../helpers/sequelize";
 
 const providers = [
+	Credentials({
+		name: "Login",
+		credentials: {
+			email: { label: "Email", type: "text" },
+			password: { label: "Password", type: "password" },
+		},
+		async authorize({ email, password }) {
+			return new Promise(async (resolve, reject) => {
+				const User = sequelize.models.user;
+				const existingUser = await User.findOne({ where: { email } });
+
+				if (!existingUser["hash_password"]) {
+					reject(new Error("oauth"));
+				} else if (
+					existingUser["hash_password"] &&
+					bcrypt.compareSync(existingUser["hash_password"], password)
+				) {
+					resolve({ user: existingUser });
+				}
+				reject(new Error("invalid"));
+			});
+		},
+	}),
 	Discord({
 		clientId: process.env.DISCORD_CLIENT_ID,
 		clientSecret: process.env.DISCORD_CLIENT_SECRET,
@@ -14,27 +40,24 @@ const providers = [
 	}),
 ];
 
-// const callbacks = {
-// 	// Getting the JWT token from API response
-// 	async jwt({ token, user }) {
-// 		if (user) {
-// 			token = user;
-// 		}
-// 		return token;
-// 	},
-
-// 	async session({ session, token }) {
-// 		session = token;
-
-// 		return session;
-// 	},
-// };
 const options = {
-	// database: `postgres://${USER}:${PASSWORD}@127.0.0.1:5432/${DATABASE}`,
+	adapter: SequelizeAdapter(sequelize, {
+		models: {
+			User: sequelize.define("user", {
+				...models.User,
+				hash_password: DataTypes.STRING,
+				roles: DataTypes.ARRAY(DataTypes.STRING),
+				collection: DataTypes.ARRAY(DataTypes.UUID),
+				posts: DataTypes.ARRAY(DataTypes.UUID),
+				reviews: DataTypes.ARRAY(DataTypes.UUID),
+				comments: DataTypes.ARRAY(DataTypes.UUID),
+			}),
+		},
+	}),
 	pages: {
 		signIn: "/login",
+		error: "/login",
 	},
-	// callbacks,
 	// session: {
 	// 	strategy: "jwt",
 	// 	maxAge: 30 * 24 * 60 * 60, // 30 days
@@ -42,5 +65,4 @@ const options = {
 	secret: process.env.AUTH_SECRET,
 	providers,
 };
-
 export default (req: any, res: any) => NextAuth(req, res, options);
