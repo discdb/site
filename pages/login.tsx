@@ -26,7 +26,7 @@ interface Props {
 
 const errors = {
 	oauth: "Account is logged in with Discord!",
-	invalid: "Invalid credentials provided.",
+	CredentialsSignin: "Invalid credentials provided.",
 };
 
 const Login: NextPage<Props> = (props) => {

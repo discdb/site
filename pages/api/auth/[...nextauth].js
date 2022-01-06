@@ -3,7 +3,6 @@ import Discord from "next-auth/providers/discord";
 import Credentials from "next-auth/providers/credentials";
 
 import SequelizeAdapter from "@next-auth/sequelize-adapter";
-import bcrypt from "bcrypt";
 
 import { sequelize } from "../../../helpers/sequelize";
 import User from "../../../models/User";
@@ -16,19 +15,18 @@ const providers = [
 			password: { label: "Password", type: "password" },
 		},
 		async authorize({ email, password }) {
-			return new Promise(async (resolve, reject) => {
-				const existingUser = await User.findOne({ where: { email } });
+			const existingUser = await User.findOne({ where: { email } });
 
-				if (!existingUser["hash_password"]) {
-					reject(new Error("oauth"));
-				} else if (
-					existingUser["hash_password"] &&
-					bcrypt.compareSync(existingUser["hash_password"], password)
-				) {
-					resolve({ user: existingUser });
-				}
-				reject(new Error("invalid"));
-			});
+			if (!existingUser["hash_password"]) {
+				reject(new Error("oauth"));
+			} else if (
+				existingUser["hash_password"] &&
+				existingUser.comparePassword(password)
+			) {
+				return existingUser;
+			}
+
+			return null;
 		},
 	}),
 	Discord({
@@ -49,10 +47,10 @@ const options = {
 		signIn: "/login",
 		error: "/login",
 	},
-	// session: {
-	// 	strategy: "jwt",
-	// 	maxAge: 30 * 24 * 60 * 60, // 30 days
-	// },
+	session: {
+		strategy: "jwt",
+		maxAge: 30 * 24 * 60 * 60, // 30 days
+	},
 	secret: process.env.AUTH_SECRET,
 	providers,
 };
