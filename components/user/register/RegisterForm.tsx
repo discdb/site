@@ -1,93 +1,97 @@
-import styles from "./index.module.css";
+import { useState } from "react";
 import { registerUser } from "./Register";
 
-export const RegisterForm = () => {
-	return (
-		<div id={styles.registerForm}>
-			<div className="header" style={{ textAlign: "center" }}>
-				Register
-			</div>
+import ErrorBar from "../../ui/error/ErrorBar";
+import styles from "./RegisterForm.module.css";
 
-			<form
-				onSubmit={(e: React.SyntheticEvent) => {
-					e.preventDefault();
-					const target = e.target as typeof e.target & {
-						email: { value: string };
-						password: { value: string };
-						fullName: { value: string };
-						username: { value: string };
-					};
-					const email = target.email.value;
-					const password = target.password.value;
-					const fullName = target.fullName.value;
-					const username = target.username.value;
-					registerUser({ email, password, fullName, username });
-				}}
-			>
-				<label htmlFor="name">
-					<div className={styles.label}>Name</div>
+export const RegisterForm = () => {
+	const [error, setError] = useState();
+
+	const removeDisabled = () => {
+		const button = document.getElementById("registerButton");
+		button.removeAttribute("disabled");
+		setError(null);
+	};
+
+	const setDisabled = () => {
+		const button = document.getElementById("registerButton");
+		button.setAttribute("disabled", "disabled");
+	};
+
+	const formSubmit = (e: React.SyntheticEvent) => {
+		e.preventDefault();
+		setDisabled();
+		const target = e.target as typeof e.target & {
+			email: { value: string };
+			password: { value: string };
+			fullName: { value: string };
+			username: { value: string };
+		};
+		const email = target.email.value;
+		const password = target.password.value;
+		const fullName = target.fullName.value;
+		const username = target.username.value;
+		registerUser({ email, password, fullName, username }).catch((err) =>
+			setError(err)
+		);
+	};
+
+	return (
+		<>
+			{error && (
+				<ErrorBar message={error} clearError={() => setError(null)} />
+			)}
+			<div id={styles.registerForm}>
+				<h2>
+					<span>Get</span> started
+				</h2>
+				<form onSubmit={formSubmit}>
 					<input
 						id={styles.input}
 						name="fullName"
 						type="text"
+						placeholder="Name"
 						maxLength={64}
-						required
 					/>
-				</label>
-				<br />
-				<br />
-				<label htmlFor="username">
-					<div className={styles.label}>Username</div>
+					<br />
+					<br />
 					<input
 						id={styles.input}
 						name="username"
 						type="text"
 						maxLength={16}
+						onChange={error && removeDisabled}
+						placeholder="Username"
 						required
 					/>
-				</label>
-				<br />
-				<br />
-				<label htmlFor="email">
-					<div className={styles.label}>Email</div>
+					<br />
+					<br />
 					<input
 						id={styles.input}
 						name="email"
 						type="email"
 						maxLength={128}
+						placeholder="Email"
+						onChange={error && removeDisabled}
 						required
 					/>
-				</label>
-				<br />
-				<br />
-				<label htmlFor="password">
-					<div className={styles.label}>Password</div>
+					<br />
+					<br />
 					<input
 						id={styles.input}
 						name="password"
 						type="password"
 						maxLength={64}
+						placeholder="Password"
 						required
 					/>
-				</label>
-				<br />
-				<br />
-				<label htmlFor="password">
-					<div className={styles.label}>Re-Enter Password</div>
-					<input
-						id={styles.input}
-						type="password"
-						maxLength={64}
-						disabled
-					/>
-				</label>
-				<br />
-				<br />
-
-				<button id={styles.registerButton} type="submit">
-					Register
-				</button>
-			</form>
-		</div>
+					<br />
+					<br />
+					<button id="registerButton" type="submit">
+						Register
+					</button>
+				</form>
+			</div>
+		</>
 	);
 };

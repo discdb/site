@@ -1,0 +1,36 @@
+.errorBar {
+	background: lightpink;
+	width: 100%;
+	padding: 1rem 0;
+	text-align: center;
+	border-radius: 16px;
+	animation-name: flyin;
+	animation-iteration-count: 1;
+	animation-timing-function: ease;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+.errorBar svg {
+	right: 20px;
+	position: absolute;
+	cursor: pointer;
+}
+
+@keyframes flyin {
+	0% {
+		transform: translate(0px, -40px);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(0, 0);
+		animation-timing-function: ease-in-out;
+		opacity: 1;
+	}
+}
+@media (min-width: 768px) {
+	.errorBar {
+		width: 500px;
+		margin: 0 auto;
+	}
+}

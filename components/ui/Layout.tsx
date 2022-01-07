@@ -8,6 +8,8 @@ const Layout = ({ children }) => {
 		<>
 			<Head>
 				<title>dvdb</title>
+				<meta content="website" property="og:type" />
+				<meta content="dvdb.video" property="og:site_name" />
 			</Head>
 			<Header />
 			<main>{children}</main>

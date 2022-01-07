@@ -1,3 +1,5 @@
+import { signIn } from "next-auth/react";
+
 import { LOCAL_API_URL } from "../../../helpers/api";
 
 import { RegisterUserType } from "../../types/User";
@@ -23,10 +25,9 @@ export const registerUser = async ({
 	});
 
 	if (response.ok) {
-		const { user } = await response.json();
-
-		return user;
+		signIn("credentials", { email, password });
 	} else {
-		throw response.statusText;
+		const parsed = await response.json();
+		throw parsed.message;
 	}
 };

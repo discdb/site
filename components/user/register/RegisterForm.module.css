@@ -1,4 +1,4 @@
-#loginForm {
+#registerForm {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -12,16 +12,16 @@
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
 		var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-#loginForm > * {
+#registerForm > * {
 	padding: 0.5rem 1rem;
 }
-#loginForm > h2 {
+#registerForm > h2 {
 	text-align: center;
 }
-#loginForm > h2 span {
+#registerForm > h2 span {
 	font-weight: 500;
 }
-#loginForm > form {
+#registerForm > form {
 	box-sizing: border-box;
 	width: 90%;
 	margin: 0 auto;
@@ -42,7 +42,7 @@
 	border-color: black;
 }
 #loginButton,
-#loginForm button {
+#registerForm button {
 	color: black;
 	background: var(--color-3);
 	padding: 1rem 2rem;
@@ -55,54 +55,28 @@
 	transition: all 0.3s;
 	cursor: pointer;
 }
-#loginButton {
-	background: var(--color-1) !important;
-	color: white !important;
-}
-#loginForm button:hover,
-#loginForm button:not(:valid) {
-	background: var(--color-4);
-}
-#loginButton:hover {
-	background: var(--color-2) !important;
-}
-#newUserLink {
-	text-align: center;
+#registerForm button {
 	margin-top: 2rem;
+	background: var(--color-1);
+	color: white;
 }
-#newUserLink a {
-	text-decoration: none;
-	color: var(--grey-2);
+
+#registerForm button:hover,
+#registerForm button:not(:valid) {
+	background: var(--color-2);
 }
-.or {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-transform: uppercase;
-	margin: 1rem 0;
-}
-.or::after,
-.or::before {
-	content: "";
-	width: 225px;
-	height: 1px;
-	background: var(--color-4);
-	margin: 0 30px;
-}
+
 @media (min-width: 768px) {
-	#loginForm {
+	#registerForm {
 		width: 500px;
 		margin: 2rem auto;
 		/* margin: 0;
 		margin-bottom: 2rem; */
 	}
-	#loginForm > * {
+	#registerForm > * {
 		padding-top: 2rem;
 	}
-	#loginForm > form {
+	#registerForm > form {
 		padding: 1rem;
-	}
-	#newUserLink {
-		margin: 2rem 0 -1rem 0;
 	}
 }
