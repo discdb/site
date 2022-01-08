@@ -1,9 +1,10 @@
 import { NextPage } from "next";
+import MediaPage from "../../components/media/MediaPage";
 
 const Media: NextPage = () => {
 	return (
 		<>
-			<h1>Media</h1>
+			<MediaPage />
 		</>
 	);
 };

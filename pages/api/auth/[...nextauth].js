@@ -17,13 +17,15 @@ const providers = [
 		async authorize({ email, password }) {
 			const existingUser = await User.findOne({ where: { email } });
 
-			if (!existingUser?.hash_password) {
-				throw new Error("oauth");
-			} else if (
-				existingUser?.hash_password &&
-				existingUser.comparePassword(password)
-			) {
-				return existingUser;
+			if (existingUser) {
+				if (!("hash_password" in existingUser)) {
+					throw new Error("oauth");
+				} else if (
+					"hash_password" in existingUser &&
+					existingUser.comparePassword(password)
+				) {
+					return existingUser;
+				}
 			}
 
 			return null;

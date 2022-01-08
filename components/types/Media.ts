@@ -13,8 +13,7 @@ export interface MediaType {
 	discs: DiscType[];
 	upc: number;
 	ean: number;
-	isbn10: number;
-	isbn13: number;
+	isbn: string;
 	sku: string;
 	runtime: number;
 	sale_region: string;

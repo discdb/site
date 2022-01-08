@@ -1,0 +1,156 @@
+#mediaPage {
+	display: flex;
+	flex-direction: row;
+	margin: 2rem 0;
+}
+#leftContainer {
+	flex: 1;
+}
+#leftContainer .images:first-child {
+	min-width: 200px;
+	height: auto;
+	aspect-ratio: 2/3;
+	background: silver;
+	text-align: center;
+}
+#rightContainer {
+	flex: 4;
+	margin-left: 2rem;
+}
+#rightContainer h2 {
+	margin: 0;
+}
+.title > div {
+	margin-left: 2px;
+}
+.tabs ul {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: -1rem;
+}
+.tabs li {
+	display: inline-block;
+	background: silver;
+	padding: 0.75rem 0.5rem;
+	width: 150px;
+	text-align: center;
+	border-radius: 16px 16px 0 0;
+}
+.tabs li > * {
+	margin: 0 auto;
+	width: 50%;
+}
+.tabs li:after {
+	z-index: 0;
+
+	border-top-left-radius: 16px;
+}
+.tabs .active {
+	z-index: 2;
+	background: white;
+}
+#rightContainer .tabs p,
+.notes,
+.extras {
+	max-width: 100%;
+	background: white;
+	border-radius: 16px;
+	min-height: 250px;
+	margin: 1rem 0;
+}
+#rightContainer .tabs p {
+	border-top-left-radius: 0;
+}
+#rightContainer .tabs p,
+.notes,
+.extras {
+	padding: 2rem;
+}
+
+.tabs ul:after,
+.tabs ul:before {
+	content: "";
+	display: table;
+}
+.tabs ul:after {
+	clear: both;
+	overflow: hidden;
+}
+.tabs ul {
+	zoom: 1;
+}
+.tabs ul li {
+	list-style: none outside none;
+	float: left;
+	position: relative;
+}
+.tabs ul .active {
+	z-index: 3;
+}
+.tabs ul li:before,
+.tabs ul li:after,
+.tabs ul a:before,
+.tabs ul a:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+}
+.tabs ul li:not(.active):before,
+.tabs ul li:after {
+	background: silver;
+	width: 12px;
+	height: 10px;
+}
+.tabs ul li:before {
+	left: -10px;
+}
+.tabs ul li:after {
+	right: -10px;
+}
+.tabs ul a {
+	float: left;
+	padding: 0 40px;
+	text-decoration: none;
+	color: white;
+	background: silver;
+}
+.tabs ul .active a {
+	background: white;
+	color: black;
+}
+
+.tabs ul a:before,
+.tabs ul a:after {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: var(--color-3);
+	z-index: 2;
+}
+
+.tabs ul .active a:after {
+	background: silver;
+}
+.tabs ul a:before {
+	left: -20px;
+}
+.tabs ul a:after {
+	right: -20px;
+}
+.tabs ul .active:before,
+.tabs ul .active:after {
+	z-index: 1;
+	background: white;
+}
+
+.tab-content {
+	background: white;
+	color: silver;
+	padding: 20px;
+}
+.tabs > p div {
+	display: none;
+}
+.tabs > p .active {
+	display: block;
+}
