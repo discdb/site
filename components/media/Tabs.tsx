@@ -4,18 +4,29 @@ const Tabs = () => {
 	return (
 		<div id="mediaTabs" className={styles.tabs}>
 			<ul>
-				<li id="active" className={styles.active} onClick={toggleTab}>
-					<a key="1">DVD</a>
+				<li
+					id="active"
+					value="1"
+					className={styles.active}
+					onClick={toggleTab}
+				>
+					<a className="noselect">DVD</a>
 				</li>
-				<li onClick={toggleTab}>
-					<a key="2">Blu-ray</a>
+				<li value="2" onClick={toggleTab}>
+					<a className="noselect">Blu-ray</a>
+				</li>
+				<li value="3" onClick={toggleTab}>
+					<a className="noselect">Blu-ray</a>
 				</li>
 			</ul>
-			<div id="tab-panes">
-				<div key="tab-1" id="active" className={styles.active}>
-					fuck
+			<div id="mediaPanes">
+				<div id="1">fuck</div>
+				<div id="2" className="hidden">
+					shit
 				</div>
-				<div key="tab-2">shit</div>
+				<div id="3" className="hidden">
+					duck
+				</div>
 			</div>
 		</div>
 	);

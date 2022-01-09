@@ -1,19 +1,11 @@
 import styles from "./MediaPage.module.css";
 import Tabs from "./Tabs";
-
+import Images from "./Images";
 const MediaPage = () => {
-	const toggleTab = (e: any) => {
-		const panes = document.getElementById("panes");
-	};
 	return (
 		<div id={styles.mediaPage}>
 			<div id={styles.leftContainer}>
-				<div className={styles.images}>
-					<img src="" alt="No pictures available." />
-					{/* <img src="" alt="No pictures available." />
-
-				<img src="" alt="No pictures available." /> */}
-				</div>
+				<Images />
 			</div>
 			<div id={styles.rightContainer}>
 				<div className={styles.title}>
@@ -21,8 +13,14 @@ const MediaPage = () => {
 					<div>Studio Ghibli Collection</div>
 				</div>
 				<Tabs />
-				<div className={styles.notes}>Notes notes</div>
-				<div className={styles.extras}>Extras extras</div>
+				<div className={styles.notes}>
+					<h3>Notes</h3>
+					<p>notey notes</p>
+				</div>
+				<div className={styles.extras}>
+					<h3>Extras</h3>
+					<p>extras extras</p>
+				</div>
 			</div>
 		</div>
 	);

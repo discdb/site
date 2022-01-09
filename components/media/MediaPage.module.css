@@ -1,26 +1,23 @@
 #mediaPage {
 	display: flex;
-	flex-direction: row;
-	margin: 2rem 0;
+	flex-direction: column;
+	margin: 0 -1rem;
 }
 #leftContainer {
-	flex: 1;
-}
-#leftContainer .images:first-child {
-	min-width: 200px;
-	height: auto;
-	aspect-ratio: 2/3;
-	background: silver;
-	text-align: center;
+	flex: 0 0 100%;
 }
 #rightContainer {
-	flex: 4;
-	margin-left: 2rem;
+	flex: 0 0 100%;
 }
 #rightContainer h2 {
 	margin: 0;
+	margin-top: 1rem;
+	white-space: nowrap;
+	font-size: 32px;
 }
-
+#rightContainer h3 {
+	margin: 0;
+}
 .notes,
 .extras {
 	max-width: 100%;
@@ -29,4 +26,22 @@
 	min-height: 250px;
 	margin: 1rem 0;
 	padding: 2rem;
+	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+@media (min-width: 768px) {
+	#mediaPage {
+		flex-direction: row;
+		margin: 2rem 0;
+	}
+	#leftContainer {
+		flex: 1;
+	}
+	#rightContainer {
+		flex: 4;
+		margin-left: 2rem;
+	}
+	#rightContainer h2 {
+		font-size: 40px;
+		margin: 0;
+	}
 }
