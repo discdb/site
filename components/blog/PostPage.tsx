@@ -23,7 +23,9 @@ export const Post = ({
 					<div>0 Comments</div>
 				</div>
 				<br />
-				<ReactMarkdown skipHtml={true}>{body}</ReactMarkdown>
+				<ReactMarkdown skipHtml={true} disallowedElements={["script"]}>
+					{body}
+				</ReactMarkdown>
 			</article>
 		</div>
 	);

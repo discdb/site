@@ -192,12 +192,12 @@ section {
 	grid-template-columns: repeat(1, 1fr);
 	gap: 1rem;
 }
-#postList > * {
+#postList > * > * {
 	grid-column: span 1 / span 1;
 	display: inline-flex;
 	transition: all, 0.2s;
 }
-#postList > *:hover {
+#postList > * > *:hover {
 	cursor: pointer;
 	transform: scale(1.025);
 }
@@ -483,13 +483,22 @@ footer > div > div:not(.noselect) > a:hover {
 		transform: rotate(360deg);
 	}
 }
+.addIconContainer {
+	position: relative;
+	text-align: right;
+	display: block;
+}
 .addIcon {
-	float: right;
+	cursor: pointer;
+	position: absolute;
+	top: -2rem;
+	right: -1rem;
 	background: white;
 	border: 0;
+	z-index: 10;
 	border-radius: 16px;
-	width: 48px;
-	height: 48px;
+	width: 32px;
+	height: 32px;
 	transition: all 0.2s;
 }
 .addIcon:hover {
@@ -529,11 +538,12 @@ footer > div > div:not(.noselect) > a:hover {
 	#postList {
 		gap: 2rem;
 		grid-template-columns: repeat(3, 1fr);
+		margin: 2rem 0;
 	}
 	#postList :first-child {
 		grid-column: span 3 / span 3;
 	}
-	#postList > :not(:first-child) {
+	#postList > :not(:first-child) > * {
 		display: block;
 		height: 400px;
 	}
@@ -544,10 +554,16 @@ footer > div > div:not(.noselect) > a:hover {
 		max-width: 100%;
 	}
 	#postList > :first-child .image {
-		max-width: 50%;
+		width: 50%;
+		min-width: 50%;
 	}
 	#postList > :first-child .title {
 		font-size: 40px;
+	}
+	#postList > :first-child #post-body {
+		font-size: var(--size-2);
+		-webkit-line-clamp: 7;
+		line-clamp: 7;
 	}
 	#postList .title {
 		font-size: 28px;

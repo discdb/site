@@ -1,9 +1,13 @@
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import styles from "./CreatePage.module.css";
+
 import { createPost } from "./createPost";
+import styles from "./CreatePage.module.css";
 
 export const CreatePage = () => {
 	const router = useRouter();
+	const { data: user } = useSession();
+
 	return (
 		<div id={styles.createForm}>
 			<form
@@ -15,9 +19,11 @@ export const CreatePage = () => {
 					};
 					const title = target.title.value;
 					const body = target.body.value;
-					createPost(title, body).then((post) => {
-						router.push("/blog/" + post.identifier);
-					});
+					createPost(title, body, user?.name as string).then(
+						(post) => {
+							router.push(`/blog/${post.identifier}`);
+						}
+					);
 				}}
 			>
 				<label htmlFor="title">
@@ -27,6 +33,7 @@ export const CreatePage = () => {
 						name="title"
 						type="text"
 						placeholder="Title"
+						required
 					/>
 				</label>
 				<label htmlFor="body">
@@ -36,6 +43,7 @@ export const CreatePage = () => {
 						name="body"
 						rows={16}
 						placeholder="Body"
+						required
 					/>
 				</label>
 				<div className={styles.underBody}>
