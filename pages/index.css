@@ -12,6 +12,9 @@
 
 	/* background-color: var(--color-5); */
 }
+html {
+	scroll-behavior: smooth;
+}
 body,
 textarea {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -20,7 +23,6 @@ textarea {
 }
 body {
 	margin: 0;
-
 	background: var(--color-3);
 	display: flex;
 	flex-flow: column;
@@ -236,6 +238,76 @@ section {
 }
 #panes > * {
 	margin: 3rem;
+}
+#mediaTabs ul #active a {
+	background: white;
+	color: black;
+	z-index: 3;
+}
+
+#mediaTabs ul::after,
+#mediaTabs ul::before {
+	content: "";
+	display: table;
+}
+#mediaTabs ul::after {
+	clear: both;
+	overflow: hidden;
+}
+#mediaTabs ul #active {
+	z-index: 3;
+}
+#mediaTabs li a::after,
+#mediaTabs li:not(:first-child) a::before,
+#mediaTabs li::after,
+#mediaTabs li:not(:first-child)::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+}
+
+#mediaTabs li a::after,
+#mediaTabs li:not(:first-child) a::before {
+	background: silver;
+	border-radius: 10px;
+	width: 20px;
+	height: 20px;
+	z-index: 2;
+}
+#mediaTabs ul li:not(#active):last-child::after {
+	background: silver;
+}
+#mediaTabs li:last-child a::after {
+	background: var(--color-3);
+}
+#mediaTabs li::after,
+#mediaTabs li:not(:first-child)::before {
+	width: 10px;
+	height: 10px;
+	background: white;
+}
+#mediaTabs ul :not(#active)::before {
+	background: silver;
+}
+#mediaTabs li::after {
+	right: -10px;
+}
+#mediaTabs li:not(:first-child)::before {
+	left: -10px;
+}
+#mediaTabs li a::after {
+	right: -20px;
+}
+#mediaTabs li:not(:first-child) a::before {
+	left: -20px;
+}
+#mediaTabs > div #active {
+	display: block;
+}
+
+#mediaTabs ul #active {
+	z-index: 3;
+	background: white;
 }
 
 footer {

@@ -7,7 +7,7 @@ export const API_URL =
 
 export const LOCAL_API_URL =
 	process.env.NODE_ENV == "production"
-		? "https//dvdb.video/api"
+		? "https://dvdb.video/api"
 		: "http://localhost:3000/api";
 
 const errorHandler = (err: any, res: any) => {

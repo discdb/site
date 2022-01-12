@@ -6,7 +6,7 @@ const Home: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<meta content="dvdb" property="og:title" />
+				<meta content="Home" property="og:title" />
 				<meta
 					content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 					do eiusmod tempor incididunt ut labore et dolore magna

@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import styles from "./CreatePage.module.css";
 import { createPost } from "./createPost";
 
 export const CreatePage = () => {
+	const router = useRouter();
 	return (
 		<div id={styles.createForm}>
 			<form
@@ -13,7 +15,9 @@ export const CreatePage = () => {
 					};
 					const title = target.title.value;
 					const body = target.body.value;
-					createPost(title, body);
+					createPost(title, body).then((post) => {
+						router.push("/blog/" + post.identifier);
+					});
 				}}
 			>
 				<label htmlFor="title">
