@@ -3,6 +3,7 @@ import { DataTypes, Model } from "sequelize";
 import bcrypt from "bcrypt";
 import { sequelize } from "../helpers/sequelize";
 import { MediaType, DiscType } from "../components/types/Media";
+import Disc from "./Disc";
 
 class Media extends Model {
 	// declare title: string;
@@ -10,11 +11,11 @@ class Media extends Model {
 	// declare licensor: string;
 	// declare distributor: string;
 	// declare discs: DiscType[];
-	// declare upc: number;
-	// declare ean: number;
+	// declare upc: INTEGER;
+	// declare ean: INTEGER;
 	// declare isbn: string;
 	// declare sku: string;
-	// declare runtime: number;
+	// declare runtime: INTEGER;
 	// declare sale_region: string;
 	// declare disc_region: string;
 	// declare cover: string;
@@ -23,7 +24,7 @@ class Media extends Model {
 	// declare audio_languages: string[];
 	// declare subtitles: string[];
 	// declare release_date: Date;
-	// declare msrp: number;
+	// declare msrp: INTEGER;
 	// declare currency: string;
 	// declare notes: string;
 	// declare adult: boolean;
@@ -41,21 +42,22 @@ Media.init(
 		edition: DataTypes.STRING,
 		licensor: DataTypes.STRING,
 		distributor: DataTypes.STRING,
-		discs: DataTypes.ARRAY(DataTypes.JSON),
-		upc: DataTypes.NUMBER,
-		ean: DataTypes.NUMBER,
+		upc: DataTypes.INTEGER,
+		ean: DataTypes.INTEGER,
 		isbn: DataTypes.STRING,
 		sku: DataTypes.STRING,
-		runtime: DataTypes.NUMBER,
-		cover: DataTypes.STRING,
-		description: DataTypes.TEXT,
+		runtime: DataTypes.INTEGER,
+		sale_region: DataTypes.STRING,
+		images: DataTypes.ARRAY(DataTypes.STRING),
+		extras: DataTypes.TEXT,
+		notes: DataTypes.TEXT,
 		volume: DataTypes.STRING,
 		audio_languages: DataTypes.ARRAY(DataTypes.STRING),
 		subtitles: DataTypes.ARRAY(DataTypes.STRING),
 		release_date: DataTypes.DATE,
-		msrp: DataTypes.NUMBER,
+		msrp: DataTypes.DECIMAL,
 		currency: DataTypes.STRING,
-		notes: DataTypes.TEXT,
+		primary_type: DataTypes.STRING,
 		adult: DataTypes.BOOLEAN,
 		identifier: {
 			type: DataTypes.STRING,
@@ -67,5 +69,7 @@ Media.init(
 		modelName: "media",
 	}
 );
+
+Media.hasMany(Disc, { as: "discs" });
 
 export default Media;

@@ -1,8 +1,18 @@
 import { UserData } from "./User";
 
 export interface DiscType {
+	video: {
+		resolution: string;
+		aspect_ratio: string;
+		original_aspect_ratio: string;
+		hdr: string;
+	};
+	audio: string[];
+	subtitles: string[];
 	type: string;
 	size: string;
+	regions: string[];
+	identifier: string;
 }
 
 export interface MediaType {
@@ -10,28 +20,24 @@ export interface MediaType {
 	edition: string;
 	licensor: string;
 	distributor: string;
-	discs: DiscType[];
 	upc: number;
 	ean: number;
 	isbn: string;
 	sku: string;
 	runtime: number;
 	sale_region: string;
-	disc_region: string;
-	cover: string;
-	description: string;
+	images: string[];
+	extras: string;
+	notes: string;
 	volume: string;
 	audio_languages: string[];
-	subtitles: string[];
 	release_date: Date;
 	msrp: number;
 	currency: string;
-	notes: string;
+	primary_type: string;
 	adult: boolean;
 	identifier: string;
-	primary_type: string;
-	details: {
-		createdBy: UserData;
-		createdAt: Date;
-	};
+	discs: DiscType[];
+	createdBy: UserData;
+	createdAt: Date;
 }

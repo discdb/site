@@ -15,17 +15,11 @@ const Tabs = () => {
 				<li value="2" onClick={toggleTab}>
 					<a className="noselect">Blu-ray</a>
 				</li>
-				<li value="3" onClick={toggleTab}>
-					<a className="noselect">Blu-ray</a>
-				</li>
 			</ul>
 			<div id="mediaPanes">
-				<div id="1">fuck</div>
+				<div id="1">duck</div>
 				<div id="2" className="hidden">
 					shit
-				</div>
-				<div id="3" className="hidden">
-					duck
 				</div>
 			</div>
 		</div>

@@ -12,8 +12,15 @@ if (!cached) {
 }
 
 export const sequelize: Sequelize = new Sequelize(
-	`postgres://${USER}:${PASSWORD}@127.0.0.1:5432/${DATABASE}`
+	DATABASE,
+	"postgres",
+	undefined,
+	{
+		host: "/var/run/postgresql",
+		dialect: "postgres",
+	}
 );
+sequelize.sync();
 
 async function connectDB() {
 	if (cached.conn) {

@@ -21,6 +21,7 @@ const Images = () => {
 					<img
 						src="https://images.static-bluray.com/movies/covers/184140_large.jpg?t=1500573567"
 						alt="No pictures available."
+						className="noselect"
 						onClick={changeImage}
 					/>
 				</div>
@@ -28,6 +29,7 @@ const Images = () => {
 					<img
 						src="https://images.static-bluray.com/movies/covers/184140_back.jpg?t=1518496462"
 						alt="No pictures available."
+						className="noselect"
 						onClick={changeImage}
 					/>
 				</div>
@@ -35,6 +37,7 @@ const Images = () => {
 					<img
 						src="https://images.static-bluray.com/movies/covers/184140_slip.jpg?t=1504287012"
 						alt="No pictures available."
+						className="noselect"
 						onClick={changeImage}
 					/>
 				</div>

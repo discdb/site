@@ -15,18 +15,30 @@
 	white-space: nowrap;
 	font-size: 32px;
 }
-#rightContainer h3 {
+#mediaPage h3 {
 	margin: 0;
 }
 .notes,
 .extras {
 	max-width: 100%;
 	background: white;
-	border-radius: 16px;
+	border-radius: 1rem;
 	min-height: 250px;
 	margin: 1rem 0;
 	padding: 2rem;
 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.information {
+	background: white;
+	border-radius: 1rem;
+	padding: 2rem;
+	margin: 1.5rem auto 0 auto;
+	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+	line-height: 24px;
+}
+.information h3 {
+	margin-bottom: 1rem !important;
 }
 @media (min-width: 768px) {
 	#mediaPage {
@@ -38,10 +50,13 @@
 	}
 	#rightContainer {
 		flex: 4;
-		margin-left: 2rem;
+		margin-left: 1rem;
 	}
 	#rightContainer h2 {
 		font-size: 40px;
 		margin: 0;
+	}
+	.information {
+		margin: 0 auto;
 	}
 }

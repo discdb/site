@@ -10,7 +10,7 @@ export const registerUser = async ({
 	fullName,
 	username,
 }: RegisterUserType) => {
-	const response = await fetch(`${LOCAL_API_URL}/auth/register`, {
+	const response = await fetch(LOCAL_API_URL + `/auth/register`, {
 		method: "POST",
 		headers: {
 			Accept: "application/json",

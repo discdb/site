@@ -3,6 +3,14 @@ import { API_URL } from "../../helpers/api";
 export const createPost = async (title: string, body: string) => {
 	const response = await fetch(API_URL + `/blog/`, {
 		method: "POST",
+		headers: {
+			Accept: "application/json",
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			title,
+			body,
+		}),
 	});
 
 	if (response.ok) {

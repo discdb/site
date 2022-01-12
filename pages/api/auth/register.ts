@@ -1,11 +1,12 @@
 import bcrypt from "bcrypt";
 import { Op } from "sequelize";
+import { NextApiRequest, NextApiResponse } from "next";
 
 import { apiHandler } from "../../../helpers/api";
 import connectDB from "../../../helpers/sequelize";
 import User from "../../../models/User";
 
-async function handler(req: any, res: any) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
 	return new Promise(async (resolve) => {
 		const {
 			body: { email, password, fullName, username },
