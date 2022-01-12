@@ -1,3 +1,4 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 
 export const API_URL =
@@ -10,12 +11,12 @@ export const LOCAL_API_URL =
 		? "https://dvdb.video/api"
 		: "http://localhost:3000/api";
 
-const errorHandler = (err: any, res: any) => {
+const errorHandler = (err: any, res: NextApiResponse) => {
 	return res.status(err.method).end();
 };
 
 export const authHandler = (handler: any) => {
-	return async (req: any, res: any) => {
+	return async (req: NextApiRequest, res: NextApiResponse) => {
 		const method = req.method.toLowerCase();
 
 		if (!handler[method]) return res.status(405).end();
@@ -32,7 +33,7 @@ export const authHandler = (handler: any) => {
 };
 
 export const apiHandler = (handler: any) => {
-	return async (req: any, res: any) => {
+	return async (req: NextApiRequest, res: NextApiResponse) => {
 		const method = req.method.toLowerCase();
 
 		if (!handler[method]) return res.status(405).end();

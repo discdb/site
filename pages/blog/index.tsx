@@ -9,32 +9,32 @@ import { Post } from "../../components/blog/Post";
 import { BlogPost } from "../../components/types/Post";
 import AddIcon from "@mui/icons-material/Add";
 
-// const MappedPost = ({ index, post }: { index: number; post: BlogPost }) => {
-// 	return (
-// 		// <>
-// 			{/* <motion.div
-// 				key={index}
-// 				initial="hidden"
-// 				animate="visible"
-// 				variants={{
-// 					hidden: {
-// 						scale: 0.7,
-// 						opacity: 0,
-// 					},
-// 					visible: {
-// 						scale: 1,
-// 						opacity: 1,
-// 						transition: {
-// 							delay: index / 10,
-// 						},
-// 					},
-// 				}}
-// 			> */}
-
-// 			{/* </motion.div> */}
-// 		{/* </> */}
-// 	);
-// };
+const MappedPost = ({ index, post }: { index: number; post: BlogPost }) => {
+	return (
+		<>
+			<motion.div
+				key={index}
+				initial="hidden"
+				animate="visible"
+				variants={{
+					hidden: {
+						scale: 0.7,
+						opacity: 0,
+					},
+					visible: {
+						scale: 1,
+						opacity: 1,
+						transition: {
+							delay: index / 10,
+						},
+					},
+				}}
+			>
+				<Post {...post} />
+			</motion.div>
+		</>
+	);
+};
 
 const Blog: NextPage = () => {
 	const [posts, setPosts] = useState([]);
@@ -52,26 +52,22 @@ const Blog: NextPage = () => {
 	return (
 		<>
 			<h1>The Blog</h1>
-			<span
-				title="Create Post"
-				className={session?.status == "authenticated" ? "" : "hidden"}
-			>
+			{session?.status == "authenticated" && (
 				<Link href="/blog/create">
-					<a>
+					<a className="addIconContainer" title="Create Post">
 						<button className="addIcon">
-							<AddIcon fontSize="large" />
+							<AddIcon fontSize="medium" />
 						</button>
 					</a>
 				</Link>
-			</span>
-
+			)}
 			<div id="postList">
 				{error ? (
 					<span style={{ color: "red" }}>{error}</span>
 				) : posts.length > 0 ? (
 					posts.map((post, index) => (
-						// <MappedPost post={post} key={index} index={index} />
-						<Post {...post} key={index} />
+						<MappedPost post={post} key={index} index={index} />
+						// <Post {...post} key={index} />
 					))
 				) : (
 					<div className="loading"></div>

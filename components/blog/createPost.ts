@@ -1,6 +1,10 @@
 import { API_URL } from "../../helpers/api";
 
-export const createPost = async (title: string, body: string) => {
+export const createPost = async (
+	title: string,
+	body: string,
+	createdBy: string
+) => {
 	const response = await fetch(API_URL + `/blog/`, {
 		method: "POST",
 		headers: {
@@ -10,6 +14,7 @@ export const createPost = async (title: string, body: string) => {
 		body: JSON.stringify({
 			title,
 			body,
+			createdBy,
 		}),
 	});
 

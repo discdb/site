@@ -57,6 +57,9 @@ export const Footer = () => {
 									<Link href="/discord">Discord</Link>
 								</li>
 								<li>
+									<Link href="/disclaimer">Disclaimer</Link>
+								</li>
+								<li>
 									<Link href="/privacy-policy">
 										Privacy Policy
 									</Link>
