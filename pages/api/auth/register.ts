@@ -9,7 +9,7 @@ import User from "../../../models/User";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
 	return new Promise(async (resolve) => {
 		const {
-			body: { email, password, fullName, username },
+			body: { email, password, name, username },
 		} = req;
 		await connectDB();
 
@@ -21,7 +21,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
 		if (!existingUser) {
 			const newUser = await User.create({
-				fullName,
+				name,
 				username,
 				email,
 				hash_password: bcrypt.hashSync(password, 10),
@@ -30,7 +30,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 			newUser &&
 				res.status(200).send({
 					user: {
-						fullName,
+						name,
 						username,
 						email,
 					},

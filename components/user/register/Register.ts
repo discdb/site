@@ -7,7 +7,7 @@ import { RegisterUserType } from "../../types/User";
 export const registerUser = async ({
 	email,
 	password,
-	fullName,
+	name,
 	username,
 }: RegisterUserType) => {
 	const response = await fetch(LOCAL_API_URL + `/auth/register`, {
@@ -19,7 +19,7 @@ export const registerUser = async ({
 		body: JSON.stringify({
 			email,
 			password,
-			fullName,
+			name,
 			username,
 		}),
 	});

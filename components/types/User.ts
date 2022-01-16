@@ -13,6 +13,6 @@ export interface UserData {
 export interface RegisterUserType {
 	email: string;
 	password: string;
-	fullName: string;
+	name: string;
 	username: string;
 }

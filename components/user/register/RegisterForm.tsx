@@ -26,14 +26,14 @@ export const RegisterForm = () => {
 		const target = e.target as typeof e.target & {
 			email: { value: string };
 			password: { value: string };
-			fullName: { value: string };
+			name: { value: string };
 			username: { value: string };
 		};
 		const email = target.email.value;
 		const password = target.password.value;
-		const fullName = target.fullName.value;
+		const name = target.name.value;
 		const username = target.username.value;
-		registerUser({ email, password, fullName, username }).catch((err) =>
+		registerUser({ email, password, name, username }).catch((err) =>
 			setError(err)
 		);
 	};
@@ -50,7 +50,7 @@ export const RegisterForm = () => {
 				<form onSubmit={formSubmit}>
 					<input
 						id={styles.input}
-						name="fullName"
+						name="name"
 						type="text"
 						placeholder="Name"
 						maxLength={64}

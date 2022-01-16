@@ -15,7 +15,10 @@ const providers = [
 			password: { label: "Password", type: "password" },
 		},
 		async authorize({ email, password }) {
-			const existingUser = await User.findOne({ where: { email } });
+			const existingUser = await User.findOne({
+				where: { email },
+				attributes: ["email", "username", "name", "hash_password"],
+			});
 
 			if (existingUser) {
 				if (!("hash_password" in existingUser)) {
@@ -38,13 +41,26 @@ const providers = [
 			"https://discord.com/api/oauth2/authorize?scope=identify+email+guilds",
 	}),
 ];
-
+const callbacks = {
+	async jwt({ token, user, account }) {
+		if (account && account.provider != "discord") {
+			console.log(account);
+			token.username = user.dataValues.username;
+		}
+		return token;
+	},
+	async session({ session, token }) {
+		if (token?.username) session.user.username = token.username;
+		return session;
+	},
+};
 const options = {
 	adapter: SequelizeAdapter(sequelize, {
 		models: {
 			User,
 		},
 	}),
+	callbacks,
 	pages: {
 		signIn: "/login",
 		error: "/login",

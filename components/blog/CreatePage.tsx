@@ -6,7 +6,9 @@ import styles from "./CreatePage.module.css";
 
 export const CreatePage = () => {
 	const router = useRouter();
-	const { data: user } = useSession();
+	const {
+		data: { user },
+	} = useSession();
 
 	return (
 		<div id={styles.createForm}>
@@ -19,11 +21,13 @@ export const CreatePage = () => {
 					};
 					const title = target.title.value;
 					const body = target.body.value;
-					createPost(title, body, user?.name as string).then(
-						(post) => {
-							router.push(`/blog/${post.identifier}`);
-						}
-					);
+					createPost(
+						title,
+						body,
+						(user?.name as string) || (user?.username as string)
+					).then((post) => {
+						router.push(`/blog/${post.identifier}`);
+					});
 				}}
 			>
 				<label htmlFor="title">
