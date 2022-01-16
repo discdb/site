@@ -9,7 +9,6 @@ export const MoviePage = ({
 	overview,
 	release_date,
 	poster_path,
-	id,
 }: MovieType) => {
 	return (
 		<div id={styles.seriesContainer}>

@@ -1,8 +1,8 @@
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
-import { createPost } from "./createPost";
 import styles from "./CreatePage.module.css";
+import { createPost } from "./createPost";
 
 export const CreatePage = () => {
 	const router = useRouter();
@@ -24,7 +24,7 @@ export const CreatePage = () => {
 					createPost(
 						title,
 						body,
-						(user?.name as string) || (user?.username as string)
+						(user?.name as string) || (user["username"] as string)
 					).then((post) => {
 						router.push(`/blog/${post.identifier}`);
 					});
@@ -54,6 +54,7 @@ export const CreatePage = () => {
 					<a
 						href="https://www.markdownguide.org/basic-syntax/"
 						target="_blank"
+						rel="noreferrer"
 					>
 						Supports Markdown!
 					</a>

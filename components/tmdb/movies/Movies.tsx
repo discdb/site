@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import { MovieType } from "../../types/Movie";
 import styles from "./Movies.module.css";
@@ -13,7 +13,7 @@ export const Movie = ({
 	id,
 }: MovieType) => {
 	return (
-		<Link href={`/movies/${id}`}>
+		<Link href={`/movies/${id}`} passHref>
 			<div id={styles.movie}>
 				<img
 					alt={"No image!"}

@@ -1,9 +1,9 @@
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 import { getSession } from "next-auth/react";
 
 import { CreatePage } from "../../components/blog/CreatePage";
 
-export const getServerSideProps = async (context: any) => {
+export const getServerSideProps = async (context: NextPageContext) => {
 	const session = await getSession(context);
 
 	if (!session)

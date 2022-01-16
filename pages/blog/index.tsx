@@ -1,13 +1,13 @@
+import AddIcon from "@mui/icons-material/Add";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 import { getPostsFromAPI } from "../../components/blog/getPostsFromAPI";
 import { Post } from "../../components/blog/Post";
 import { BlogPost } from "../../components/types/Post";
-import AddIcon from "@mui/icons-material/Add";
 
 const MappedPost = ({ index, post }: { index: number; post: BlogPost }) => {
 	return (
@@ -46,7 +46,7 @@ const Blog: NextPage = () => {
 			.then((res) => {
 				setPosts(res);
 			})
-			.catch((err) => setError("Error fetching posts"));
+			.catch(() => setError("Error fetching posts"));
 	}, []);
 
 	return (

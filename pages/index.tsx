@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import Link from "next/link";
 import Head from "next/head";
+import Link from "next/link";
 
 const Home: NextPage = () => {
 	return (
@@ -12,6 +12,12 @@ const Home: NextPage = () => {
 					do eiusmod tempor incididunt ut labore et dolore magna
 					aliqua. Ut enim ad minim veniam"
 					name="og:description"
+				/>
+				<meta
+					content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Ut enim ad minim veniam"
+					name="description"
 				/>
 			</Head>
 			<div className="landing">

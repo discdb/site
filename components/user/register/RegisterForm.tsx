@@ -1,9 +1,8 @@
 import { useState } from "react";
-// import isEmail from "validator/lib/isEmail";
-
-import { registerUser } from "./Register";
 
 import ErrorBar from "../../ui/error/ErrorBar";
+// import isEmail from "validator/lib/isEmail";
+import { registerUser } from "./Register";
 import styles from "./RegisterForm.module.css";
 
 export const RegisterForm = () => {

@@ -1,9 +1,8 @@
-import ReactMarkdown from "react-markdown";
 import moment from "moment";
-
-import styles from "./PostPage.module.css";
+import ReactMarkdown from "react-markdown";
 
 import { PostPage } from "../types/Post";
+import styles from "./PostPage.module.css";
 
 export const Post = ({
 	title,

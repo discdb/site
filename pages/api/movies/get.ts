@@ -1,9 +1,11 @@
+import { NextApiRequest, NextApiResponse } from "next";
+
 import { authHandler } from "../../../helpers/api";
 
 const apiKey = process.env.TMDB_API_KEY;
 const apiURL = "https://api.themoviedb.org/3/movie/top_rated";
 
-async function handler(req: any, res: any) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const { query } = req;
 	const response = await fetch(
 		`${apiURL}/?&api_key=${apiKey}&page=${query.page || 1}`,

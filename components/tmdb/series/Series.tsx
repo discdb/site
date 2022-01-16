@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import { SeriesType } from "../../types/Series";
 import styles from "./Series.module.css";
@@ -13,7 +13,7 @@ export const Series = ({
 	id,
 }: SeriesType) => {
 	return (
-		<Link href={`/series/${id}`}>
+		<Link href={`/series/${id}`} passHref>
 			<div id={styles.series}>
 				{/* <Image
 					width={180.4}

@@ -1,6 +1,3 @@
-import { MediaType, DiscType } from "./Media";
-import { UserData } from "./User";
-
 export interface MovieType {
 	original_title: string;
 	title: string;

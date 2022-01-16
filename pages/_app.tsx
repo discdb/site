@@ -1,11 +1,12 @@
-import type { AppProps } from "next/app";
-import { SessionProvider as Provider } from "next-auth/react";
-import Router from "next/router";
-import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import "./index.css";
+
+import type { AppProps } from "next/app";
+import Router from "next/router";
+import { SessionProvider as Provider } from "next-auth/react";
+import NProgress from "nprogress";
 
 import Layout from "../components/ui/Layout";
-import "./index.css";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());

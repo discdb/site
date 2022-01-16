@@ -1,5 +1,3 @@
-import { BlogPost } from "./Post";
-
 export interface User {
 	email: string;
 	password: string;

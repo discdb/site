@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import { useRouter } from "next/router";
 
 import { getPostFromAPI } from "../../components/blog/getPost";
 import { getPostsFromAPI } from "../../components/blog/getPostsFromAPI";
@@ -9,7 +9,7 @@ import { PostPage } from "../../components/types/Post";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const posts: PostPage[] = await getPostsFromAPI();
-	const paths = posts.map((post: any) => ({
+	const paths = posts.map((post: PostPage) => ({
 		params: { postId: post.identifier },
 	}));
 

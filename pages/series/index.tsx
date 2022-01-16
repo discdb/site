@@ -1,5 +1,5 @@
-import { NextPage, GetStaticProps } from "next";
 import { motion } from "framer-motion";
+import { GetStaticProps, NextPage } from "next";
 
 import { getSeriesList } from "../../components/tmdb/series/getSeriesList";
 import { Series } from "../../components/tmdb/series/Series";

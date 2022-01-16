@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 import { slide as BurgerMenu } from "react-burger-menu";
 
 import styles from "./Menu.module.css";
@@ -18,18 +18,8 @@ export const Menu = () => {
 		return () => {
 			router.events.off("routeChangeStart", handleRouteChange);
 		};
-	}, []);
+	}, [router.events]);
 
-	const blogOption = (
-		<div>
-			<div className={styles.menuHeader}>Blog</div>
-			<Link href="/blog/create">
-				<a className="noselect">
-					<div className={styles.menuItem}>Create Post</div>
-				</a>
-			</Link>
-		</div>
-	);
 	const authenticatedOptions = (
 		<div>
 			<div className={styles.menuHeader}>Browse</div>

@@ -1,7 +1,6 @@
 import { signIn } from "next-auth/react";
 
 import { LOCAL_API_URL } from "../../../helpers/api";
-
 import { RegisterUserType } from "../../types/User";
 
 export const registerUser = async ({

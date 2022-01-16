@@ -1,7 +1,7 @@
 import Head from "next/head";
 
-import { Header } from "./nav/NavBar";
 import { Footer } from "./Footer";
+import { Header } from "./nav/NavBar";
 
 const Layout = ({ children }) => {
 	return (

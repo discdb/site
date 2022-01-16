@@ -7,7 +7,6 @@ export const SeriesPage = ({
 	overview,
 	first_air_date,
 	poster_path,
-	id,
 }: SeriesType) => {
 	return (
 		<div id={styles.seriesContainer}>

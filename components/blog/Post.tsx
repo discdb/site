@@ -1,5 +1,5 @@
-import Link from "next/link";
 import moment from "moment";
+import Link from "next/link";
 import removeMd from "remove-markdown";
 
 import { BlogPost } from "../types/Post";
@@ -13,7 +13,7 @@ export const Post = ({
 	identifier,
 }: BlogPost) => {
 	return (
-		<Link href={`/blog/${identifier}`}>
+		<Link href={`/blog/${identifier}`} passHref>
 			<div id={styles.post}>
 				<img src={image} className="image" />
 				<div id="info" className={styles.info}>

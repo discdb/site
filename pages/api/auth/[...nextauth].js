@@ -1,8 +1,7 @@
-import NextAuth from "next-auth";
-import Discord from "next-auth/providers/discord";
-import Credentials from "next-auth/providers/credentials";
-
 import SequelizeAdapter from "@next-auth/sequelize-adapter";
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
+import Discord from "next-auth/providers/discord";
 
 import { sequelize } from "../../../helpers/sequelize";
 import User from "../../../models/User";
@@ -72,4 +71,5 @@ const options = {
 	secret: process.env.AUTH_SECRET,
 	providers,
 };
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (req, res) => NextAuth(req, res, options);
