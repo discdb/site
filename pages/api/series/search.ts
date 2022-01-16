@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from "next";
+
 import { authHandler } from "../../../helpers/api";
 
 const apiKey = process.env.TMDB_API_KEY;
@@ -19,9 +21,9 @@ export const searchSeries = async (query: string) => {
 	return series;
 };
 
-async function handler(req: any, res: any) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const { query } = req;
-	const { results } = await searchSeries(query.data);
+	const { results } = await searchSeries(query.data as string);
 
 	return res.status(200).send({ results });
 }

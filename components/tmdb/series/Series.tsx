@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import { SeriesType } from "../../types/Series";
 import styles from "./Series.module.css";
@@ -13,18 +13,21 @@ export const Series = ({
 	id,
 }: SeriesType) => {
 	return (
-		<Link href={`/series/${id}`}>
+		<Link href={`/series/${id}`} passHref>
 			<div id={styles.series}>
-				{/* <Image
-					width={180.4}
-					height={273}
-					layout={"responsive"}
-				
-				/> */}
-				<img
-					alt={"No image!"}
-					src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${poster_path}`}
-				/>
+				<div
+					className={styles.posterContainer}
+					style={{
+						position: "relative",
+					}}
+				>
+					<Image
+						src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${poster_path}`}
+						objectFit="cover"
+						layout="fill"
+						alt="Poster"
+					/>
+				</div>
 				<div id={styles.below}>
 					<div id={styles.title}>
 						<b>{name || original_name} </b>

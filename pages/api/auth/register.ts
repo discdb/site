@@ -1,48 +1,46 @@
 import bcrypt from "bcrypt";
-import { Op } from "sequelize";
 import { NextApiRequest, NextApiResponse } from "next";
+import { Op } from "sequelize";
 
 import { apiHandler } from "../../../helpers/api";
 import connectDB from "../../../helpers/sequelize";
 import User from "../../../models/User";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-	return new Promise(async (resolve) => {
-		const {
-			body: { email, password, fullName, username },
-		} = req;
-		await connectDB();
+	const {
+		body: { email, password, name, username },
+	} = req;
+	await connectDB();
 
-		const existingUser = await User.findOne({
-			where: {
-				[Op.or]: [{ email }, { username }],
-			},
+	const existingUser = await User.findOne({
+		where: {
+			[Op.or]: [{ email }, { username }],
+		},
+	});
+
+	if (!existingUser) {
+		const newUser = await User.create({
+			name,
+			username,
+			email,
+			hash_password: bcrypt.hashSync(password, 10),
 		});
 
-		if (!existingUser) {
-			const newUser = await User.create({
-				fullName,
-				username,
-				email,
-				hash_password: bcrypt.hashSync(password, 10),
+		newUser &&
+			res.status(200).send({
+				user: {
+					name,
+					username,
+					email,
+				},
 			});
+	} else {
+		res.status(409).send({
+			message: "Account with this email or username already exists!",
+		});
+	}
 
-			newUser &&
-				res.status(200).send({
-					user: {
-						fullName,
-						username,
-						email,
-					},
-				});
-		} else {
-			res.status(409).send({
-				message: "Account with this email or username already exists!",
-			});
-		}
-
-		resolve({});
-	});
+	Promise.resolve({});
 }
 
 export default apiHandler({ post: handler });

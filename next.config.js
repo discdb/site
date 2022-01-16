@@ -1,8 +1,11 @@
 module.exports = {
+	i18n: {
+		locales: ["en"],
+		defaultLocale: "en",
+	},
 	reactStrictMode: true,
 	future: {
-		webpack5: true, // by default, if you customize webpack config, they switch back to version 4.
-		// Looks like backward compatibility approach.
+		webpack5: true,
 	},
 	images: {
 		domains: [
@@ -10,6 +13,9 @@ module.exports = {
 			"themoviedb.org",
 			"dvdb.video",
 			"cdn.dvdb.video",
+			"images.static-bluray.com",
+			"localhost",
+			"www.teahub.io",
 		],
 	},
 	webpack(config) {

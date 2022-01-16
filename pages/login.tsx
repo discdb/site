@@ -1,13 +1,15 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import Head from "next/head";
-import { getProviders, getSession } from "next-auth/react";
-
-import { LoginForm } from "../components/user/login/LoginForm";
 import { useRouter } from "next/router";
-import ErrorBar from "../components/ui/error/ErrorBar";
+import { getProviders, getSession } from "next-auth/react";
 import { useState } from "react";
 
-export const getServerSideProps: GetServerSideProps = async (context: any) => {
+import ErrorBar from "../components/ui/error/ErrorBar";
+import { LoginForm } from "../components/user/login/LoginForm";
+
+export const getServerSideProps: GetServerSideProps = async (
+	context: GetServerSidePropsContext
+) => {
 	const session = await getSession(context);
 	if (session) return { redirect: { destination: "/", permanent: false } };
 

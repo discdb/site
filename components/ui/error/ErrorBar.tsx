@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import { useEffect } from "react";
 
 import styles from "./ErrorBar.module.css";
 

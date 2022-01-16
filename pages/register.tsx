@@ -1,10 +1,12 @@
-import { NextPage } from "next";
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import Head from "next/head";
 import { getSession } from "next-auth/react";
 
 import { RegisterForm } from "../components/user/register/RegisterForm";
 
-export const getServerSideProps = async (context: any) => {
+export const getServerSideProps: GetServerSideProps = async (
+	context: GetServerSidePropsContext
+) => {
 	const session = await getSession(context);
 
 	if (session) return { redirect: { destination: "/", permanent: false } };

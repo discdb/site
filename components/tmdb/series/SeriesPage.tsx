@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { SeriesType } from "../../types/Series";
 import styles from "./SeriesPage.module.css";
 
@@ -7,13 +9,14 @@ export const SeriesPage = ({
 	overview,
 	first_air_date,
 	poster_path,
-	id,
 }: SeriesType) => {
 	return (
 		<div id={styles.seriesContainer}>
 			<div id={styles.leftContainer}>
-				<img
-					style={{ maxWidth: "250px" }}
+				<Image
+					width={"250px"}
+					height={"375px"}
+					alt="Poster"
 					src={`https://www.themoviedb.org/t/p/w1280/${poster_path}`}
 				/>
 			</div>

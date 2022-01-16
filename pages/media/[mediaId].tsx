@@ -1,8 +1,9 @@
-import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import { getMediaFromAPI } from "../../components/media/getMediaFromAPI";
-import { getMediaListFromAPI } from "../../components/media/getMediaListFromAPI";
+import { NextPage } from "next";
+
+// import { getMediaFromAPI } from "../../components/media/getMediaFromAPI";
+// import { getMediaListFromAPI } from "../../components/media/getMediaListFromAPI";
 import MediaPage from "../../components/media/MediaPage";
-import { MediaType } from "../../components/types/Media";
+// import { MediaType } from "../../components/types/Media";
 
 // export const getStaticPaths: GetStaticPaths = async () => {
 // 	const mediaArr: MediaType[] = await getMediaListFromAPI();

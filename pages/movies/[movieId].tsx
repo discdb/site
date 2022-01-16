@@ -1,9 +1,8 @@
-import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-// import Head from "next/head";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-import { MovieType } from "../../components/types/Movie";
 import { getMovieFromAPI } from "../../components/tmdb/movies/getMovieFromAPI";
 import { MoviePage } from "../../components/tmdb/movies/MoviePage";
+import { MovieType } from "../../components/types/Movie";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = [];

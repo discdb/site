@@ -1,9 +1,8 @@
-import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-// import Head from "next/head";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-import { SeriesType } from "../../components/types/Series";
 import { getSeriesFromAPI } from "../../components/tmdb/series/getSeriesFromAPI";
 import { SeriesPage } from "../../components/tmdb/series/SeriesPage";
+import { SeriesType } from "../../components/types/Series";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = [];

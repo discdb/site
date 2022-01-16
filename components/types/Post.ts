@@ -1,6 +1,3 @@
-import { Comment } from "./Comment";
-import { UserData } from "./User";
-
 export interface BlogPost {
 	title: string;
 	image: string;

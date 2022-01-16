@@ -213,9 +213,10 @@ section {
 	max-height: 720px;
 	min-width: 160px;
 	aspect-ratio: 16 / 9;
-	/* background: red;
-		border: black 1px solid; */
+	position: relative;
 	object-fit: contain;
+}
+#postList .image img {
 	border-radius: 10px;
 }
 #dashboard {
@@ -540,7 +541,8 @@ footer > div > div:not(.noselect) > a:hover {
 		grid-template-columns: repeat(3, 1fr);
 		margin: 2rem 0;
 	}
-	#postList :first-child {
+	#postList > :first-child {
+		display: grid;
 		grid-column: span 3 / span 3;
 	}
 	#postList > :not(:first-child) > * {

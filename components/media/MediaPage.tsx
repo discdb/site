@@ -1,6 +1,7 @@
+import Images from "./Images";
 import styles from "./MediaPage.module.css";
 import Tabs from "./Tabs";
-import Images from "./Images";
+
 const MediaPage = () => {
 	return (
 		<div id={styles.mediaPage}>

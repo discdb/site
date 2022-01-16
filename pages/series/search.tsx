@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { NextPage } from "next";
 import { motion } from "framer-motion";
+import { NextPage } from "next";
+import { useState } from "react";
 
-import { searchSeries } from "../../components/tmdb/series/searchSeries";
-import { SeriesType } from "../../components/types/Series";
-import { Series } from "../../components/tmdb/series/Series";
 import { SearchBox } from "../../components/tmdb/SearchBox";
+import { searchSeries } from "../../components/tmdb/series/searchSeries";
+import { Series } from "../../components/tmdb/series/Series";
+import { SeriesType } from "../../components/types/Series";
 
 const Search: NextPage = () => {
 	const [results, setResults] = useState([]);

@@ -1,5 +1,3 @@
-import { BlogPost } from "./Post";
-
 export interface User {
 	email: string;
 	password: string;
@@ -13,6 +11,6 @@ export interface UserData {
 export interface RegisterUserType {
 	email: string;
 	password: string;
-	fullName: string;
+	name: string;
 	username: string;
 }

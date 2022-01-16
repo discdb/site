@@ -1,14 +1,13 @@
-import { NextPage, GetStaticProps } from "next";
 import { motion } from "framer-motion";
+import { GetStaticProps, NextPage } from "next";
+import { useState } from "react";
 
 import { getMoviesList } from "../../components/tmdb/movies/getMoviesList";
 import { Movie } from "../../components/tmdb/movies/Movies";
 import { MovieType } from "../../components/types/Movie";
-import Link from "next/link";
 import { LOCAL_API_URL } from "../../helpers/api";
-import { useState } from "react";
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async () => {
 	const movies: MovieType[] = await getMoviesList();
 	return movies
 		? {
@@ -24,7 +23,7 @@ interface Props {
 	movies: MovieType[];
 }
 
-const movieList: NextPage<Props> = ({ movies }) => {
+const MovieList: NextPage<Props> = ({ movies }) => {
 	const [page, setPage] = useState(2);
 	const [movieList, setMovieList] = useState(movies);
 	const loadMore = async () => {
@@ -107,4 +106,4 @@ const movieList: NextPage<Props> = ({ movies }) => {
 	);
 };
 
-export default movieList;
+export default MovieList;

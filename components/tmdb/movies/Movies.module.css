@@ -12,7 +12,7 @@
 
 /* width={180.4}
 					height={273} */
-#movie img {
+.posterContainer {
 	background-color: rgb(209 213 219);
 	color: black;
 	text-align: center;
@@ -46,14 +46,14 @@
 
 		display: block;
 	}
-	#movie img {
+	.posterContainer {
 		max-width: inherit;
+		height: 260px;
 		background-color: rgb(209 213 219);
 		color: black;
 		text-align: center;
 	}
-
-	#movie > div {
+	#movie > :not(.posterContainer) {
 		padding: 0.75rem 0 0.75rem 0;
 	}
 	#below {

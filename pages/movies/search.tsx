@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
-import { searchMovies } from "../../components/tmdb/movies/searchMovies";
-import { MovieType } from "../../components/types/Movie";
 import { Movie } from "../../components/tmdb/movies/Movies";
+import { searchMovies } from "../../components/tmdb/movies/searchMovies";
 import { SearchBox } from "../../components/tmdb/SearchBox";
+import { MovieType } from "../../components/types/Movie";
 
 const Search = () => {
 	const [results, setResults] = useState([]);
