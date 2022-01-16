@@ -7,19 +7,19 @@
 	color: var(--grey-2);
 	font-weight: 600;
 }
-#sideBar li {
+#sideBar div {
 	display: inline;
 	padding: 0.35rem 0 0.35rem 0.75rem;
 	width: 100%;
 	transition: all 0.1s;
 }
-#sideBar li:hover {
+#sideBar div:hover {
 	background: var(--color-4);
 	border-radius: 16px;
 	cursor: pointer;
 }
 @media (min-width: 768px) {
-	#sideBar li {
+	#sideBar div {
 		display: block;
 	}
 }

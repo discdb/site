@@ -1,4 +1,5 @@
 import moment from "moment";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
 import { PostPage } from "../types/Post";
@@ -13,7 +14,15 @@ export const Post = ({
 }: PostPage) => {
 	return (
 		<div id={styles.postPage}>
-			<img src={image} id={styles.backDrop} />
+			<div className={styles.backDropContainer}>
+				<Image
+					id={styles.backDrop}
+					src={image}
+					layout="fill"
+					objectFit="fill"
+					alt="No Image Available."
+				/>
+			</div>
 			<h1>{title}</h1>
 			<article>
 				<div id={styles.postDetails}>

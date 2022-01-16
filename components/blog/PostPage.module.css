@@ -1,12 +1,7 @@
 #backDrop {
 	background-repeat: no-repeat;
 	background-position: center;
-	position: absolute;
-	width: 100%;
-	min-height: 480px;
 	z-index: -1;
-	top: 0;
-	left: 0;
 	animation-name: fadein;
 	animation-iteration-count: 1;
 	animation-timing-function: ease;
@@ -14,6 +9,14 @@
 	animation-delay: 0.1s;
 	animation-fill-mode: forwards;
 	opacity: 0;
+}
+.backDropContainer {
+	position: absolute;
+	top: 6rem;
+	left: 0;
+	width: 100%;
+	min-height: 480px;
+	aspect-ratio: 16/9;
 }
 #postPage > h1 {
 	text-align: center;

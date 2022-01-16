@@ -13,6 +13,9 @@ module.exports = {
 			"themoviedb.org",
 			"dvdb.video",
 			"cdn.dvdb.video",
+			"images.static-bluray.com",
+			"localhost",
+			"www.teahub.io",
 		],
 	},
 	webpack(config) {

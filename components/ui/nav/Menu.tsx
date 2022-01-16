@@ -50,6 +50,9 @@ export const Menu = () => {
 						signOut();
 					}}
 					className={styles.menuItem}
+					role="button"
+					tabIndex={0}
+					aria-hidden
 				>
 					Logout
 				</div>

@@ -1,44 +1,67 @@
+import Image from "next/image";
+import { useState } from "react";
+
 import styles from "./Images.module.css";
 
 const Images = () => {
+	const [expandedImage, setExpanded] = useState(
+		"https://images.static-bluray.com/movies/covers/184140_large.jpg?t=1500573567"
+	);
 	const changeImage = ({ target: image }) => {
-		const expandedImage = document.getElementById(
-			"expandedImage"
-		) as HTMLImageElement;
-		expandedImage.src = image.src;
+		setExpanded(image.src);
 	};
 	return (
 		<div className={styles.imagesParent}>
 			<div className={styles.imageContainer}>
-				<img
-					src="https://images.static-bluray.com/movies/covers/184140_large.jpg?t=1500573567"
+				<Image
+					src={expandedImage}
+					objectFit="contain"
+					layout="fill"
 					id="expandedImage"
-					style={{ width: "100%" }}
+					alt="Image"
 				/>
 			</div>
 			<div className={styles.imageRow}>
-				<div className={styles.imageColumn}>
-					<img
+				<div
+					className={styles.imageColumn}
+					onClick={changeImage}
+					role="img"
+					aria-hidden
+				>
+					<Image
 						src="https://images.static-bluray.com/movies/covers/184140_large.jpg?t=1500573567"
-						alt="No pictures available."
+						objectFit="contain"
+						layout="fill"
 						className="noselect"
-						onClick={changeImage}
+						alt="No pictures available."
 					/>
 				</div>
-				<div className={styles.imageColumn}>
-					<img
+				<div
+					className={styles.imageColumn}
+					onClick={changeImage}
+					role="img"
+					aria-hidden
+				>
+					<Image
 						src="https://images.static-bluray.com/movies/covers/184140_back.jpg?t=1518496462"
-						alt="No pictures available."
+						objectFit="contain"
+						layout="fill"
 						className="noselect"
-						onClick={changeImage}
+						alt="No pictures available."
 					/>
 				</div>
-				<div className={styles.imageColumn}>
-					<img
+				<div
+					className={styles.imageColumn}
+					onClick={changeImage}
+					role="img"
+					aria-hidden
+				>
+					<Image
 						src="https://images.static-bluray.com/movies/covers/184140_slip.jpg?t=1504287012"
-						alt="No pictures available."
+						objectFit="contain"
+						layout="fill"
 						className="noselect"
-						onClick={changeImage}
+						alt="No pictures available."
 					/>
 				</div>
 			</div>

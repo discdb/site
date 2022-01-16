@@ -10,9 +10,7 @@
 	flex-flow: row;
 }
 
-/* width={180.4}
-					height={273} */
-#series img {
+.posterContainer {
 	background-color: rgb(209 213 219);
 	color: black;
 	text-align: center;
@@ -46,14 +44,14 @@
 
 		display: block;
 	}
-	#series img {
+	.posterContainer {
 		max-width: inherit;
+		height: 260px;
 		background-color: rgb(209 213 219);
 		color: black;
 		text-align: center;
 	}
-
-	#series > div {
+	#movie > :not(.posterContainer) {
 		padding: 0.75rem 0 0.75rem 0;
 	}
 	#below {

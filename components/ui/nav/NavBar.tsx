@@ -37,6 +37,9 @@ export const Header = () => {
 				<div
 					id="auth"
 					className="noselect"
+					role="button"
+					tabIndex={0}
+					aria-hidden
 					onClick={() =>
 						signOut({
 							callbackUrl: `${router.asPath}`,

@@ -16,6 +16,7 @@ export const MoviePage = ({
 				<Image
 					width={"250px"}
 					height={"375px"}
+					alt="Poster"
 					src={`https://www.themoviedb.org/t/p/w1280/${poster_path}`}
 				/>
 			</div>

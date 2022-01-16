@@ -15,10 +15,20 @@ export const Movie = ({
 	return (
 		<Link href={`/movies/${id}`} passHref>
 			<div id={styles.movie}>
-				<img
-					alt={"No image!"}
-					src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${poster_path}`}
-				/>
+				<div
+					className={styles.posterContainer}
+					style={{
+						position: "relative",
+					}}
+				>
+					<Image
+						src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${poster_path}`}
+						objectFit="cover"
+						layout="fill"
+						alt="Poster"
+					/>
+				</div>
+
 				<div id={styles.below}>
 					<div id={styles.title}>
 						<b>{title || original_title} </b>

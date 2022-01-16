@@ -1,14 +1,27 @@
 import styles from "./Sidebar.module.css";
 import { toggleTab } from "./toggleTab";
+
 export const Sidebar = () => {
 	return (
-		<ul id={styles.sideBar}>
-			<li onClick={() => toggleTab("account")} className="noselect">
+		<div id={styles.sideBar}>
+			<div
+				onClick={() => toggleTab("account")}
+				className="noselect"
+				role="button"
+				tabIndex={0}
+				aria-hidden
+			>
 				Account
-			</li>
-			<li onClick={() => toggleTab("security")} className="noselect">
+			</div>
+			<div
+				onClick={() => toggleTab("security")}
+				className="noselect"
+				role="button"
+				tabIndex={0}
+				aria-hidden
+			>
 				Security
-			</li>
-		</ul>
+			</div>
+		</div>
 	);
 };
