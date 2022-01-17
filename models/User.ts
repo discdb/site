@@ -1,6 +1,7 @@
 import { models } from "@next-auth/sequelize-adapter";
-import { DataTypes, Model } from "sequelize";
 import bcrypt from "bcrypt";
+import { DataTypes, Model } from "sequelize";
+
 import { sequelize } from "../helpers/sequelize";
 
 class User extends Model {

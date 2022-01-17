@@ -1,10 +1,8 @@
-import { NextApiRequest, NextApiResponse } from "next";
-
 import { apiHandler } from "../../../helpers/api";
 import connectDB from "../../../helpers/sequelize";
 import Media from "../../../models/Media";
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler() {
 	return new Promise((resolve) => {
 		connectDB();
 		Media.create();

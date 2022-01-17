@@ -16,7 +16,13 @@ const providers = [
 		async authorize({ email, password }) {
 			const existingUser = await User.findOne({
 				where: { email },
-				attributes: ["email", "username", "name", "hash_password"],
+				attributes: [
+					"email",
+					"username",
+					"name",
+					"hash_password",
+					"id",
+				],
 			});
 
 			if (existingUser) {
@@ -42,14 +48,22 @@ const providers = [
 ];
 const callbacks = {
 	async jwt({ token, user, account }) {
-		if (account && account.provider != "discord") {
-			console.log(account);
-			token.username = user.dataValues.username;
+		if (account && account.provider == "credentials") {
+			token.id = user.dataValues.id;
 		}
 		return token;
 	},
 	async session({ session, token }) {
-		if (token?.username) session.user.username = token.username;
+		if (token?.id) {
+			session.user.id = token.id;
+		} else {
+			const existingUser = await User.findOne({
+				where: { email: session.user.email },
+				attributes: ["id"],
+			});
+			session.user.id = existingUser.id;
+		}
+
 		return session;
 	},
 };

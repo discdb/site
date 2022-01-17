@@ -1,8 +1,4 @@
 module.exports = {
-	i18n: {
-		locales: ["en"],
-		defaultLocale: "en",
-	},
 	reactStrictMode: true,
 	future: {
 		webpack5: true,
