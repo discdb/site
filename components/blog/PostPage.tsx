@@ -31,7 +31,7 @@ export const Post = ({
 					<div>0 Comments</div>
 				</div>
 				<br />
-				<ReactMarkdown skipHtml={true} disallowedElements={["script"]}>
+				<ReactMarkdown skipHtml={true} disallowedElements={["script", "iframe", "meta"]}>
 					{body}
 				</ReactMarkdown>
 			</article>

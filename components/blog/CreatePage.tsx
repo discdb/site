@@ -21,11 +21,7 @@ export const CreatePage = () => {
 					};
 					const title = target.title.value;
 					const body = target.body.value;
-					createPost(
-						title,
-						body,
-						(user?.name as string) || (user["username"] as string)
-					).then((post) => {
+					createPost(title, body, user["id"]).then((post) => {
 						router.push(`/blog/${post.identifier}`);
 					});
 				}}

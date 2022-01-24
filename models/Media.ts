@@ -1,8 +1,9 @@
-import { models } from "@next-auth/sequelize-adapter";
+// import { models } from "@next-auth/sequelize-adapter";
+// import bcrypt from "bcrypt";
 import { DataTypes, Model } from "sequelize";
-import bcrypt from "bcrypt";
+
+// import { DiscType,MediaType } from "../components/types/Media";
 import { sequelize } from "../helpers/sequelize";
-import { MediaType, DiscType } from "../components/types/Media";
 import Disc from "./Disc";
 
 class Media extends Model {

@@ -4,7 +4,7 @@ import { getSession } from "next-auth/react";
 export const API_URL =
 	process.env.NODE_ENV == "production"
 		? "https://api.dvdb.video/api"
-		: "http://localhost:4000/api";
+		: "http://192.168.1.191:4000/api";
 
 export const LOCAL_API_URL =
 	process.env.NODE_ENV == "production"
