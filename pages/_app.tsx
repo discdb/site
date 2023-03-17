@@ -1,25 +1,47 @@
-import "nprogress/nprogress.css";
-import "./index.css";
+import "../styles/globals.css";
 
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import Router from "next/router";
-import { SessionProvider as Provider } from "next-auth/react";
-import NProgress from "nprogress";
+import { SessionProvider } from "next-auth/react";
 
-import Layout from "../components/ui/Layout";
+import Layout from "../components/Layout";
+import StoreProvider from "../contexts/state";
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
 
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
+const theme = extendTheme({
+    colors: {
+        dvdbpurple: { "700": "#4a4e69", "900": "#22223b" },
+    },
+    breakpoints: {
+        tablet: "600px",
+    },
+});
 
-const App = ({ Component, pageProps }: AppProps) => {
-	return (
-		<Provider refetchInterval={0} session={pageProps.session}>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
-		</Provider>
-	);
+function MyEmotionProvider({ nonce, children }: any) {
+    const cache = createCache({ key: "dvdb", nonce } as any);
+    return <CacheProvider value={cache} children={children} />;
+}
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+    const nonce = pageProps.nonce;
+
+    return (
+        <ChakraProvider theme={theme}>
+            <MyEmotionProvider nonce={nonce}>
+                <StoreProvider>
+                    <SessionProvider
+                        refetchInterval={0}
+                        session={pageProps.session}
+                    >
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </SessionProvider>
+                </StoreProvider>
+            </MyEmotionProvider>
+        </ChakraProvider>
+    );
 };
 
-export default App;
+export default MyApp;

@@ -1,30 +1,30 @@
 import { models } from "@next-auth/sequelize-adapter";
-import bcrypt from "bcrypt";
 import { DataTypes, Model } from "sequelize";
 
 import { sequelize } from "../helpers/sequelize";
 
 class User extends Model {
-	comparePassword(password: string) {
-		return bcrypt.compareSync(password, this["hash_password"]);
-	}
+    static Posts: any;
+    static Media: any;
+    static id: any;
+    static username: any;
 }
 
 User.init(
-	{
-		...models.User,
-		username: DataTypes.STRING,
-		hash_password: DataTypes.STRING,
-		roles: DataTypes.ARRAY(DataTypes.STRING),
-		collection: DataTypes.ARRAY(DataTypes.UUID),
-		posts: DataTypes.ARRAY(DataTypes.UUID),
-		reviews: DataTypes.ARRAY(DataTypes.UUID),
-		comments: DataTypes.ARRAY(DataTypes.UUID),
-	},
-	{
-		sequelize,
-		modelName: "user",
-	}
+    {
+        ...models.User,
+        username: DataTypes.STRING,
+        hash_password: DataTypes.STRING,
+        roles: DataTypes.ARRAY(DataTypes.STRING),
+        disabled: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+    },
+    {
+        sequelize,
+        modelName: "user",
+    }
 );
 
 export default User;

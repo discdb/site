@@ -1,66 +1,106 @@
-import { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
+import { Box, useToast } from "@chakra-ui/react";
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { getProviders, getSession } from "next-auth/react";
-import { useState } from "react";
+import { getProviders, getSession, signIn } from "next-auth/react";
+import { useState, useEffect } from "react";
 
-import ErrorBar from "../components/ui/error/ErrorBar";
-import { LoginForm } from "../components/user/login/LoginForm";
+import { LoginForm } from "../components/LoginForm";
+import { AuthProvider, LoginUserType } from "../types/User";
 
-export const getServerSideProps: GetServerSideProps = async (
-	context: GetServerSidePropsContext
-) => {
-	const session = await getSession(context);
-	if (session) return { redirect: { destination: "/", permanent: false } };
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const session = await getSession(context);
+    const { referer } = context.req.headers;
 
-	const { referer } = context.req.headers;
+    if (session) return { redirect: { destination: "/", permanent: false } };
 
-	return {
-		props: {
-			providers: await getProviders(),
-			referer: referer || "",
-		},
-	};
+    return {
+        props: {
+            providers: await getProviders(),
+            referer: referer || "",
+        },
+    };
 };
 
 interface Props {
-	providers: JSON;
-	referer: string;
+    providers: Array<AuthProvider>;
+    referer: string;
 }
 
-const errors = {
-	oauth: "Account is logged in with Discord!",
-	CredentialsSignin: "Invalid credentials provided.",
-	OAuthAccountNotLinked:
-		"To confirm your identity, sign in with the same account you used originally.",
-	default: "Unable to sign in.",
-};
+const Login: NextPage<Props> = ({ providers, referer }) => {
+    const toast = useToast();
+    const router = useRouter();
+    const [emailNotConfirmed, setEmailNotConfirmed] = useState(false);
 
-const Login: NextPage<Props> = (props) => {
-	const router = useRouter();
-	const { error } = router.query;
-	const [errorMessage, setError] = useState(
-		errors[`${error}`] || (error && errors["default"])
-	);
+    const handleLogin = ({ email, password }: LoginUserType) =>
+        signIn("credentials", { email, password, redirect: false }).then(
+            (res) => {
+                if (res?.error) {
+                    switch (res.error) {
+                        case "CredentialsSignin":
+                            toast({
+                                title: "Invalid Email/Password!",
+                                status: "error",
+                                duration: 3000,
+                                position: "top",
+                            });
+                            break;
 
-	return (
-		<>
-			<Head>
-				<title>Login</title>
-				<meta content="Login" property="og:title" />
-			</Head>
-			{errorMessage && (
-				<ErrorBar
-					message={errorMessage}
-					clearError={() => {
-						setError(null);
-						router.replace(router.pathname);
-					}}
-				/>
-			)}
-			<LoginForm {...props} />
-		</>
-	);
+                        case "email_not_confirmed":
+                            setEmailNotConfirmed(true);
+                            break;
+                        default:
+                            break;
+                    }
+                } else {
+                    router.push("/");
+                }
+            }
+        );
+
+    useEffect(() => {
+        if (router?.query?.error) {
+            switch (router?.query.error) {
+                case "invalid_token":
+                    toast({
+                        title: "Invalid Token",
+                        status: "error",
+                        duration: 3000,
+                        position: "top",
+                    });
+                    break;
+                case "email_confirmed":
+                    toast({
+                        title: "Your email has been successfully confirmed!",
+                        description: "Please Login",
+                        duration: 3000,
+                        position: "top",
+                    });
+                    break;
+            }
+            window.history.replaceState(null, "", "/login");
+        }
+    }, []);
+
+    return (
+        <>
+            <Head>
+                <title>Login</title>
+                <meta content="Login" property="og:title" />
+            </Head>
+            <Box
+                mx={{ base: "-1rem", md: "" }}
+                py={{ base: "0.5rem", md: "4rem" }}
+            >
+                <LoginForm
+                    handleLogin={handleLogin}
+                    providers={providers}
+                    referer={referer}
+                    emailUnconfirmed={emailNotConfirmed}
+                />
+            </Box>
+        </>
+    );
 };
 
 export default Login;

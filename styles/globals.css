@@ -1,0 +1,73 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.poster-background {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(30px);
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+.poster {
+    position: relative;
+    z-index: 1;
+}
+
+.react-markdown a {
+    color: #007fff;
+}
+
+.react-markdown a:hover {
+    text-decoration: underline;
+}
+
+.users-table > div,
+.images-table > div {
+    padding-inline: 0 !important;
+    overflow-x: scroll !important;
+}
+
+.users-table .chakra-button,
+.images-table .chakra-button {
+    background: #22223b !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+    body {
+        color: white;
+        background: black;
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+							supported by Chrome, Edge, Opera and Firefox */
+}

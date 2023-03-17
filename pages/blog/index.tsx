@@ -1,79 +1,76 @@
-import AddIcon from "@mui/icons-material/Add";
-import { motion } from "framer-motion";
-import { NextPage } from "next";
-import Link from "next/link";
+import { Box, Center, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
+import type { NextPage } from "next";
+import Head from "next/head";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-import { getPostsFromAPI } from "../../components/blog/getPostsFromAPI";
-import { Post } from "../../components/blog/Post";
-import { BlogPost } from "../../components/types/Post";
-
-const MappedPost = ({ index, post }: { index: number; post: BlogPost }) => {
-	return (
-		<>
-			<motion.div
-				key={index}
-				initial="hidden"
-				animate="visible"
-				variants={{
-					hidden: {
-						scale: 0.7,
-						opacity: 0,
-					},
-					visible: {
-						scale: 1,
-						opacity: 1,
-						transition: {
-							delay: index / 10,
-						},
-					},
-				}}
-			>
-				<Post {...post} />
-			</motion.div>
-		</>
-	);
-};
+import { BlogPost } from "../../components/blog/BlogPost";
+import ChakraNextLink from "../../components/ChakraNextLink";
+import { useStore } from "../../contexts/state";
+import { allowBloggerRole } from "../../helpers/auth";
+import { fetchAllBlogPosts } from "../../helpers/blog";
+import { BlogPostType } from "../../types/BlogPost";
 
 const Blog: NextPage = () => {
-	const [posts, setPosts] = useState([]);
-	const [error, setError] = useState("");
-	const session = useSession();
+    const { state, dispatch } = useStore();
+    const { posts } = state.blog;
+    const session = useSession();
 
-	useEffect(() => {
-		getPostsFromAPI(20, 1)
-			.then((res) => {
-				setPosts(res);
-			})
-			.catch(() => setError("Error fetching posts"));
-	}, []);
+    const [loading, setLoading] = useState(true);
 
-	return (
-		<>
-			<h1>The Blog</h1>
-			{session?.status == "authenticated" && (
-				<Link href="/blog/create">
-					<a className="addIconContainer" title="Create Post">
-						<button className="addIcon">
-							<AddIcon fontSize="medium" />
-						</button>
-					</a>
-				</Link>
-			)}
-			<div id="postList">
-				{error ? (
-					<span style={{ color: "red" }}>{error}</span>
-				) : posts.length > 0 ? (
-					posts.map((post, index) => (
-						<MappedPost post={post} key={index} index={index} />
-						// <Post {...post} key={index} />
-					))
-				) : (
-					<div className="loading"></div>
-				)}
-			</div>
-		</>
-	);
+    useEffect(() => {
+        if (posts.length === 0) {
+            fetchAllBlogPosts(dispatch, 20, 1).then(() => setLoading(false));
+        } else {
+            setLoading(false);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return (
+        <>
+            <Head>
+                <title>Blog</title>
+                <meta content="Blog" property="og:title" />
+            </Head>
+            <Box py={{ base: "2rem", md: "4rem" }}>
+                <Box justifyContent={"space-between"} display="flex">
+                    <Heading
+                        as="h2"
+                        size="2xl"
+                        mb={{ base: "2rem", md: "4rem" }}
+                    >
+                        Blog
+                    </Heading>
+                    {allowBloggerRole(session?.data) && (
+                        <ChakraNextLink href="/blog/create">
+                            <Heading
+                                as="h2"
+                                size="2xl"
+                                mb={{ base: "2rem", md: "4rem" }}
+                            >
+                                +
+                            </Heading>
+                        </ChakraNextLink>
+                    )}
+                </Box>
+                <SimpleGrid
+                    minChildWidth={{ base: "250px", lg: "375px" }}
+                    spacing="4"
+                >
+                    {!loading ? (
+                        posts.map((post: BlogPostType, i: number) => (
+                            <BlogPost key={i} post={post} />
+                        ))
+                    ) : (
+                        <Center>
+                            <Spinner />
+                        </Center>
+                    )}
+                </SimpleGrid>
+            </Box>
+        </>
+    );
 };
+
 export default Blog;
