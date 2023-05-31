@@ -11,7 +11,14 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         body: { email, password, name, username },
     } = req;
 
-    if (!email || !password)
+    if (
+        !email ||
+        !password ||
+        email.length > 128 ||
+        password.length > 64 ||
+        name.length > 64 ||
+        username.length > 16
+    )
         return res.status(400).send({ message: "Invalid request body." });
 
     const existingUser = await User.findOne({

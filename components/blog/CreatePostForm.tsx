@@ -31,6 +31,7 @@ export const CreatePostForm = ({
     const [body, setBody] = useState(savedPost?.body || "");
 
     const characterPostLimit = 10000;
+    const characterTitleLimit = 100;
 
     return (
         <Tabs px={0} colorScheme="dvdbpurple.900">
@@ -51,6 +52,7 @@ export const CreatePostForm = ({
                                 setTitle(value)
                             }
                             focusBorderColor="dvdbpurple.900"
+                            maxLength={characterTitleLimit}
                         />
                     </InputGroup>
                     <InputGroup size="md" mb={2}>

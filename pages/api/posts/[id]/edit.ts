@@ -7,6 +7,10 @@ import { BlogPost } from "../../../../models";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     const post = JSON.parse(req.body);
 
+    // Impose character limits
+    if (post.title.length > 100 || post.body.length > 10000)
+        return res.status(500).json({ error: "Bad title or body!" });
+
     const result = await BlogPost.update(
         { title: post.title, body: post.body },
         {

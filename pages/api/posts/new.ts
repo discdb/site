@@ -25,6 +25,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (!title || !body)
         return res.status(422).json({ error: "Missing title or body!" });
 
+    // Impose character limits
+    if (title.length > 100 || body.length > 10000)
+        return res.status(500).json({ error: "Bad title or body!" });
+
     if (session?.user?.id) {
         const postId = generateIdentifier().trim();
 

@@ -11,7 +11,14 @@ import { CacheProvider } from "@emotion/react";
 
 const theme = extendTheme({
     colors: {
-        dvdbpurple: { "700": "#4a4e69", "900": "#22223b" },
+        dvdbpurple: {
+            "300": "rgba(34, 34, 59, 0.2)",
+            "700": "#4a4e69",
+            "900": "#22223b",
+        },
+        dvdbwhite: {
+            "500": "#dfe6e9",
+        },
     },
     breakpoints: {
         tablet: "600px",
