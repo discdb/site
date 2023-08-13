@@ -14,16 +14,16 @@ export const MediaCard = memo(({ media }: MovieSeriesType) => {
                 borderRadius="lg"
                 overflow="hidden"
                 bg="white"
-                width="220px"
-                height="330px"
+                minW="200px"
+                minH="300px"
                 as={motion.a}
                 whileHover={{ scale: 1.025 }}
             >
                 <Image
                     src={`https://www.themoviedb.org/t/p/w1280${media.poster_path} `}
                     objectFit="cover"
-                    width="220"
-                    height="330"
+                    width="200"
+                    height="300"
                     layout="responsive"
                 />
                 {/* <Box p="3">

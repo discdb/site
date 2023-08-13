@@ -15,8 +15,11 @@ import {
 } from "@chakra-ui/react";
 import moment from "moment";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BlogPostType } from "../../types/BlogPost";
+import ChakraImageUpload from "../ChakraImageUpload";
 import { Markdown } from "../Markdown";
+import { PostPageLayout } from "./PostPageLayout";
 
 export const CreatePostForm = ({
     publishPost,
@@ -29,9 +32,14 @@ export const CreatePostForm = ({
 
     const [title, setTitle] = useState(savedPost?.title || "");
     const [body, setBody] = useState(savedPost?.body || "");
+    const [image, setImage] = useState<any>();
 
     const characterPostLimit = 10000;
     const characterTitleLimit = 100;
+
+    useEffect(() => {
+        console.log(image, image?.name);
+    }, [image]);
 
     return (
         <Tabs px={0} colorScheme="dvdbpurple.900">
@@ -41,6 +49,14 @@ export const CreatePostForm = ({
             </TabList>
             <TabPanels>
                 <TabPanel px={0}>
+                    <InputGroup size="md" mb={2}>
+                        <ChakraImageUpload
+                            onChange={({ target: { files } }: any) =>
+                                setImage(files[0])
+                            }
+                            files={image}
+                        />
+                    </InputGroup>
                     <InputGroup size="md" mb={2}>
                         <Input
                             bg="white"
@@ -88,39 +104,18 @@ export const CreatePostForm = ({
                     </Button>
                 </TabPanel>
                 <TabPanel px={0}>
-                    <Heading
-                        as="h2"
-                        size="2xl"
-                        mb={{ base: "0.5rem", md: "1rem" }}
-                        mt={{ md: "1rem" }}
-                    >
-                        {title}
-                    </Heading>
-                    <Flex py="1rem" m={0}>
-                        <Box mt="0.5rem">
-                            {" "}
-                            Created by{" "}
-                            <b>
-                                {savedPost?.createdBy?.name ||
-                                    savedPost?.createdBy.username ||
-                                    loggedInUser?.name}
-                            </b>{" "}
-                            at{" "}
-                            {moment(savedPost?.createdAt || new Date()).format(
-                                "MMMM Do, YYYY"
-                            )}
-                        </Box>
-                    </Flex>
-                    <Box
-                        borderWidth="1px"
-                        borderRadius="xl"
-                        overflow="hidden"
-                        bg="white"
-                        minH="85vh"
-                        p={{ base: "1rem", md: "2rem" }}
-                    >
-                        <Markdown>{body}</Markdown>
-                    </Box>
+                    <PostPageLayout
+                        preview
+                        post={
+                            {
+                                title,
+                                body,
+                                createdBy: loggedInUser,
+                                createdAt: new Date(),
+                                ...savedPost,
+                            } as BlogPostType
+                        }
+                    />
                 </TabPanel>
             </TabPanels>
         </Tabs>

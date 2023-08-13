@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, SimpleGrid } from "@chakra-ui/react";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
@@ -42,10 +42,7 @@ const Media: NextPage = ({ media }: any) => {
                 <Heading as="h2" size="2xl" mb={{ base: "2rem", md: "4rem" }}>
                     Explore
                 </Heading>
-                <SimpleGrid
-                    minChildWidth={{ base: "150px", lg: "230px" }}
-                    spacing="2"
-                >
+                <Flex wrap="wrap">
                     {media.map(
                         (
                             mda: MovieType &
@@ -55,7 +52,7 @@ const Media: NextPage = ({ media }: any) => {
                             <MediaCard media={mda} key={i} />
                         )
                     )}
-                </SimpleGrid>
+                </Flex>
             </Box>
         </>
     );
